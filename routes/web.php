@@ -21,8 +21,9 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::resource('/genre', GenreController::class);
+
 Route::group(['middleware' => ['auth']], function(){
+    Route::resource('/genre', GenreController::class)->middleware('verified');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
     Route::view('dashboard', 'dash-admin')->middleware('verified');
 });

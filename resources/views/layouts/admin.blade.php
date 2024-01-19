@@ -69,6 +69,17 @@
     </style>
 </head>
 <body>
+
+    @if (Auth::check() && !Auth::user()->email_verified_at)
+    <div class="alert alert-danger mb-n1 text-center" role="alert">
+        Anda belum verifikasi email,
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+            @csrf
+            <button type="submit" class="text-danger btn btn-link p-0 m-0 align-baseline">{{ __('verifikasi ulang') }}</button>.
+        </form>
+    </div>
+    @endif
+
     <header>
         <h3>Admin Dashboard</h3>
     </header>
@@ -97,6 +108,19 @@
     </nav>
 
     <main>
+
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6">
+                    @if (session('resent'))
+                    <div class="alert alert-success" role="alert">
+                        {{ __('A fresh verification link has been sent to your email address.') }}
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+
         @yield('content')
     </main>
 
