@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,15 @@
         </div>
     </div>
 </div>
+@endsection --}}
+
+
+@extends('layouts.admin')
+
+@section('content')
+    <div class="container">
+        <h1>Halaman home Dashboard</h1>
+        <p>Selamat datang di halaman dashboard admin!</p>
+        <!-- Tambahkan konten dan komponen admin di sini -->
+    </div>
 @endsection
