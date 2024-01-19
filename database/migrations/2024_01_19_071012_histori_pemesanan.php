@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('histori_pemesanans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('film_id')->constrained();
-            $table->foreignId('jam_tayang_id')->constrained();
-            $table->foreignId('genre_id')->constrained();
-            $table->foreignId('nomor_duduk_id')->constrained();
+        
             $table->timestamps();
         });
     }

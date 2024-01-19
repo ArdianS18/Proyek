@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('durasi');
             $table->integer('harga');
             $table->string('gambar');
+            $table->foreignId('jam_tayang_id')->references('id')->on('jam_tayangs')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('genre_id')->references('id')->on('genres')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('nomor_duduk_id')->references('id')->on('nomor_duduks')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }
