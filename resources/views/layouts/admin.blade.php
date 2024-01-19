@@ -1,9 +1,3 @@
-<?php
-  function isActivePage($page)
-  {
-    return request()->is($page) ? 'active' : '';
-  }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,26 +76,40 @@
 
     <header>
         <h3>Admin Dashboard</h3>
+        
     </header>
 
     <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block">
         <div class="position-sticky">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link {{ isActivePage('home*') }}" href="{{ route('home') }}">
+                    <a class="nav-link " href="{{ route('home') }}">
                         Home
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ isActivePage('genre*') }}" href="{{ route('genre.index') }}">
+                    <a class="" href="{{ route('genre.index') }}">
                         Genre
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ isActivePage('film*') }}" href="">
+                    <a class="nav-link" href="">
                         film
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+                </li>
+                
                 <!-- Tambahkan menu atau tautan lainnya sesuai kebutuhan -->
             </ul>
         </div>

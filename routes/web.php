@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GenreController;
 
 /*
@@ -20,7 +21,6 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('/genre', GenreController::class)->middleware('verified');
