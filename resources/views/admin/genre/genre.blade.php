@@ -67,9 +67,9 @@
                             Edit
                         </button>
 
-                        <form action="{{ route(genre.destroy, ['post' => $genre->id]) }}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
-                            @csrf
+                        <form action="/genre/{{$genre->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
                             @method('delete')
+                            @csrf
                             <button class="btn btn-danger">Delete</button>
                         </form>
 

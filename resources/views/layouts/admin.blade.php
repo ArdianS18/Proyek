@@ -75,7 +75,7 @@
     @endif
 
     <header>
-        <h3>Admin Dashboard</h3>
+        <h3>hapus</h3>
 
     </header>
 
@@ -92,6 +92,7 @@
                         Genre
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="">
                         film
