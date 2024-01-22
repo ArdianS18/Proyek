@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GenreController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,17 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function(){
-    // Route::post('/genre-create', GenreController::class , 'create');
+    Route::get('user-dash', function () {
+        if (auth()->check() && auth()->user()->role == 'admin') {
+            return redirect('/home');
+        } else {
+            return view('user/user-dash');
+        }
+    });
+});
+
+Route::group(['middleware' => ['auth', 'name:admin']], function(){
     Route::resource('/genre', GenreController::class);
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::view('dashboard', 'dash-admin');
 });

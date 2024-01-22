@@ -60,9 +60,9 @@
                         <a href="/genre/{{$genre->id}}" type="button" class="btn btn-primary" >Detail</a>
                         <a href="/genre/{{$genre->id}}/edit" class="btn btn-warning btn-xs">Edit</a>
 
-                        <form action="/genre/{{$genre->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
-                            @method('delete')
+                        <form action="{{ route(genre.destroy, ['post' => $genre->id]) }}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
                             @csrf
+                            @method('delete')
                             <button class="btn btn-danger">Delete</button>
                         </form>
 

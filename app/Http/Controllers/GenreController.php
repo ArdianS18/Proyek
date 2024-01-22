@@ -83,8 +83,13 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genre $genre)
+    public function destroy(Genre $genre, $id)
     {
-        //
+        $genre = Genre::find($id);
+        $genre->delete();
+
+        return redirect()->back();
+
+
     }
 }
