@@ -27,7 +27,6 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -38,7 +37,10 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Genre::create([
+            'genre' => $request->input('genre'),
+        ]);
+        return redirect('/genre');
     }
 
     /**

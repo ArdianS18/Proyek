@@ -64,7 +64,7 @@
 </head>
 <body>
 
-    @if (Auth::check() && !Auth::user()->email_verified_at)
+    {{-- @if (Auth::check() && !Auth::user()->email_verified_at)
     <div class="alert alert-danger mb-n1 text-center" role="alert">
         Anda belum verifikasi email,
         <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
@@ -72,11 +72,11 @@
             <button type="submit" class="text-danger btn btn-link p-0 m-0 align-baseline">{{ __('verifikasi ulang') }}</button>.
         </form>
     </div>
-    @endif
+    @endif --}}
 
     <header>
         <h3>Admin Dashboard</h3>
-        
+
     </header>
 
     <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block">
@@ -109,7 +109,7 @@
                     </form>
                 </div>
                 </li>
-                
+
                 <!-- Tambahkan menu atau tautan lainnya sesuai kebutuhan -->
             </ul>
         </div>
@@ -117,7 +117,7 @@
 
     <main>
 
-        <div class="container">
+        {{-- <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6">
                     @if (session('resent'))
@@ -127,7 +127,7 @@
                     @endif
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         @yield('content')
     </main>
