@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GenreController;
-use App\Http\Controllers\DetailController;
-use App\Http\Controllers\JamTayangController;
+use App\Http\Controllers\DestinasiController;
 use App\Models\User;
 
 /*
@@ -37,6 +36,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'name:admin']], function(){
     Route::resource('/genre', GenreController::class);
+    Route::resource('/destinasi', DestinasiController::class);
     Route::view('home', 'home');
     Route::view('dashboard', 'dash-admin');
 });

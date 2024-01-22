@@ -73,11 +73,14 @@
         </form>
     </div>
     @endif
-
     <header>
         <h3>hapus Dashboard</h3>
 
     </header>
+    {{-- <header>
+        <h3>Admin Dashboard</h3>
+        
+    </header> --}}
 
     <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block">
         <div class="position-sticky">
@@ -89,7 +92,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="" href="{{ route('genre.index') }}">
-                        Genre
+                        kategori
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="{{ route('destinasi.index') }}">
+                        Destinasi
                     </a>
                 </li>
 
