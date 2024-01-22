@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destinasi;
 use Illuminate\Http\Request;
 
 class DestinasiController extends Controller
@@ -41,19 +42,19 @@ class DestinasiController extends Controller
             'nama_destinasi' => 'required',
             'deskripsi' => 'required',
             'lokasi' => 'required',
-            'harga_tiket' => 'required',
+            'harga' => 'required',
         ],  [
             'nama_destinasi.required' => 'Data harus diisi',
             'deskripsi.required' => 'Data harus diisi',
             'lokasi.required' => 'Data harus diisi',
-            'harga_tiket.required' => 'Data harus diisi'
+            'harga.required' => 'Data harus diisi'
         ]);
 
         Destinasi::create([
             'nama_destinasi' => $request->input('nama_destinasi'),
             'deskripsi' => $request->input('deskripsi'),
             'lokasi' => $request->input('lokasi'),
-            'harga_tiket' => $request->input('harga_tiket'),
+            'harga' => $request->input('harga'),
         ]);
         return redirect('/destinasi')->with('success', 'berhasil menambah data!');
 

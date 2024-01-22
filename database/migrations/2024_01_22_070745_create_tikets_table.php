@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('tiket', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('destinasi_id')->constrained();
             $table->date('tanggal_beli');
             $table->integer('jumlah_tiket');
             $table->integer('harga_total');

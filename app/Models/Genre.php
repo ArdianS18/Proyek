@@ -9,6 +9,5 @@ class Genre extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-    protected $table = "genres";
+    protected $table = "genre";
 }

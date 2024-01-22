@@ -10,6 +10,5 @@ class Destinasi extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-
-    protected $table = "destinasis";
+    protected $table = "destinasi";
 }

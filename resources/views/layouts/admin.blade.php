@@ -79,7 +79,7 @@
     </header>
     {{-- <header>
         <h3>Admin Dashboard</h3>
-        
+
     </header> --}}
 
     <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block">
@@ -96,11 +96,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ route('destinasis.index') }}">
+                    <a class="" href="/destinasi">
                         Destinasi
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="" href="{{ route('tiket.index') }}">
+                        Tiket
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();

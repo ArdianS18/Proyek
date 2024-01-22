@@ -53,8 +53,8 @@
                       </div>
                       <label for="">Harga Tiket :</label>
                       <div class="form-group">
-                          <input type="text" id="harga_tiket" name="harga_tiket" class="form-control @error('harga_tiket') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('harga_tiket')}}">
-                          @error('harga_tiket')
+                          <input type="text" id="harga" name="harga" class="form-control @error('harga') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('harga')}}">
+                          @error('harga')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{$message}}</strong>
                           </span>
@@ -91,7 +91,7 @@
                     <td>{{$destinasi->nama_destinasi}}</td>
                     <td>{{$destinasi->deskripsi}}</td>
                     <td>{{$destinasi->lokasi}}</td>
-                    <td>{{$destinasi->harga_tiket}}</td>
+                    <td>{{$destinasi->harga}}</td>
                     <td>
                         <a href="/destinasi/{{$destinasi->id}}" type="button" class="btn btn-primary" >Detail</a>
                         {{-- <a href="/genre/{{$genre->id}}/edit" class="btn btn-warning btn-xs">Edit</a> --}}
