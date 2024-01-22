@@ -75,7 +75,7 @@
     @endif
 
     <header>
-        <h3>hapus</h3>
+        <h3>hapus Dashboard</h3>
 
     </header>
 
