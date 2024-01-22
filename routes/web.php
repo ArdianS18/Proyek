@@ -25,6 +25,7 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth']], function(){
     // Route::post('/genre-create', GenreController::class , 'create');
     Route::resource('/genre', GenreController::class);
+    Route::resource('/detail', GenreController::class);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('dashboard', 'dash-admin');
 });
