@@ -37,10 +37,16 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = $request->validate([
+            'genre' => 'required',
+        ],  [
+            'genre.required' => 'Data harus diisi'
+        ]);
+
         Genre::create([
             'genre' => $request->input('genre'),
         ]);
-        return redirect('/genre');
+        return redirect('/genre')->with('success', 'berhasil menambah data!');
     }
 
     /**
@@ -49,7 +55,7 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function show(Genre $genre)
+    public function show(string $id)
     {
         //
     }
@@ -60,7 +66,7 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Genre $genre)
+    public function edit(string $id)
     {
         //
     }
@@ -72,9 +78,16 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genre $genre)
+    public function update(Request $request, string $id)
     {
-        //
+        $rules = $request->validate([
+            'genre' => 'required',
+        ],  [
+            'genre.required' => 'Data harus diisi'
+        ]);
+        Genre::where('id', $id)
+                ->update($rules);
+        return redirect('/genre')->with('success', 'berhasil mengedit data!');
     }
 
     /**
@@ -83,13 +96,10 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genre $genre, $id)
+    public function destroy(string $id)
     {
-        $genre = Genre::find($id);
-        $genre->delete();
-
-        return redirect()->back();
-
-
+        $genres = genre::FindOrFail($id);
+        $genres->delete();
+        return redirect()->route('genre.index')->with('success', 'berhasil menghapus data');
     }
 }

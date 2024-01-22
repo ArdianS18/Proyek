@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 Route::group(['middleware' => ['auth', 'name:admin']], function(){
     Route::resource('/genre', GenreController::class);
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resource('/detail', GenreController::class);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('dashboard', 'dash-admin');
 });
