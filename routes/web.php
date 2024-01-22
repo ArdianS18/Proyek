@@ -37,8 +37,6 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'name:admin']], function(){
     Route::resource('/genre', GenreController::class);
-    Route::resource('/jamtayang', JamTayangController::class);
-    Route::resource('detail', DetailController::class);
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::view('home', 'home');
     Route::view('dashboard', 'dash-admin');
 });
