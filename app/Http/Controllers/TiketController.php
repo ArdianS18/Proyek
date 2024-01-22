@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DestinasiController extends Controller
+class TiketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,6 @@ class DestinasiController extends Controller
      */
     public function index()
     {
-        $destinasis = Destinasi::all();
-
-        return view('admin.destinasi.destinasi', compact('destinasis'));
         //
     }
 
@@ -37,26 +34,7 @@ class DestinasiController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = $request->validate([
-            'nama_destinasi' => 'required',
-            'deskripsi' => 'required',
-            'lokasi' => 'required',
-            'harga_tiket' => 'required',
-        ],  [
-            'nama_destinasi.required' => 'Data harus diisi',
-            'deskripsi.required' => 'Data harus diisi',
-            'lokasi.required' => 'Data harus diisi',
-            'harga_tiket.required' => 'Data harus diisi'
-        ]);
-
-        Destinasi::create([
-            'nama_destinasi' => $request->input('nama_destinasi'),
-            'deskripsi' => $request->input('deskripsi'),
-            'lokasi' => $request->input('lokasi'),
-            'harga_tiket' => $request->input('harga_tiket'),
-        ]);
-        return redirect('/destinasi')->with('success', 'berhasil menambah data!');
-
+        //
     }
 
     /**

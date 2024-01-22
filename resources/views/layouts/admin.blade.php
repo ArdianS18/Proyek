@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ route('destinasi.index') }}">
+                    <a class="" href="{{ route('destinasis.index') }}">
                         Destinasi
                     </a>
                 </li>
