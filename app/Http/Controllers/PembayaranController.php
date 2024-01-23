@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Destinasi;
 use Illuminate\Http\Request;
 
-class DestinasiController extends Controller
+class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,6 @@ class DestinasiController extends Controller
      */
     public function index()
     {
-        $destinasis = Destinasi::all();
-
-        return view('admin.destinasi.destinasi', compact('destinasis'));
         //
     }
 
@@ -38,26 +34,7 @@ class DestinasiController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = $request->validate([
-            'nama_destinasi' => 'required',
-            'deskripsi' => 'required',
-            'lokasi' => 'required',
-            'harga' => 'required',
-        ],  [
-            'nama_destinasi.required' => 'Data harus diisi',
-            'deskripsi.required' => 'Data harus diisi',
-            'lokasi.required' => 'Data harus diisi',
-            'harga.required' => 'Data harus diisi'
-        ]);
-
-        Destinasi::create([
-            'nama_destinasi' => $request->input('nama_destinasi'),
-            'deskripsi' => $request->input('deskripsi'),
-            'lokasi' => $request->input('lokasi'),
-            'harga' => $request->input('harga'),
-        ]);
-        return redirect('/destinasi')->with('success', 'berhasil menambah data!');
-
+        //
     }
 
     /**
@@ -102,8 +79,6 @@ class DestinasiController extends Controller
      */
     public function destroy($id)
     {
-        $destinasis = Destinasi::FindOrFail($id);
-        $destinasis->delete();
-        return redirect()->route('destinasi.index')->with('success', 'berhasil menghapus data');
+        //
     }
 }

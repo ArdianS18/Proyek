@@ -26,7 +26,7 @@
                       @csrf
                       <label for="">nama Destinasi :</label>
                       <div class="form-group">
-                          <input type="text" id="nama_destinasi" name="nama_destinasi" class="form-control @error('nama_destinasi') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('nama_destinasi')}}">
+                          <input type="text" id="nama_destinasi" name="wisata" class="form-control @error('nama_destinasi') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('nama_destinasi')}}">
                           @error('nama_destinasi')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{$message}}</strong>
@@ -36,7 +36,7 @@
                       <label for="">Deskripsi Destinasi :</label>
                       <div class="form-group">
                           <input type="text" id="deskripsi" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('deskripsi')}}">
-                          @error('nama_destinasi')
+                          @error('deskripsi')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{$message}}</strong>
                           </span>

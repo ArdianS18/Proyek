@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tiket;
 
-class Destinasi extends Model
+class Pembayaran extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
-    protected $table = "destinasi";
+    protected $table = "pembayaran";
 
     
     public function tiket() {

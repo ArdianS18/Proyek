@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('genre', function (Blueprint $table) {
+        Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->string('genre');
+            // $table->foreignId('tiket_id')->constrained();
+            $table->foreignId("tiket_id")->references('id')->on('tiket')->onUpdate('cascade')->onDelete('restrict');
+            $table->bigInteger('total_bayar');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genre');
+        Schema::dropIfExists('pembayaran');
     }
 };

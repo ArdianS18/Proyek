@@ -101,7 +101,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ route('tiket.index') }}">
+                    <a class="" href="/tiket">
                         Tiket
                     </a>
                 </li>
