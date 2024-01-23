@@ -2,7 +2,13 @@
 
 @section('content')
 
-
+<a href="booking.php" class="card-link">
+    <div class="card">
+        <h2>Booking</h2>
+        <p>Halaman Untuk Melihat List Booking</p>
+    </div>
+    </a>
+    
 <h1>Data Kategori Destinasi</h1>
 <small>Data Kategori Destinasi</small><br>
 
@@ -20,7 +26,10 @@
 
       <div class="modal-body">
           <form action="{{ route('destinasi.store') }}" method="post" enctype="multipart/form-data">
+
             @csrf
+              @csrf
+
               <label for="">Nama Wisata :</label>
               <div class="form-group">
                   <input type="text" id="wisata" name="wisata" class="form-control @error('wisata') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('wisata')}}">
@@ -44,6 +53,8 @@
                 </span>
                 @enderror
             </div>
+
+            
             <label for="">Foto Wisata:</label>
             <div class="form-group">
                 <input type="file" id="foto" name="foto" class="form-control @error('foto') is-invalid @enderror" placeholder="foto Destinasi" value="{{old('foto')}}">
@@ -145,8 +156,8 @@
             </div>
 
             <div class="modal-body">
-                <form action="{{ route('destinasi.update', ['destinasi' => $destinasi->id]) }}" method="post">
-                    @method('put')
+                <form action="{{ route('destinasi.update', ['destinasi' => $destinasi->id]) }}" method="post" enctype="multipart/form-data">
+                    @method('PUT')
                     @csrf
                     <label for="">Nama Wisata : </label>
                     <div class="form-group">
@@ -155,6 +166,14 @@
                     <label for="">Kategori Wisata : </label>
                     <div class="form-group">
                         <input type="text" id="genre_id" name="genre_id" class="form-control" placeholder="kategori wisata" value="{{$destinasi->genre->genre}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto">Foto Dokter</label>
+                        <input type="file"  class="form-control form-select @error('foto') is-invalid @enderror" name="foto" value="{{old('foto')}}">
+                        @error('foto')
+                        <span class="invalid-feedback" role="alert" style="color: red;">
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <label for="">Harga Tiket Anak : </label>
                     <div class="form-group">

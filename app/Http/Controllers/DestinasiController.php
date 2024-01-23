@@ -63,18 +63,21 @@ class DestinasiController extends Controller
             $fotoPath = $request->file('foto')->store('fotos', 'public');
         }
 
-        $pega = Destinasi::create([
+        // $pega = Destinasi::create([
+        //     'wisata' => $request->input('wisata'),
+        //     'genre_id' => $request->input('genre_id'),
+        //     'foto' => $fotoPath, // Ganti dengan $path
+        $data = Destinasi::create([
             'wisata' => $request->input('wisata'),
             'genre_id' => $request->input('genre_id'),
-            'foto' => $fotoPath, // Ganti dengan $path
+            'foto' => $fotoPath,
+
             'tiket_anak' => $request->input('tiket_anak'),
             'tiket_remaja' => $request->input('tiket_remaja'),
             'tiket_dewasa' => $request->input('tiket_dewasa'),
         ]);
 
-        // dd($pega);
-
-            // dd($path, $request->all());
+        // dd($data);
 
         return redirect('/destinasi')->with('success', 'Berhasil menambah data!');
     }
@@ -150,7 +153,7 @@ class DestinasiController extends Controller
             $destinasi->update([
                 'wisata' => $request->input('wisata'),
                 'genre_id' => $request->input('genre_id'),
-                // 'foto' => $path, // Ganti dengan $path
+                'foto' => $path, // Ganti dengan $path
                 'tiket_anak' => $request->input('tiket_anak'),
                 'tiket_remaja' => $request->input('tiket_remaja'),
                 'tiket_dewasa' => $request->input('tiket_dewasa'),
@@ -161,7 +164,7 @@ class DestinasiController extends Controller
             // Jika tidak ada file foto diunggah, update data kecuali foto
             $destinasi->update([
                 'wisata' => $request->input('wisata'),
-                // 'foto' => $path,
+                'foto' => $path,
                 'genre_id' => $request->input('genre_id'),
                 'tiket_anak' => $request->input('tiket_anak'),
                 'tiket_remaja' => $request->input('tiket_remaja'),
