@@ -8,7 +8,7 @@
         <p>Halaman Untuk Melihat List Booking</p>
     </div>
     </a>
-    
+
 <h1>Data Kategori Destinasi</h1>
 <small>Data Kategori Destinasi</small><br>
 
@@ -54,7 +54,7 @@
                 @enderror
             </div>
 
-            
+
             <label for="">Foto Wisata:</label>
             <div class="form-group">
                 <input type="file" id="foto" name="foto" class="form-control @error('foto') is-invalid @enderror" placeholder="foto Destinasi" value="{{old('foto')}}">
@@ -163,10 +163,16 @@
                     <div class="form-group">
                         <input type="text" id="wisata" name="wisata" class="form-control" placeholder="nama wisata" value="{{$destinasi->wisata}}">
                     </div>
-                    <label for="">Kategori Wisata : </label>
+
+                    <br><label for="">Katogori Wisata : </label>
                     <div class="form-group">
-                        <input type="text" id="genre_id" name="genre_id" class="form-control" placeholder="kategori wisata" value="{{$destinasi->genre->genre}}">
+                        <select name="genre_id" class="form-select" id="">
+                            @foreach ($genres as $gen)
+                                <option value="{{ $gen->id }}" {{old('genre_id') == $gen->id ? "selected":""}}>{{ $gen->genre }}</option>
+                            @endforeach
+                        </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="foto">Foto Dokter</label>
                         <input type="file"  class="form-control form-select @error('foto') is-invalid @enderror" name="foto" value="{{old('foto')}}">

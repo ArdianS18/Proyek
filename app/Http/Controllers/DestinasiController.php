@@ -114,65 +114,86 @@ class DestinasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = $request->validate([
-            'wisata' => 'required',
-            'genre_id' => 'required|exists:genre,id',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'tiket_anak' => 'required',
-            'tiket_remaja' => 'required',
-            'tiket_dewasa' => 'required',
-        ], [
-            'wisata.required' => 'Data harus diisi',
-            'genre_id.exists' => 'Data harus diisi',
-            'foto.required' => 'Data harus diisi',
-            'tiket_anak.required' => 'Data harus diisi',
-            'tiket_remaja.required' => 'Data harus diisi',
-            'tiket_dewasa.required' => 'Data harus diisi'
-        ]);
-
-        // Ambil data dokter berdasarkan ID
         $destinasi = Destinasi::findOrFail($id);
 
-        // Cek apakah ada file foto yang diunggah
+        $existingPhotoPath = $destinasi->foto;
+
         if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-
-            // Buat nama file acak dengan panjang 20 karakter
-            // $filename = Str::random(20) . '.' . $foto->getClientOriginalExtension();
-            // $path = '' . $filename;
-
-            // Simpan foto ke dalam folder img
-            // $foto->storeAs('public', $path);
-
-            // Hapus foto lama jika ada
             if ($destinasi->foto) {
-                Storage::delete('public/' . $destinasi->foto);
+                $path = storage_path('app/public/' . $destinasi->foto);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
             }
 
-            // Update data ke dalam tabel
-            $destinasi->update([
-                'wisata' => $request->input('wisata'),
-                'genre_id' => $request->input('genre_id'),
-                'foto' => $path, // Ganti dengan $path
-                'tiket_anak' => $request->input('tiket_anak'),
-                'tiket_remaja' => $request->input('tiket_remaja'),
-                'tiket_dewasa' => $request->input('tiket_dewasa'),
-            ]);
-
-            return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
-        } else {
-            // Jika tidak ada file foto diunggah, update data kecuali foto
-            $destinasi->update([
-                'wisata' => $request->input('wisata'),
-                'foto' => $path,
-                'genre_id' => $request->input('genre_id'),
-                'tiket_anak' => $request->input('tiket_anak'),
-                'tiket_remaja' => $request->input('tiket_remaja'),
-                'tiket_dewasa' => $request->input('tiket_dewasa'),
-            ]);
-
-            return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
+            $photoPath = $request->file('foto')->store('fotos', 'public');
+            $destinasi->foto = $photoPath;
         }
+
+        $destinasi->wisata=$request->input('wisata');
+        $destinasi->genre_id=$request->input('genre_id');
+        $destinasi->tiket_anak=$request->input('tiket_anak');
+        $destinasi->tiket_remaja=$request->input('tiket_remaja');
+        $destinasi->tiket_dewasa=$request->input('tiket_dewasa');
+
+        $destinasi->save();
+
+        if (!$request->hasFile('foto') && $existingPhotoPath) {
+            $destinasi->foto = $existingPhotoPath;
+            $destinasi->save();
+        }
+
+        return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
+
+        // $rules = $request->validate([
+        //     'wisata' => 'required',
+        //     'genre_id' => 'required|exists:genre,id',
+        //     'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'tiket_anak' => 'required',
+        //     'tiket_remaja' => 'required',
+        //     'tiket_dewasa' => 'required',
+        // ], [
+        //     'wisata.required' => 'Data harus diisi',
+        //     'genre_id.exists' => 'Data harus diisi',
+        //     'foto.required' => 'Data harus diisi',
+        //     'tiket_anak.required' => 'Data harus diisi',
+        //     'tiket_remaja.required' => 'Data harus diisi',
+        //     'tiket_dewasa.required' => 'Data harus diisi'
+        // ]);
+
+        // // Ambil data dokter berdasarkan ID
+
+        // // Cek apakah ada file foto yang diunggah
+        // if ($request->hasFile('foto')) {
+        //     $foto = $request->file('foto');
+
+        //     if ($destinasi->foto) {
+        //         Storage::delete('public/' . $destinasi->foto);
+        //     }
+
+        //     // Update data ke dalam tabel
+        //     $destinasi->update([
+        //         'wisata' => $request->input('wisata'),
+        //         'genre_id' => $request->input('genre_id'),
+        //         'foto' => $foto,
+        //         'tiket_anak' => $request->input('tiket_anak'),
+        //         'tiket_remaja' => $request->input('tiket_remaja'),
+        //         'tiket_dewasa' => $request->input('tiket_dewasa'),
+        //     ]);
+
+        //     return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
+
+        //     } else {
+
+        //     $destinasi->update([
+        //         'wisata' => $request->input('wisata'),
+        //         'genre_id' => $request->input('genre_id'),
+        //         'tiket_anak' => $request->input('tiket_anak'),
+        //         'tiket_remaja' => $request->input('tiket_remaja'),
+        //         'tiket_dewasa' => $request->input('tiket_dewasa'),
+        //     ]);
+
+
     }
 
     /**

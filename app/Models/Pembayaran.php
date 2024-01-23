@@ -11,7 +11,6 @@ class Pembayaran extends Model
     protected $guarded = ['id'];
     protected $table = "pembayaran";
 
-    
     public function tiket() {
         return $this->hasMany(Tiket::class);
     }
