@@ -3902,7 +3902,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .container > .navbar-header,
-  . > .navbar-header,
+  .container > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
     margin-right: 0;

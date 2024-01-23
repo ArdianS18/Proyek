@@ -96,12 +96,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="/destinasi">
+                    <a class="" href="{{ route('destinasi.index') }}">
                         Destinasi
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="/tiket">
+                    <a class="" href="{{ route('tiket.index') }}">
                         Tiket
                     </a>
                 </li>

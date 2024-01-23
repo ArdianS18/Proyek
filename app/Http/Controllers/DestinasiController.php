@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destinasi;
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Storage;
 
 class DestinasiController extends Controller
 {
@@ -65,18 +66,18 @@ class DestinasiController extends Controller
         Destinasi::create([
             'wisata' => $request->input('wisata'),
             'genre_id' => $request->input('genre_id'),
-            'foto' => $path, // Ganti dengan $path
+            // 'foto' => $path, // Ganti dengan $path
             'tiket_anak' => $request->input('tiket_anak'),
             'tiket_remaja' => $request->input('tiket_remaja'),
             'tiket_dewasa' => $request->input('tiket_dewasa'),
         ]);
 
-    
-            dd($path, $request->all());
-    
+
+            // dd($path, $request->all());
+
         return redirect('/destinasi')->with('success', 'Berhasil menambah data!');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -124,36 +125,36 @@ class DestinasiController extends Controller
             'tiket_remaja.required' => 'Data harus diisi',
             'tiket_dewasa.required' => 'Data harus diisi'
         ]);
-    
+
         // Ambil data dokter berdasarkan ID
-        $destinasis = Destinasi::findOrFail($id);
-    
+        $destinasi = Destinasi::findOrFail($id);
+
         // Cek apakah ada file foto yang diunggah
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
-    
+
             // Buat nama file acak dengan panjang 20 karakter
-            $filename = Str::random(20) . '.' . $foto->getClientOriginalExtension();
-            $path = '' . $filename;
-    
+            // $filename = Str::random(20) . '.' . $foto->getClientOriginalExtension();
+            // $path = '' . $filename;
+
             // Simpan foto ke dalam folder img
-            $foto->storeAs('public', $path);
-    
+            // $foto->storeAs('public', $path);
+
             // Hapus foto lama jika ada
-            if ($dokter->foto) {
-                Storage::delete('public/' . $dokter->foto);
+            if ($destinasi->foto) {
+                Storage::delete('public/' . $destinasi->foto);
             }
-    
+
             // Update data ke dalam tabel
-            $dokter->update([
+            $destinasi->update([
                 'wisata' => $request->input('wisata'),
                 'genre_id' => $request->input('genre_id'),
-                'foto' => $path, // Ganti dengan $path
+                // 'foto' => $path, // Ganti dengan $path
                 'tiket_anak' => $request->input('tiket_anak'),
                 'tiket_remaja' => $request->input('tiket_remaja'),
                 'tiket_dewasa' => $request->input('tiket_dewasa'),
             ]);
-    
+
             return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
         } else {
             // Jika tidak ada file foto diunggah, update data kecuali foto
@@ -164,7 +165,7 @@ class DestinasiController extends Controller
                 'tiket_remaja' => $request->input('tiket_remaja'),
                 'tiket_dewasa' => $request->input('tiket_dewasa'),
             ]);
-    
+
             return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
         }
     }
