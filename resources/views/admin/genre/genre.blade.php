@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin-dash')
 
 @section('content')
 
@@ -29,6 +29,7 @@
                           <input type="text" id="genre" name="genre" class="form-control @error('genre') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('genre')}}">
                           @error('genre')
                           <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback" role="alert" style="color: red;">
                               <strong>{{$message}}</strong>
                           </span>
                           @enderror
@@ -60,9 +61,9 @@
                     <td>{{ $key+1 }}</td>
                     <td>{{$genre->genre}}</td>
                     <td>
-                        <a href="/genre/{{$genre->id}}" type="button" class="btn btn-primary" >Detail</a>
+                        <a href="/genre/{{$genre->id}}" type="button" class="btn btn-primary" class="d-inline">Detail</a>
                         {{-- <a href="/genre/{{$genre->id}}/edit" class="btn btn-warning btn-xs">Edit</a> --}}
-                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#editdata{{$genre->id}}">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editdata{{$genre->id}}" class="d-inline">
                             Edit
                         </button>
 

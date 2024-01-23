@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
 use Illuminate\Http\Request;
+use App\Models\Genre;
 
 class DestinasiController extends Controller
 {
@@ -14,9 +15,10 @@ class DestinasiController extends Controller
      */
     public function index()
     {
+        $genres = Genre::all();
         $destinasis = Destinasi::all();
 
-        return view('admin.destinasi.destinasi', compact('destinasis'));
+        return view('admin.destinasi.destinasi', compact('genres', 'destinasis'));
         //
     }
 
@@ -39,26 +41,42 @@ class DestinasiController extends Controller
     public function store(Request $request)
     {
         $rules = $request->validate([
-            'nama_destinasi' => 'required',
-            'deskripsi' => 'required',
-            'lokasi' => 'required',
-            'harga' => 'required',
-        ],  [
-            'nama_destinasi.required' => 'Data harus diisi',
-            'deskripsi.required' => 'Data harus diisi',
-            'lokasi.required' => 'Data harus diisi',
-            'harga.required' => 'Data harus diisi'
+            'wisata' => 'required',
+            'genre_id' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'tiket_anak' => 'required',
+            'tiket_remaja' => 'required',
+            'tiket_dewasa' => 'required',
+        ], [
+            'wisata.required' => 'Data harus diisi',
+            'genre_id.required' => 'Data harus diisi',
+            'foto.required' => 'Data harus diisi',
+            'tiket_anak.required' => 'Data harus diisi',
+            'tiket_remaja.required' => 'Data harus diisi',
+            'tiket_dewasa.required' => 'Data harus diisi'
         ]);
+
+        $fotoPath = null;
+
+        if ($request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('fotos', 'public');
+        }
 
         Destinasi::create([
-            'nama_destinasi' => $request->input('nama_destinasi'),
-            'deskripsi' => $request->input('deskripsi'),
-            'lokasi' => $request->input('lokasi'),
-            'harga' => $request->input('harga'),
+            'wisata' => $request->input('wisata'),
+            'genre_id' => $request->input('genre_id'),
+            'foto' => $path, // Ganti dengan $path
+            'tiket_anak' => $request->input('tiket_anak'),
+            'tiket_remaja' => $request->input('tiket_remaja'),
+            'tiket_dewasa' => $request->input('tiket_dewasa'),
         ]);
-        return redirect('/destinasi')->with('success', 'berhasil menambah data!');
 
+    
+            dd($path, $request->all());
+    
+        return redirect('/destinasi')->with('success', 'Berhasil menambah data!');
     }
+    
 
     /**
      * Display the specified resource.
@@ -91,7 +109,64 @@ class DestinasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = $request->validate([
+            'wisata' => 'required',
+            'genre_id' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'tiket_anak' => 'required',
+            'tiket_remaja' => 'required',
+            'tiket_dewasa' => 'required',
+        ], [
+            'wisata.required' => 'Data harus diisi',
+            'genre_id.required' => 'Data harus diisi',
+            'foto.required' => 'Data harus diisi',
+            'tiket_anak.required' => 'Data harus diisi',
+            'tiket_remaja.required' => 'Data harus diisi',
+            'tiket_dewasa.required' => 'Data harus diisi'
+        ]);
+    
+        // Ambil data dokter berdasarkan ID
+        $destinasis = Destinasi::findOrFail($id);
+    
+        // Cek apakah ada file foto yang diunggah
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+    
+            // Buat nama file acak dengan panjang 20 karakter
+            $filename = Str::random(20) . '.' . $foto->getClientOriginalExtension();
+            $path = '' . $filename;
+    
+            // Simpan foto ke dalam folder img
+            $foto->storeAs('public', $path);
+    
+            // Hapus foto lama jika ada
+            if ($dokter->foto) {
+                Storage::delete('public/' . $dokter->foto);
+            }
+    
+            // Update data ke dalam tabel
+            $dokter->update([
+                'wisata' => $request->input('wisata'),
+                'genre_id' => $request->input('genre_id'),
+                'foto' => $path, // Ganti dengan $path
+                'tiket_anak' => $request->input('tiket_anak'),
+                'tiket_remaja' => $request->input('tiket_remaja'),
+                'tiket_dewasa' => $request->input('tiket_dewasa'),
+            ]);
+    
+            return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
+        } else {
+            // Jika tidak ada file foto diunggah, update data kecuali foto
+            $destinasi->update([
+                'wisata' => $request->input('wisata'),
+                'genre_id' => $request->input('genre_id'),
+                'tiket_anak' => $request->input('tiket_anak'),
+                'tiket_remaja' => $request->input('tiket_remaja'),
+                'tiket_dewasa' => $request->input('tiket_dewasa'),
+            ]);
+    
+            return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
+        }
     }
 
     /**

@@ -10,4 +10,8 @@ class Genre extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $table = "genre";
+
+    public function destinasi() {
+        return $this->hasMany(Destinasi::class);
+    }
 }
