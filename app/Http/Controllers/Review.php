@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destinasi;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class Review extends Controller
@@ -13,7 +15,10 @@ class Review extends Controller
      */
     public function index()
     {
-        return view('user.user-dash');
+        $genres = Genre::all();
+        $destinasis = Destinasi::all();
+
+        return view('user.user-dash',  compact('genres', 'destinasis'));
     }
 
     /**
