@@ -19,8 +19,8 @@
       </div>
 
       <div class="modal-body">
-          <form action="{{ route('destinasi.store') }}" method="post">
-              @csrf
+          <form action="{{ route('destinasi.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
               <label for="">Nama Wisata :</label>
               <div class="form-group">
                   <input type="text" id="wisata" name="wisata" class="form-control @error('wisata') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('wisata')}}">
@@ -33,7 +33,7 @@
               <div class="form-group">
                 <label for="genre_id">Kategori Wisata :</label>
                 <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" value="{{ old('genre_id')}}" aria-label="Default select example">
-                    <option selected>pilih nama genre</option>
+                    <option selected>Pilih Kategoti</option>
                     @foreach ($genres as $genre)
                         <option value="{{$genre->id}}">{{$genre->genre}}</option>
                     @endforeach

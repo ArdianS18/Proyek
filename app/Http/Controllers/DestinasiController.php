@@ -63,15 +63,16 @@ class DestinasiController extends Controller
             $fotoPath = $request->file('foto')->store('fotos', 'public');
         }
 
-        Destinasi::create([
+        $pega = Destinasi::create([
             'wisata' => $request->input('wisata'),
             'genre_id' => $request->input('genre_id'),
-            // 'foto' => $path, // Ganti dengan $path
+            'foto' => $fotoPath, // Ganti dengan $path
             'tiket_anak' => $request->input('tiket_anak'),
             'tiket_remaja' => $request->input('tiket_remaja'),
             'tiket_dewasa' => $request->input('tiket_dewasa'),
         ]);
 
+        // dd($pega);
 
             // dd($path, $request->all());
 

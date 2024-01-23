@@ -13,7 +13,7 @@ class Review extends Controller
      */
     public function index()
     {
-        //
+        return view('user.user-dash');
     }
 
     /**

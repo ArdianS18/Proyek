@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\DestinasiController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Review;
 use App\Http\Controllers\TiketController;
 use App\Models\User;
 
@@ -25,19 +27,12 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::get('user-dash', function () {
-        if (auth()->check() && auth()->user()->role == 'admin') {
-            return redirect('/home');
-        } else {
-            return view('user/user-dash');
-        }
-    });
+    Route::resource('/user', Review::class);
 });
 
 Route::group(['middleware' => ['auth', 'name:admin']], function(){
     Route::resource('/genre', GenreController::class);
     Route::resource('/destinasi', DestinasiController::class);
     Route::resource('/tiket', TiketController::class);
-    Route::view('home', 'home');
-    Route::view('dashboard', 'dash-admin');
+    Route::resource('/home', HomeController::class);
 });
