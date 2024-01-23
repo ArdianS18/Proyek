@@ -24,15 +24,15 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-// Route::group(['middleware' => ['auth']], function(){
-//     Route::get('user-dash', function () {
-//         if (auth()->check() && auth()->user()->role == 'admin') {
-//             return redirect('/home');
-//         } else {
-//             return view('user/user-dash');
-//         }
-//     });
-// });
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('user-dash', function () {
+        if (auth()->check() && auth()->user()->role == 'admin') {
+            return redirect('/home');
+        } else {
+            return view('user/user-dash');
+        }
+    });
+});
 
 Route::group(['middleware' => ['auth', 'name:admin']], function(){
     Route::resource('/genre', GenreController::class);
