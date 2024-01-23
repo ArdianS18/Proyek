@@ -11,18 +11,20 @@
 
     <title>SB Admin - Bootstrap Admin Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
 
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/sb-admin.css" rel="stylesheet">
+    
+        <!-- Morris Charts CSS -->
+        <link href="css/plugins/morris.css" rel="stylesheet">
+    
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Morris Charts CSS -->
-    <link href="{{ asset('css/plugins/morris.css') }}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
+        
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -173,7 +175,7 @@
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li> --}}
                     <li>
-                        <a href="{{ route('genre.index') }}"><i class="fa fa-fw fa-table"></i> Jenis Wisata</a>
+                        <a href="{{ route('genre.index') }}"><i class="fa fa-fw fa-table"></i> Genre</a>
                     </li>
                     <li>
                         <a href="{{ route('destinasi.index') }}"><i class="fa fa-fw fa-table"></i> Destinasi</a>
