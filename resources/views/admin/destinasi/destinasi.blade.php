@@ -2,7 +2,7 @@
 
 @section('content')
 
-     
+
 <h1>Data Kategori Destinasi</h1>
 <small>Data Kategori Destinasi</small><br>
 
@@ -25,12 +25,12 @@
               <div class="form-group">
                   <input type="text" id="wisata" name="wisata" class="form-control @error('wisata') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('wisata')}}">
                   @error('wisata')
-                  <span class="invalid-feedback" role="alert">
+                  <span class="invalid-feedback" role="alert" style="color: red;">
                       <strong>{{$message}}</strong>
                   </span>
                   @enderror
               </div>
-              <div class="mb-3">
+              <div class="form-group">
                 <label for="genre_id">Kategori Wisata :</label>
                 <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" value="{{ old('genre_id')}}" aria-label="Default select example">
                     <option selected>pilih nama genre</option>
@@ -39,7 +39,7 @@
                     @endforeach
                 </select>
                 @error('genre_id')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback" role="alert" style="color: red;">
                     <strong>{{$message}}</strong>
                 </span>
                 @enderror
@@ -48,7 +48,7 @@
             <div class="form-group">
                 <input type="file" id="foto" name="foto" class="form-control @error('foto') is-invalid @enderror" placeholder="foto Destinasi" value="{{old('foto')}}">
                 @error('foto')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback" role="alert" style="color: red;">
                     <strong>{{$message}}</strong>
                 </span>
                 @enderror
@@ -57,7 +57,7 @@
               <div class="form-group">
                   <input type="text" id="tiket_anak" name="tiket_anak" class="form-control @error('tiket_anak') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('tiket_anak')}}">
                   @error('tiket_anak')
-                  <span class="invalid-feedback" role="alert">
+                  <span class="invalid-feedback" role="alert" style="color: red;">
                       <strong>{{$message}}</strong>
                   </span>
                   @enderror
@@ -66,7 +66,7 @@
               <div class="form-group">
                   <input type="text" id="tiket_remaja" name="tiket_remaja" class="form-control @error('tiket_remaja') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('tiket_remaja')}}">
                   @error('tiket_remaja')
-                  <span class="invalid-feedback" role="alert">
+                  <span class="invalid-feedback" role="alert" style="color: red;">
                       <strong>{{$message}}</strong>
                   </span>
                   @enderror
@@ -75,7 +75,7 @@
               <div class="form-group">
                   <input type="text" id="tiket_dewasa" name="tiket_dewasa" class="form-control @error('tiket_dewasa') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('tiket_dewasa')}}">
                   @error('tiket_dewasa')
-                  <span class="invalid-feedback" role="alert">
+                  <span class="invalid-feedback" role="alert" style="color: red;">
                       <strong>{{$message}}</strong>
                   </span>
                   @enderror
@@ -163,7 +163,7 @@
                     <label for="">Harga Tiket Remaja : </label>
                     <div class="form-group">
                         <input type="text" id="tiket_remaja" name="tiket_remaja" class="form-control" placeholder="harga tiket remaja" value="{{$destinasi->tiket_remaja}}">
-                    </div>                            
+                    </div>
                     <label for="">Harga Tiket Dewasa : </label>
                     <div class="form-group">
                         <input type="text" id="tiket_dewasa" name="tiket_dewasa" class="form-control" placeholder="harga tiket dewasa" value="{{$destinasi->tiket_dewasa}}">

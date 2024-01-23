@@ -28,7 +28,6 @@
                       <div class="form-group">
                           <input type="text" id="genre" name="genre" class="form-control @error('genre') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('genre')}}">
                           @error('genre')
-                          <span class="invalid-feedback" role="alert">
                             <span class="invalid-feedback" role="alert" style="color: red;">
                               <strong>{{$message}}</strong>
                           </span>
@@ -61,18 +60,18 @@
                     <td>{{ $key+1 }}</td>
                     <td>{{$genre->genre}}</td>
                     <td>
-                        <a href="/genre/{{$genre->id}}" type="button" class="btn btn-primary" class="d-inline">Detail</a>
+                        {{-- <a href="/genre/{{$genre->id}}" type="button" class="btn btn-primary"><i class="fa fa-book"></i></a>    --}}
                         {{-- <a href="/genre/{{$genre->id}}/edit" class="btn btn-warning btn-xs">Edit</a> --}}
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editdata{{$genre->id}}" class="d-inline">
-                            Edit
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editdata{{$genre->id}}">
+                            <i class="fa fa-edit"></i>
                         </button>
 
-                        <form action="/genre/{{$genre->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
-                            @csrf
-                            @method('delete')
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-
+                            <form action="/genre/{{$genre->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </form>
+                        
                     </td>
 
                 </tr>

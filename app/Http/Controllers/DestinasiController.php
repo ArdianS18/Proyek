@@ -43,14 +43,14 @@ class DestinasiController extends Controller
     {
         $rules = $request->validate([
             'wisata' => 'required',
-            'genre_id' => 'required',
+            'genre_id' => 'required|exists:genre,id',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'tiket_anak' => 'required',
             'tiket_remaja' => 'required',
             'tiket_dewasa' => 'required',
         ], [
             'wisata.required' => 'Data harus diisi',
-            'genre_id.required' => 'Data harus diisi',
+            'genre_id.exists' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
             'tiket_anak.required' => 'Data harus diisi',
             'tiket_remaja.required' => 'Data harus diisi',
@@ -112,14 +112,14 @@ class DestinasiController extends Controller
     {
         $rules = $request->validate([
             'wisata' => 'required',
-            'genre_id' => 'required',
+            'genre_id' => 'required|exists:genre,id',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'tiket_anak' => 'required',
             'tiket_remaja' => 'required',
             'tiket_dewasa' => 'required',
         ], [
             'wisata.required' => 'Data harus diisi',
-            'genre_id.required' => 'Data harus diisi',
+            'genre_id.exists' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
             'tiket_anak.required' => 'Data harus diisi',
             'tiket_remaja.required' => 'Data harus diisi',
@@ -160,6 +160,7 @@ class DestinasiController extends Controller
             // Jika tidak ada file foto diunggah, update data kecuali foto
             $destinasi->update([
                 'wisata' => $request->input('wisata'),
+                // 'foto' => $path,
                 'genre_id' => $request->input('genre_id'),
                 'tiket_anak' => $request->input('tiket_anak'),
                 'tiket_remaja' => $request->input('tiket_remaja'),
