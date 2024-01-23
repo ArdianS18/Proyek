@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/user', Review::class);
 });
 
-Route::group(['middleware' => ['auth', 'name:admin']], function(){
+Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::resource('/genre', GenreController::class);
     Route::resource('/destinasi', DestinasiController::class);
     Route::resource('/tiket', TiketController::class);

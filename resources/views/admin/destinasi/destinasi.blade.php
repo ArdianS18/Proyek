@@ -26,8 +26,7 @@
 
       <div class="modal-body">
           <form action="{{ route('destinasi.store') }}" method="post" enctype="multipart/form-data">
-
-            @csrf
+            @method('PUT')
               @csrf
 
               <label for="">Nama Wisata :</label>
@@ -159,9 +158,9 @@
                 <form action="{{ route('destinasi.update', ['destinasi' => $destinasi->id]) }}" method="post" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <label for="">Nama Wisata : </label>
+                    <label for="wisata">Nama Wisata:</label>
                     <div class="form-group">
-                        <input type="text" id="wisata" name="wisata" class="form-control" placeholder="nama wisata" value="{{$destinasi->wisata}}">
+                        <input type="text" id="wisata" name="wisata" class="form-control" placeholder="nama wisata" value="{{ old('wisata', $destinasi->wisata) }}">
                     </div>
 
                     <br><label for="">Katogori Wisata : </label>
@@ -171,11 +170,16 @@
                                 <option value="{{ $gen->id }}" {{old('genre_id') == $gen->id ? "selected":""}}>{{ $gen->genre }}</option>
                             @endforeach
                         </select>
+
+                    <label for="genre_id">Kategori Wisata:</label>
+                    <div class="form-group">
+                        <input type="text" id="genre_id" name="genre_id" class="form-control" placeholder="kategori wisata" value="{{ old('genre_id', $destinasi->genre->genre) }}">
+
                     </div>
 
                     <div class="mb-3">
                         <label for="foto">Foto Dokter</label>
-                        <input type="file"  class="form-control form-select @error('foto') is-invalid @enderror" name="foto" value="{{old('foto')}}">
+                        <input type="file" class="form-control form-select @error('foto') is-invalid @enderror" name="foto" value="{{ old('foto') }}">
                         @error('foto')
                         <span class="invalid-feedback" role="alert" style="color: red;">
                             <small class="text-danger">{{ $message }}</small>
@@ -195,11 +199,12 @@
                     </div>
                     <div class="form-group">
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Simpan Kategori</button>
+                            <button type="submit" class="btn btn-success">Simpan Data</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>

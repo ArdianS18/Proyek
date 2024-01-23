@@ -20,7 +20,6 @@ class DestinasiController extends Controller
         $destinasis = Destinasi::all();
 
         return view('admin.destinasi.destinasi', compact('genres', 'destinasis'));
-        //
     }
 
     /**
