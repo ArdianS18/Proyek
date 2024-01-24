@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Destinasi;
-use App\Models\Genre;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 
-class Review extends Controller
+class UlasanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class Review extends Controller
      */
     public function index()
     {
-        $destinasis = Destinasi::all();
-        $genres = Genre::all();
-        return view('user.user-dash',  compact('genres', 'destinasis'));
+        $ulasans = Ulasan::all();
+        return view('user.rivew', compact('ulasans'));
     }
 
     /**
@@ -38,16 +36,25 @@ class Review extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = $request->validate([
+            'ulasan' => 'required',
+        ],  [
+            'ulasan.required' => 'Data harus diisi'
+        ]);
+
+        Ulasan::create([
+            'ulasan' => $request->input('ulasan'),
+        ]);
+        return redirect('/ulasan')->with('success', 'berhasil menambah data!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Ulasan  $ulasan
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ulasan $ulasan)
     {
         //
     }
@@ -55,10 +62,10 @@ class Review extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Ulasan  $ulasan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ulasan $ulasan)
     {
         //
     }
@@ -67,10 +74,10 @@ class Review extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Ulasan  $ulasan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ulasan $ulasan)
     {
         //
     }
@@ -78,10 +85,10 @@ class Review extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Ulasan  $ulasan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ulasan $ulasan)
     {
         //
     }

@@ -87,8 +87,8 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-      width: 300px; /* Atur lebar kartu */
-      height: 400px; /* Atur tinggi kartu */
+      width: 250px; /* Atur lebar kartu */
+      height: 190px; /* Atur tinggi kartu */
       text-align: center;
     }
 
@@ -122,6 +122,7 @@
 <div class="navbar" onmouseover="addHoverClass()" onmouseout="removeHoverClass()">
   <a href="#news">Home</a>
   <a href="#home">List Of Movies</a>
+  <a href="/ulasan">Ulasan</a>
   <a href="#news">History Of Tickets Film</a>
   <div class="logout-container ml-auto">
     <a href="{{ route('logout') }}"
@@ -140,13 +141,14 @@
     <div class="ticket-card">
       <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
       <h3><strong>{{ $destinasi->wisata }}</strong></h3>
-      <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
+      {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
       <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
       <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
-      <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p>
+      <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p> --}}
     </div>
   </a>
 @endforeach
 
 </body>
 </html>
+  

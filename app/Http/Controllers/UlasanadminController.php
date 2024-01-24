@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Destinasi;
-use App\Models\Genre;
+use App\Models\Ulasan;
+
 use Illuminate\Http\Request;
 
-class Review extends Controller
+class UlasanadminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class Review extends Controller
      */
     public function index()
     {
-        $destinasis = Destinasi::all();
-        $genres = Genre::all();
-        return view('user.user-dash',  compact('genres', 'destinasis'));
+        $ulasans = Ulasan::all();
+        return view('admin.ulasan', compact('ulasans'));
     }
 
     /**
