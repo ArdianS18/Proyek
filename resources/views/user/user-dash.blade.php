@@ -160,7 +160,7 @@
       <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p> --}}
     </div>
   </a>
-@endforeach
+
         <a class="card-link">
             <div class="kartu">
                 <img src="{{ asset('storage/'.$destinasi->foto) }}" class="card-img-top" width="250px" alt="foto">
@@ -175,14 +175,6 @@
 
 
 
-<script>
-  function addHoverClass() {
-    document.querySelector('.navbar').classList.add('hovered');
-  }
 
-  function removeHoverClass() {
-    document.querySelector('.navbar').classList.remove('hovered');
-  }
-</script>
 </body>
 </html>

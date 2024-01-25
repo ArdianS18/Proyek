@@ -29,14 +29,17 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => ['auth', 'role:Admin,user']], function(){
+Route::group(['middleware' => ['auth']], function(){
     Route::resource('/user', Review::class);
-    Route::resource('/home', HomeController::class);
+    Route::resource('/ulasan', UlasanController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
-    Route::resource('/lokasi', LokasiController::class);
-    Route::resource('/genre', GenreController::class);
-    Route::resource('/destinasi', DestinasiController::class);
-    Route::resource('/tiket', TiketController::class);
+    Route::group(['middleware' => ['auth', 'name:Admin']], function(){
+        Route::resource('/genre', GenreController::class);
+        Route::resource('/destinasi', DestinasiController::class);
+        Route::resource('/tiket', TiketController::class);
+        Route::resource('/home', HomeController::class);
+        Route::resource('/lokasi', LokasiController::class);
+    });
 });
