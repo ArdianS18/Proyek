@@ -476,7 +476,7 @@ button {
 .movies_section {
     width: 100%;
     float: left;
-    background-color: #3c0e0e;
+    background-color: #469ade;
     height: auto;
     padding-bottom: 90px;
 }
@@ -827,17 +827,6 @@ input.email_text::placeholder {
 .social_icon li {
     float: left;
     padding: 25px 5px 0px 5px;
-}
-
-.iamge_movies_main {
-    width: 100%;
-    display: flex;
-}
-
-.iamge_movies {
-    width: 100%;
-    float: left;
-    margin: 0px 13px;
 }
 
 .copyright_section {

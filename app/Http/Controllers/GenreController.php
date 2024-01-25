@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GenreController extends Controller
 {
@@ -13,9 +14,17 @@ class GenreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $genres = Genre::all();
+        // $genres = Genre::all();
+        // return view('admin.genre.genre', compact('genres'));
+
+        // $search = $request->input('search');
+        if ($request->has('search')) {
+            $genres = Genre::where('genre', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $genres = Genre::all();
+        }
 
         return view('admin.genre.genre', compact('genres'));
     }

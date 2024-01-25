@@ -117,7 +117,7 @@ class DestinasiController extends Controller
     {
         // Find the destination by ID
         $destinasi = Destinasi::findOrFail($id);
-        
+
         // Validate the request data
         // $request->validate([
         //     'wisata' => 'required',
@@ -140,7 +140,7 @@ class DestinasiController extends Controller
         // ]);
 
         $exit = $destinasi->foto;
-        
+
         if ($request->hasFile('foto')) {
             // Delete existing photo if any
             if ($destinasi->foto) {
@@ -149,7 +149,7 @@ class DestinasiController extends Controller
                     unlink($path);
                 }
             }
-        
+
             // Store the new photo
             $photoPath = $request->file('foto')->store('fotos', 'public');
             $destinasi->foto = $photoPath;
@@ -162,9 +162,9 @@ class DestinasiController extends Controller
         $destinasi->tiket_anak = $request->input('tiket_anak');
         $destinasi->tiket_remaja = $request->input('tiket_remaja');
         $destinasi->tiket_dewasa = $request->input('tiket_dewasa');
-        
+
         // Check if a new photo is provided
-        
+
         // Save the updated model
         $destinasi->save();
 
@@ -172,12 +172,12 @@ class DestinasiController extends Controller
             $destinasi->foto = $exit;
             $destinasi->save();
         }
-        
+
         return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
     }
-    
-   
-    
+
+
+
 
     /**
      * Remove the specified resource from storage.

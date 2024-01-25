@@ -65,7 +65,7 @@
                         </span>
                         @enderror
                     </div>
-                    
+
                     <div class="col-span-2">
                         <input type="file" id="foto" name="foto" class="form-control @error('foto') is-invalid @enderror" placeholder="Foro Wisata" value="{{old('foto')}}">
                         @error('foto')
@@ -74,7 +74,7 @@
                         </span>
                         @enderror
                     </div>
-                    
+
                     <div class="col-span-2">
                         <label for="">Harga Tiket Anak:</label>
                         <div class="form-group">
@@ -86,7 +86,7 @@
                             @enderror
                         </div>
                     </div>
-                    
+
                     <div class="col-span-2">
                         <label for="">Harga Tiket Remaja:</label>
                         <div class="form-group">
@@ -98,7 +98,7 @@
                             @enderror
                         </div>
                     </div>
-                    
+
                     <div class="col-span-2">
                         <label for="">Harga Tiket Dewasa:</label>
                         <div class="form-group">
@@ -192,7 +192,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.3 4.8 2.9 2.9M7 7H4a1 1 0 0 0-1 1v10c0 .6.4 1 1 1h11c.6 0 1-.4 1-1v-4.5m2.4-10a2 2 0 0 1 0 3l-6.8 6.8L8 14l.7-3.6 6.9-6.8a2 2 0 0 1 2.8 0Z"/>
                     </svg>
                 </button>
-                      
+
 
                 <!-- Edit Modal -->
                 <div id="editdata{{$destinasi->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -229,7 +229,6 @@
                         <div class="col-span-2">
                             <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori Destinasi</label>
                             <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" aria-label="Default select example">
-                                <option selected value="{{$genre->genre}}"></option>
                                 @foreach ($genres as $genre)
                                     <option  value="{{$genre->id}}" {{$destinasi->genre_id == $genre->id ? 'selected' : ''}}>{{$genre->genre}}</option>
                                 @endforeach

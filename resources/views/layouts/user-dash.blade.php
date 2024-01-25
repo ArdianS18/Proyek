@@ -8,8 +8,8 @@
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>DBI</title>
+      <!-- ite metas -->
+
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -20,7 +20,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="{{ asset('css/respon-user.css') }}">
       <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="{{ asset('css/jquery-user.css') }}">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- owl stylesheets -->
@@ -28,45 +28,152 @@
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-   </head>
+
+       <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+      transition: background-color 0.3s;
+    }
+
+    .navbar:hover {
+      background-color: #0d77e1;
+      background-image: linear-gradient(to right, #6998f6, #2d2d2e);
+    }
+
+    .navbar:not(.hovered) {
+      background-color: transparent !important;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #0d0d0d;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: rgb(249, 243, 243);
+    }
+
+    .logout-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logout-container a {
+      color: #000000;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+
+    .logout-container a:hover {
+      background-color: red;
+    }
+
+    .ml-auto {
+      margin-left: auto;
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+
+    .ticket-card {
+      background-color: #fff;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+      width: 330px; /* Atur lebar kartu */
+      height: 470px;
+      text-align: center;
+    }
+
+    .ticket-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .ticket-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .ticket-card h3 {
+      margin-top: 30px;
+      padding: 25px;
+    }
+
+    .ticket-card p {
+      margin: 8px 0;
+    }
+
+    .ticket-card strong {
+      color: #007bff;
+    }
+      </style>
+
+    </head>
    <body>
       <div class="movies_section layout_padding">
          <div class="container">
             <div class="movies_menu">
                <ul>
-                  <li class="active"><a href="#">Overview</a></li>
-                  <li><a href="tv.html">TV</a></li>
-                  <li><a href="movies.html">Movies</a></li>
-                  <li><a href="#">Show</a></li>
-                  <li><a href="celebs.html">Celeb</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Cartoon</a></li>
-               </ul>
-               <li>
-                <a href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fa fa-fw fa-power-off"></i>
-                 {{ __('Logout') }}
-             </a>
+                  <li><a href="/user">Daftar Wisata</a></li>
+                  <li>
+                    <a href="movies.html">Tiket Anda</a>
+                </li>
+                  <li>
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa fa-fw fa-power-off"></i>
+                    {{ __('Logout') }}
+                    </a>
 
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                 @csrf
-             </form>
-            </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                    </form>
+                  </li>
+               </ul>
 
 
             </div>
 
             <main>
-                @yield('name')
+                @yield('content')
             </main>
 
-      <div class="copyright_section">
-         <div class="container">
-            <div class="copyright_text">Copyright 2019 All Right Reserved By <a href="https://html.design">Free html Templates</a></div>
-         </div>
-      </div>
       <!-- copyright section end -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>

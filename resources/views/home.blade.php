@@ -26,6 +26,8 @@
 
 @extends('layouts.admin-dash')
 
+    <head><title>Home</title></head>
+
 @section('content')
     <div class="container">
         <h1>Halaman home Dashboard</h1>

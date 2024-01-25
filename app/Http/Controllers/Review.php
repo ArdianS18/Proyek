@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
 use App\Models\Genre;
+use App\Models\Lokasi;
 use Illuminate\Http\Request;
 
 class Review extends Controller
@@ -17,7 +18,8 @@ class Review extends Controller
     {
         $destinasis = Destinasi::all();
         $genres = Genre::all();
-        return view('user.user-dash',  compact('genres', 'destinasis'));
+        $lokasis = Lokasi::all();
+        return view('user.user-dash',  compact('genres', 'lokasis','destinasis'));
     }
 
     /**
