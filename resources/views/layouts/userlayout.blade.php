@@ -1,80 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Pemesanan Tiket</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>DBI</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets -->
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <div class="movies_section layout_padding">
+         <div class="container">
+            <div class="movies_menu">
+               <ul>
+                  <li class="active"><a href="#">Overview</a></li>
+                  <li><a href="tv.html">TV</a></li>
+                  <li><a href="movies.html">Movies</a></li>
+                  <li><a href="#">Show</a></li>
+                  <li><a href="celebs.html">Celeb</a></li>
+                  <li><a href="#">Sports</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Cartoon</a></li>
+               </ul>
+            </div>
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+            <main>
+                @yield('name')
+            </main>
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #FFD700; /* Warna kuning, sesuaikan dengan warna yang Anda inginkan */
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        nav #logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-right: auto;
-        }
-
-        /* Add media query for responsiveness */
-        @media screen and (max-width: 768px) {
-            nav {
-                padding: 10px;
-            }
-
-            nav a {
-                font-size: 16px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div id="logo">NamaWebsite</div>
-        <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Pemesanan Tiket</a></li>
-            <li><a href="#">Destinasi</a></li>
-            <li><a href="#">Promo</a></li>
-            <li><a href="#">Kontak</a></li>
-        </ul>
-    </nav>
-
-    <!-- Konten situs web Anda akan ada di sini -->
-
-</body>
+      <div class="copyright_section">
+         <div class="container">
+            <div class="copyright_text">Copyright 2019 All Right Reserved By <a href="https://html.design">Free html Templates</a></div>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript -->
+      <script src="js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+   </body>
 </html>
