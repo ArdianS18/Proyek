@@ -19,7 +19,7 @@ class Review extends Controller
         $destinasis = Destinasi::all();
         $genres = Genre::all();
         $lokasis = Lokasi::all();
-        return view('user.user-dash',  compact('genres', 'lokasis','destinasis'));
+        return view('user.user-dash',  compact('genres', 'destinasis', 'lokasis'));
     }
 
     /**

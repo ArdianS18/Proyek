@@ -118,27 +118,6 @@ class DestinasiController extends Controller
         // Find the destination by ID
         $destinasi = Destinasi::findOrFail($id);
 
-        // Validate the request data
-        // $request->validate([
-        //     'wisata' => 'required',
-        //     'genre_id' => 'required|exists:genre,id', // Assuming the table name is 'genres'
-        //     'lokasi_id' => 'required|exists:lokasi,id', // Assuming the table name is 'lokasis'
-        //     'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'tiket_anak' => 'required',
-        //     'tiket_remaja' => 'required',
-        //     'tiket_dewasa' => 'required',
-        // ], [
-        //     'wisata.required' => 'Data harus diisi',
-        //     'genre_id.exists' => 'Data harus diisi',
-        //     'lokasi_id.exists' => 'Data harus diisi',
-        //     'foto.image' => 'Foto harus berupa gambar',
-        //     'foto.mimes' => 'Format foto tidak valid',
-        //     'foto.max' => 'Ukuran foto terlalu besar',
-        //     'tiket_anak.required' => 'Data harus diisi',
-        //     'tiket_remaja.required' => 'Data harus diisi',
-        //     'tiket_dewasa.required' => 'Data harus diisi',
-        // ]);
-
         $exit = $destinasi->foto;
 
         if ($request->hasFile('foto')) {
