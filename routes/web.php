@@ -10,6 +10,7 @@ use App\Http\Controllers\Review;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UlasanadminController;
+use App\Models\Tiket;
 use App\Models\User;
 
 /*
@@ -31,6 +32,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('/user', Review::class);
+    Route::resource('/tiket', Tiket::class);
     Route::resource('/ulasan', UlasanController::class);
 });
 

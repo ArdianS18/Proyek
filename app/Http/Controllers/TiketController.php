@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destinasi;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class TiketController extends Controller
      */
     public function index()
     {
-        $tiket=Tiket::all();
+        $tikets=Tiket::all();
+        $destinasis=Destinasi::all();
 
-        return view('admin.tiket.tiket', compact('tiket'));
+        return view('user.tiket-user', compact('tikets', 'destinasis'));
     }
 
     /**
@@ -37,7 +39,32 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = $request->validate([
+            'atas_nama' => 'required',
+            'tanggal' => 'required',
+            'destinasi_id' => 'required',
+            'tkt_anak' => 'required',
+            'tkt_remaja' => 'required',
+            'tkt_dewasa' => 'required',
+        ], [
+            'atas_nama.required' => 'Data harus diisi',
+            'tanggal.required' => 'Data harus diisi',
+            'destinasi_id.required' => 'Data harus diisi',
+            'tkt_anak.required' => 'Data harus diisi',
+            'tkt_remaja.required' => 'Data harus diisi',
+            'tkt_dewasa.required' => 'Data harus diisi'
+        ]);
+
+        Tiket::create([
+            'atas_nama' => $request->input('atas_nama'),
+            'tanggal' => $request->input('tanggal'),
+            'destinasi_id' => $request->input('destinasi_id'),
+            'tkt_anak' => $request->input('tkt_anak'),
+            'tkt_remaja' => $request->input('tkt_remaja'),
+            'tkt_dewasa' => $request->input('tkt_dewasa'),
+        ]);
+
+        return redirect('/user')->with('success', 'Berhasil menambah data!');
     }
 
     /**

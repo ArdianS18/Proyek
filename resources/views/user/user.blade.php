@@ -158,7 +158,7 @@
                <ul>
                   <li><a href="/user">Daftar Wisata</a></li>
                   <li>
-                    <a href="movies.html">Tiket Anda</a>
+                    <a href="/tiket">Tiket Anda</a>
                 </li>
                   <li>
                     <a href="{{ route('logout') }}"

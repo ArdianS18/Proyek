@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('tiket', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("destinasi_id")->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
             $table->string('atas_nama');
             $table->date('tanggal');
-            $table->foreignId("destinasi_id")->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
             $table->integer('tkt_anak');
             $table->integer('tkt_remaja');
             $table->integer('tkt_dewasa');
-            $table->bigInteger('total_bayar');
             $table->timestamps();
         });
     }

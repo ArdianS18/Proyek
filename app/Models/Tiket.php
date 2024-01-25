@@ -11,9 +11,9 @@ class Tiket extends Model
     protected $guarded = ['id'];
     protected $table = "tiket";
 
-    public function pembayaran()
+    public function destinasi()
     {
-        return $this->belongsTo(Pembayaran::class);
+        return $this->belongsTo(Destinasi::class);
     }
 
 }
