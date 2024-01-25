@@ -2,91 +2,40 @@
 
 @section('content')
 
+<head>
+    <title>Kategori Destinasi</title>
+</head>
+
 <nav>
 <div class="container">
     <div class="row justify-content-center">
         <h1>Data Kategori Destinasi</h1>
         <small>Data Kategori Destinasi</small><br>
 
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahdata">+ Tambah Kategori Destinasi</button>
+            <!-- Modal toggle -->
+            <button data-modal-target="tambahdata" data-modal-toggle="tambahdata" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
+            Tambah Data Kategori
+            </button>
 
-        <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="tambahdataLongTitle" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="tambahdataLongTitle">Tambah Devisi Pegawai</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                  <form action="{{ route('genre.store') }}" method="post">
-                      @csrf
-                      <label for="">Ketegori Destinasi :</label>
-                      <div class="form-group">
-                          <input type="text" id="genre" name="genre" class="form-control @error('genre') is-invalid @enderror" placeholder="Kategori Destinasi" value="{{old('genre')}}">
-                          @error('genre')
-                            <span class="invalid-feedback" role="alert" style="color: red;">
-                              <strong>{{$message}}</strong>
-                          </span>
-                          @enderror
-                      </div>
-                      <br><div class="form-group">
-                          <div class="modal-footer">
-                              <button type="submit" class="btn btn-success">Simpan Ketogori</button>
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                <th>No</th>
-                <th>Kategori Destinasi</th>
-                <th colspan="2">Aksi</th>
-                </tr>
-            </thead>
-            @foreach ($genres as $key => $genre)
-            <tbody>
-                <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{$genre->genre}}</td>
-                    <td>
-                        {{-- <a href="/genre/{{$genre->id}}" type="button" class="btn btn-primary"><i class="fa fa-book"></i></a>    --}}
-                        {{-- <a href="/genre/{{$genre->id}}/edit" class="btn btn-warning btn-xs">Edit</a> --}}
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editdata{{$genre->id}}"><i class="fa fa-edit"></i></button>
-
-                        </td>
-                        <td>
-                            <form action="/genre/{{$genre->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')">
-                                @method('delete')
-                                @csrf
-                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </form>
-                        </td>
-                </tr>
-
-                 <!-- Modal Edit -->
-        <div class="modal fade" id="editdata{{$genre->id}}" tabindex="-1" role="dialog" aria-labelledby="editdata{{$genre->id}}LongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editdata{{$genre->id}}LongTitle">Edit Kategori</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body">
-                        <form action="{{ route('genre.update', ['genre' => $genre->id]) }}" method="post">
-                            @method('put')
+            <!-- Main modal -->
+            <div id="tambahdata" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                Tambah data kategori
+                            </h3>
+                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="tambahdata">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                </svg>
+                                <span class="sr-only">Tutup modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <form class="p-4 md:p-5" action="{{ route('genre.store') }}" method="post">
                             @csrf
                             <div class="grid gap-4 mb-4 grid-cols-2">
                                 <div class="col-span-2">
@@ -165,7 +114,7 @@
                 </table>
             </div>
 
-            <!-- Edit Modal -->
+            {{-- <!-- Edit Modal -->
 <div id="editdata{{$genre->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <!-- Modal content -->
@@ -204,15 +153,9 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 
 
-
-
-
-    </tbody>
-
-</table>
 </div>
 </div>
 </nav>
