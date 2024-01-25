@@ -35,15 +35,16 @@ Route::group(['middleware' => ['auth']], function(){
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
-    Route::group(['middleware' => ['auth', 'name:Admin']], function(){
+    // Route::group(['middleware' => ['auth', 'name:Admin']], function(){
         Route::resource('/genre', GenreController::class);
         Route::resource('/destinasi', DestinasiController::class);
         Route::resource('/tiket', TiketController::class);
         Route::resource('/home', HomeController::class);
         Route::resource('/lokasi', LokasiController::class);
-    });
+        Route::resource('/ulasanadmin', UlasanadminController::class);
+    // });
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
