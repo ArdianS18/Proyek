@@ -92,6 +92,18 @@
       text-align: center;
     }
 
+    .kartu {
+        background-color: #fff;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        width: 250px; /* Atur lebar kartu */
+        height: 420px; /* Atur tinggi kartu */
+    }
+
     .ticket-card:hover {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       transform: translateY(-5px);
@@ -137,6 +149,7 @@
 </div>
 
 @foreach ($destinasis as $key => $destinasi)
+
   <a href="" class="card-link">
     <div class="ticket-card">
       <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
@@ -148,7 +161,28 @@
     </div>
   </a>
 @endforeach
+        <a class="card-link">
+            <div class="kartu">
+                <img src="{{ asset('storage/'.$destinasi->foto) }}" class="card-img-top" width="250px" alt="foto">
+                <h3 class="card-title" align="center"><strong>{{ $destinasi->wisata }}</strong></h3>
+                <p class="card-text"><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
+                <p class="card-text"><strong>Harga Tiket Anak:</strong> {{ $destinasi->tiket_anak }}</p>
+                <p class="card-text"><strong>Harga Tiket Remaja:</strong> {{ $destinasi->tiket_remaja }}</p>
+                <p class="card-text"><strong>Harga Tiket Dewasa:</strong> {{ $destinasi->tiket_dewasa }}</p>
+            </div>
+        </a>
+@endforeach
 
+
+
+<script>
+  function addHoverClass() {
+    document.querySelector('.navbar').classList.add('hovered');
+  }
+
+  function removeHoverClass() {
+    document.querySelector('.navbar').classList.remove('hovered');
+  }
+</script>
 </body>
 </html>
-  

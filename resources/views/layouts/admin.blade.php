@@ -91,13 +91,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="" href="{{ route('lokasi.index') }}">
+                        Lokasi
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="" href="{{ route('genre.index') }}">
-                        kategori
+                        Kategori
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="" href="{{ route('destinasi.index') }}">
-                        Destinasi
+                        Wisata
                     </a>
                 </li>
                 <li class="nav-item">

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('destinasi', function (Blueprint $table) {
             $table->id();
             $table->string('wisata');
-            // $table->foreignId('genre_id')->constrained();
             $table->foreignId('genre_id')->references('id')->on('genre')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('lokasi_id')->references('id')->on('lokasi')->onUpdate('cascade')->onDelete('restrict');
             $table->string('foto');
             $table->bigInteger('tiket_anak');
             $table->bigInteger('tiket_remaja');

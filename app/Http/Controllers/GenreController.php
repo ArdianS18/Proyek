@@ -43,6 +43,14 @@ class GenreController extends Controller
             'genre.required' => 'Data harus diisi'
         ]);
 
+        $existingData = Genre::where([
+            'genre' => $request->genre,
+        ])->exists();
+
+        if ($existingData) {
+            return redirect('/genre')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
+        }
+
         Genre::create([
             'genre' => $request->input('genre'),
         ]);
@@ -85,6 +93,15 @@ class GenreController extends Controller
         ],  [
             'genre.required' => 'Data harus diisi'
         ]);
+
+        $existingData = Genre::where([
+            'genre' => $request->genre,
+        ])->exists();           
+
+        if ($existingData) {
+            return redirect('/genre')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
+        }
+
         Genre::where('id', $id)
                 ->update($rules);
         return redirect('/genre')->with('success', 'berhasil mengedit data!');

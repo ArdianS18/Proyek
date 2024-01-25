@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\Review;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\UlasanController;
@@ -28,15 +29,14 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth', 'role:Admin,user']], function(){
     Route::resource('/user', Review::class);
-    Route::resource('/ulasan', UlasanController::class);
+    Route::resource('/home', HomeController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
+    Route::resource('/lokasi', LokasiController::class);
     Route::resource('/genre', GenreController::class);
     Route::resource('/destinasi', DestinasiController::class);
     Route::resource('/tiket', TiketController::class);
-    Route::resource('/home', HomeController::class);
-    Route::resource('/ulasanadmin', UlasanadminController::class);
 });

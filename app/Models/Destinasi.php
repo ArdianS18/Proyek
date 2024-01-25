@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class Destinasi extends Model
 {
     use HasFactory;
-    
+
     protected $guarded = ['id'];
     protected $table = "destinasi";
 
@@ -19,5 +19,8 @@ class Destinasi extends Model
     {
         return $this->belongsTo(Genre::class);
     }
-    
+
+    public function lokasi() {
+        return $this->belongsTo(Lokasi::class);
+    }
 }

@@ -7,6 +7,7 @@ use Exception;
 use App\Models\Destinasi;
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use App\Models\Lokasi;
 use Illuminate\Support\Facades\Storage;
 
 class DestinasiController extends Controller
@@ -18,9 +19,12 @@ class DestinasiController extends Controller
      */
     public function index()
     {
-        $destinasis = Destinasi::all();
         $genres = Genre::all();
-        return view('admin.destinasi.destinasi', compact('genres', 'destinasis'));
+        $lokasis = Lokasi::all();
+        $destinasis = Destinasi::all();
+
+        return view('admin.destinasi.destinasi', compact('genres', 'lokasis', 'destinasis'));
+        //
     }
 
     /**
@@ -41,10 +45,11 @@ class DestinasiController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $rules = $request->validate([
             'wisata' => 'required',
             'genre_id' => 'required|exists:genre,id',
+            'lokasi_id' => 'required|exists:lokasi,id',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'tiket_anak' => 'required',
             'tiket_remaja' => 'required',
@@ -52,6 +57,7 @@ class DestinasiController extends Controller
         ], [
             'wisata.required' => 'Data harus diisi',
             'genre_id.exists' => 'Data harus diisi',
+            'lokasi_id.exists' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
             'tiket_anak.required' => 'Data harus diisi',
             'tiket_remaja.required' => 'Data harus diisi',
@@ -64,21 +70,16 @@ class DestinasiController extends Controller
             $fotoPath = $request->file('foto')->store('fotos', 'public');
         }
 
-        // $pega = Destinasi::create([
-        //     'wisata' => $request->input('wisata'),
-        //     'genre_id' => $request->input('genre_id'),
-        //     'foto' => $fotoPath, // Ganti dengan $path
         $data = Destinasi::create([
             'wisata' => $request->input('wisata'),
             'genre_id' => $request->input('genre_id'),
+            'lokasi_id' => $request->input('lokasi_id'),
             'foto' => $fotoPath,
 
             'tiket_anak' => $request->input('tiket_anak'),
             'tiket_remaja' => $request->input('tiket_remaja'),
             'tiket_dewasa' => $request->input('tiket_dewasa'),
         ]);
-
-        // dd($data);
 
         return redirect('/destinasi')->with('success', 'Berhasil menambah data!');
     }
@@ -149,8 +150,6 @@ class DestinasiController extends Controller
         }
 
         return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
-
-    
     }
 
     /**
@@ -162,15 +161,16 @@ class DestinasiController extends Controller
     public function destroy($id)
     {
         $destinasis = Destinasi::FindOrFail($id);
-        try{
-            $destinasis->delete();
-            return redirect()->route('destinasi.index')->with('success', 'berhasil menghapus data');
-        } catch(Exception){
-            return redirect()->route('destinasi.index')->with('warning', 'data sedang digunakan');
+
+        if ($destinasis->foto) {
+            $path = storage_path('app/public/' . $destinasis->foto);
+
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
 
-        // $destinasis = Destinasi::FindOrFail($id);
-        // $destinasis->delete();
-        // return redirect()->route('destinasi.index')->with('success', 'berhasil menghapus data');
+        $destinasis->delete();
+        return redirect()->route('destinasi.index')->with('success', 'berhasil menghapus data');
     }
 }
