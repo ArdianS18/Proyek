@@ -1,7 +1,7 @@
 @extends('user.user')
 
 <head>
-    {{-- <title>Halaman Tiket</title> --}}
+    <title>Halaman Pesan</title>
 </head>
 
 @section('content')

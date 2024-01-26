@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <title>Halaman Tiket</title>
 </head>
 
 @section('content')
@@ -113,7 +113,7 @@
                 <p>  Harga Rp. {{ $destinasi->tiket }}</p></strong></h3>
                 <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
                 <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
-          
+
                 {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
                 <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
                 <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
@@ -123,7 +123,7 @@
                 <button data-modal-target="tambahdata" data-modal-toggle="tambahdata" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                   Pesan Tiket
                 </button>
-          
+
               </div>
             </a>
         @endif
@@ -136,7 +136,7 @@
               <p>  Harga Rp. {{ $destinasi->tiket }}</p></strong></h3>
               <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
               <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
-        
+
               {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
               <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
               <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
@@ -217,7 +217,7 @@
                     </span>
                     @enderror
                 </div>
-           
+
               </div>
 
               <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

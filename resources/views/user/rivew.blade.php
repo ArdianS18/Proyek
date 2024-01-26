@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>Review Pemesanan Tiket - Nama Website</title> --}}
+    <title>Ulasan Pengguna</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -131,7 +131,7 @@
             <h2>Rating dan Ulasan</h2>
             <p>Berikan rating Anda untuk pengalaman pemesanan tiket ini:</p>
             <!-- Tambahkan elemen rating seperti bintang atau skala 1-10 -->
-            
+
             <form action="/ulasan" method="post">
                 @csrf
                 <div class="form-group">
@@ -158,7 +158,7 @@
                 </div>
             @endforeach
         </section>
-        
+
     </main>
 
 </body>

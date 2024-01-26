@@ -1,14 +1,17 @@
+<!DOCTYPE html>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<head>
-  <title>Wisata Yuk</title>
-</head>
+<html lang="">
+</html>
 
-<html lang="en">
    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +40,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-
+      @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
        <style>
     body {
@@ -156,6 +159,17 @@
 
     </head>
    <body>
+
+    @if (Auth::check() && !Auth::user()->email_verified_at)
+    <div class="alert alert-danger mb-n1 text-center" role="alert">
+        Anda belum verifikasi email,
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+            @csrf
+            <button type="submit" class="text-danger btn btn-link p-0 m-0 align-baseline">{{ __('verifikasi ulang') }}</button>.
+        </form>
+    </div>
+    @endif
+
       <div class="movies_section layout_padding">
          <div class="container">
             <div class="movies_menu">
@@ -179,11 +193,22 @@
                     </form>
                   </li>
                </ul>
-
-
             </div>
 
             <main>
+
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-md-6">
+                            @if (session('resent'))
+                            <div class="alert alert-success" role="alert">
+                                {{ __('A fresh verification link has been sent to your email address.') }}
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
                 @yield('content')
             </main>
 

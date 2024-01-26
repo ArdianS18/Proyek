@@ -34,9 +34,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::resource('/user', Review::class);
-    Route::resource('/tiket', TiketController::class);
-    Route::resource('/ulasan', UlasanController::class);
+    Route::resource('/user', Review::class)->middleware('verified');
+    Route::resource('/tiket', TiketController::class)->middleware('verified');
+    Route::resource('/ulasan', UlasanController::class)->middleware('verified');
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
