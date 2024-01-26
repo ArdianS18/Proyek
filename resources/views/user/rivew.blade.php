@@ -1,9 +1,7 @@
-@extends('layouts.userlayout')
+@extends('user.user')
 
 @section('content')
 
-    <H1>Ini Halaman Tiket</H1>
-@endsection
 
 <!DOCTYPE html>
 <html lang="en">
@@ -123,17 +121,11 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Review Pemesanan Tiket - Nama Website</h1>
-        <!-- Tambahkan elemen-elemen header lainnya sesuai kebutuhan -->
-    </header>
-
     <main>
-        <section>
+        {{-- <section>
             <h2>Ringkasan Pemesanan</h2>
             <!-- Tambahkan informasi ringkasan pemesanan seperti nomor pemesanan, tanggal, dan lainnya -->
-        </section>
+        </section> --}}
 
         <section>
             <h2>Rating dan Ulasan</h2>
@@ -169,11 +161,8 @@
         
     </main>
 
-    <footer>
-        <!-- Tambahkan elemen-elemen footer seperti informasi kontak dan tautan lainnya -->
-    </footer>
-
-    <!-- Tambahkan script atau link ke file JavaScript Anda di sini jika diperlukan -->
-
 </body>
 </html>
+
+
+@endsection

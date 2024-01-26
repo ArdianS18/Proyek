@@ -2,6 +2,11 @@
 
 <head>
     <title>Halaman Tiket</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 
 @section('content')
@@ -125,6 +130,7 @@
               </button>
           </div>
           <!-- Modal body -->
+<<<<<<< Updated upstream
           <form class="p-4 md:p-5" action="{{ route('tiket.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
@@ -188,6 +194,88 @@
                         </div>
                         </div>
 
+=======
+          <form class="p-4 md:p-5" action="{{ route('destinasi.store') }}" method="post" enctype="multipart/form-data">
+              @csrf
+              <div class="grid gap-4 mb-4 grid-cols-2">
+                  <div class="col-span-2">
+                      <input type="text" id="wisata" name="wisata" class="form-control @error('wisata') is-invalid @enderror" placeholder="Nama Wisata" value="{{old('wisata')}}">
+                      @error('wisata')
+                      <span class="invalid-feedback" role="alert" style="color: red;">
+                          <strong>{{$message}}</strong>
+                      </span>
+                      @enderror
+                  </div>
+                  <div class="col-span-2">
+                      <label for="genre_id">Kategori Wisata :</label>
+                      <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" value="{{ old('genre_id')}}" aria-label="Default select example">
+                          <option selected>Pilih Kategori</option>
+                          @foreach ($genres as $genre)
+                              <option value="{{$genre->id}}">{{$genre->genre}}</option>
+                          @endforeach
+                      </select>
+                  </div>
+                  <div class="col-span-2">
+                      <label for="lokasi_id">Pilih Lokasi Wisata :</label>
+                      <select class="form-select @error('lokasi_id') is-invalid @enderror" name="lokasi_id" value="{{ old('lokasi_id')}}" aria-label="Default select example">
+                          <option selected>Pilih Lokasi Wisata</option>
+                          @foreach ($lokasis as $lokasi)
+                              <option value="{{$lokasi->id}}">{{$lokasi->lokasi}}</option>
+                          @endforeach
+                      </select>
+                      @error('lokasi_id')
+                      <span class="invalid-feedback" role="alert" style="color: red;">
+                          <strong>{{$message}}</strong>
+                      </span>
+                      @enderror
+                  </div>
+
+                  <div class="col-span-2">
+                      <input type="file" id="foto" name="foto" class="form-control @error('foto') is-invalid @enderror" placeholder="Foro Wisata" value="{{old('foto')}}">
+                      @error('foto')
+                      <span class="invalid-feedback" role="alert" style="color: red;">
+                          <strong>{{$message}}</strong>
+                      </span>
+                      @enderror
+                  </div>
+
+                  <div class="col-span-2">
+                      <label for="">Harga Tiket Anak:</label>
+                      <div class="form-group">
+                          <input type="text" id="tiket_anak" name="tiket_anak" class="form-control @error('tiket_anak') is-invalid @enderror" placeholder="Harga Tiket Anak" value="{{old('tiket_anak')}}">
+                          @error('tiket_anak')
+                          <span class="invalid-feedback" role="alert" style="color: red;">
+                              <strong>{{$message}}</strong>
+                          </span>
+                          @enderror
+                      </div>
+                  </div>
+
+                  <div class="col-span-2">
+                      <label for="">Harga Tiket Remaja:</label>
+                      <div class="form-group">
+                          <input type="text" id="tiket_remaja" name="tiket_remaja" class="form-control @error('tiket_remaja') is-invalid @enderror" placeholder="Harga Tiket Remaja" value="{{old('tiket_remaja')}}">
+                          @error('tiket_remaja')
+                          <span class="invalid-feedback" role="alert" style="color: red;">
+                              <strong>{{$message}}</strong>
+                          </span>
+                          @enderror
+                      </div>
+                  </div>
+
+                  <div class="col-span-2">
+                      <label for="">Harga Tiket Dewasa:</label>
+                      <div class="form-group">
+                          <input type="text" id="tiket_dewasa" name="tiket_dewasa" class="form-control @error('tiket_dewasa') is-invalid @enderror" placeholder="Harga Tiket Dewasa" value="{{old('tiket_dewasa')}}">
+                          @error('tiket_dewasa')
+                          <span class="invalid-feedback" role="alert" style="color: red;">
+                              <strong>{{$message}}</strong>
+                          </span>
+                          @enderror
+                      </div>
+                  </div>
+              </div>
+>>>>>>> Stashed changes
               <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                   Simpan
@@ -196,6 +284,9 @@
       </div>
   </div>
 </div>
+
+
+
 </body>
 </html>
 @endsection

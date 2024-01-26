@@ -13,7 +13,7 @@
             font-family: 'Nunito', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #2c3e50;
+            background-color: #6895D2;
             color: #ecf0f1;
             overflow-x: hidden;
             display: flex;
@@ -84,7 +84,7 @@
 <body class="antialiased">
 
     <div class="container fadeIn">
-        <img src="{{ asset('logo.png') }}" alt="Logo" class="logo">
+        <img src="{{ asset('photo/logo.png') }}" alt="Logo" class="logo">
         <div class="welcome-text">Selamat Datang di Wisata Yuk!</div>
         <div class="tagline">Temukan destinasi impian Anda dan pesan tiket sekarang.</div>
 
