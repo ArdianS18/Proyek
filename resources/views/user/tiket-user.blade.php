@@ -52,7 +52,7 @@
       overflow: hidden;
       transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
       width: 300px; /* Atur lebar kartu */
-      height: 400px; /* Atur tinggi kartu */
+      height: 300px; /* Atur tinggi kartu */
       text-align: center;
     }
 
@@ -89,12 +89,12 @@
 
     <a class="card-link">
     <div class="ticket-card">
-      <p><strong>Wisata :</strong>{{$tiket->destinasi->wisata}}</p>
-      <p><strong>Atas Nama :</strong>{{$tiket->atas_nama }}</p>
-      <p><strong>Jumlah Tiket Anak:</strong>{{ $tiket->tkt_anak }}</p>
-      <p><strong>Jumlah Tiket Remaja:</strong>{{ $tiket->tkt_remaja }}</p>
-      <p><strong>Jumlah Tiket Dewasa:</strong>{{ $tiket->tkt_dewasa }}</p>
-      <p class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+      <p><strong>Wisata : </strong>{{$tiket->destinasi->wisata}}</p>
+      <p><strong>Atas Nama : </strong>{{$tiket->atas_nama }}</p>
+      <p><strong>Harga : </strong>Rp. {{ $tiket->destinasi->tiket }}</p>
+      <p><strong>Jumlah : </strong>{{ $tiket->tkt }}</p>
+      <p><strong>Total Harga : </strong>Rp. {{ $tiket->destinasi->tiket *  $tiket->tkt }}  </p>
+      <p class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
         {{ $tiket->status }}
       </p>
 

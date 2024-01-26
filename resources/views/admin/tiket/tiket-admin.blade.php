@@ -37,13 +37,10 @@
                                 Tanggal Keberangkatan
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Jum. Tiket Anak
+                                Jumlah tiket
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Jum. Tiket Remaja
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Jum. Tiket Dewasa
+                                Total Harga
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Tanggal Pesanan
@@ -70,14 +67,12 @@
                                 {{$tiket->tanggal}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$tiket->tkt_anak}}
+                                {{$tiket->tkt}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$tiket->tkt_remaja}}
+                                {{ $tiket->destinasi->tiket *  $tiket->tkt }}
                             </td>
-                            <td class="px-6 py-4">
-                                {{$tiket->tkt_dewasa}}
-                            </td>
+
                             <td class="px-6 py-4">
                                 {{$tiket->created_at}}
                             </td>

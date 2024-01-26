@@ -44,28 +44,22 @@ class TiketController extends Controller
             'atas_nama' => 'required',
             'tanggal' => 'required',
             'destinasi_id' => 'required',
-            'tkt_anak' => 'required',
-            'tkt_remaja' => 'required',
-            'tkt_dewasa' => 'required',
+            'tkt' => 'required',
         ], [
             'atas_nama.required' => 'Data harus diisi',
             'tanggal.required' => 'Data harus diisi',
             'destinasi_id.required' => 'Data harus diisi',
-            'tkt_anak.required' => 'Data harus diisi',
-            'tkt_remaja.required' => 'Data harus diisi',
-            'tkt_dewasa.required' => 'Data harus diisi'
+            'tkt.required' => 'Data harus diisi',
         ]);
 
         Tiket::create([
             'atas_nama' => $request->input('atas_nama'),
             'tanggal' => $request->input('tanggal'),
             'destinasi_id' => $request->input('destinasi_id'),
-            'tkt_anak' => $request->input('tkt_anak'),
-            'tkt_remaja' => $request->input('tkt_remaja'),
-            'tkt_dewasa' => $request->input('tkt_dewasa'),
+            'tkt' => $request->input('tkt'),
         ]);
 
-        return redirect('/user')->with('success', 'Berhasil menambah data!');
+        return redirect('/tiket')->with('success', 'Berhasil menambah data!');
     }
 
     /**

@@ -168,8 +168,8 @@
 
                 <div class="col-span-2">
                   <label for="">Jumlah Tiket : <p></p></label>
-                    <input type="number" id="tkt_anak" name="tkt_anak" class="form-control @error('tkt_anak') is-invalid @enderror" value="{{ old('tkt_anak') }}">
-                    @error('tkt_anak')
+                    <input type="number" id="tkt" name="tkt" class="form-control @error('tkt') is-invalid @enderror" value="{{ old('tkt') }}">
+                    @error('tkt')
                     <span class="invalid-feedback" role="alert" style="color: red;">
                         <strong>{{$message}}</strong>
                     </span>
