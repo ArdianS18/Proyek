@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tiket', function (Blueprint $table) {
+        Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("destinasi_id")->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
-            $table->string('atas_nama');
-            $table->date('tanggal');
-            $table->integer('tkt_anak');
-            $table->integer('tkt_remaja');
-            $table->integer('tkt_dewasa');
+            // $table->foreignId("tiket_id")->constrained();
+            $table->bigInteger('total_tkt_anak');
+            $table->bigInteger('total_tkt_remaja');
+            $table->bigInteger('total_tkt_dewasa');
+            $table->bigInteger('total_bayar');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tiket');
+        Schema::dropIfExists('pembayaran');
     }
 };

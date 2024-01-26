@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destinasi;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TiketController extends Controller
 {
@@ -98,7 +99,23 @@ class TiketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = $request->validate([
+            'status' => 'required',
+        ],  [
+            'status.required' => 'Data harus diisi'
+        ]);
+
+        // $existingData = Tiket::where([
+        //     'lokasi' => $request->lokasi,
+        // ])->exists();
+
+        // if ($existingData) {
+        //     return redirect('/lokasi')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
+        // }
+
+        Tiket::where('id', $id)
+                ->update($rules);
+        return redirect('/tiketadmin')->with('success', 'berhasil mengedit data!');
     }
 
     /**
@@ -109,6 +126,8 @@ class TiketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tikets = Tiket::FindOrFail($id);
+        $tikets->delete();
+        return redirect('/tiketadmin')->with('success', 'berhasil menghapus data');
     }
 }

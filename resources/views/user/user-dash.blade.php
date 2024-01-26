@@ -57,7 +57,7 @@
       overflow: hidden;
       transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
       width: 300px; /* Atur lebar kartu */
-      height: 400px; /* Atur tinggi kartu */
+      height: 420px; /* Atur tinggi kartu */
       text-align: center;
     }
 
@@ -96,7 +96,8 @@
     <div class="ticket-card">
       <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
       <h3><strong>{{ $destinasi->wisata }}</strong></h3>
-      <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
+      <p><strong>Kategori Destinasi :</strong> {{ $destinasi->genre->genre }}</p>
+      <p><strong>Lokasi Destinasi :</strong> {{ $destinasi->lokasi->lokasi }} </p>
       {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
       <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
       <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
@@ -138,7 +139,8 @@
                     <div class="col-span-2">
                     @foreach ($destinasis as $key => $destinasi)
                     <label for="">Wisata : <p></p></label>
-                        <input type="text" id="destinasi_id" name="destinasi_id" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $destinasi->id }}"  readonly>
+                    <input type="hidden" name="destinasi_id" id="" class="form-control  @error('destinasi_id') is invalid @enderror" value="{{$destinasi->id}}">
+                        <input type="text" id="destinasi_id" name="" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $destinasi->wisata }}"  readonly>
                     @endforeach
                     </div>
 
