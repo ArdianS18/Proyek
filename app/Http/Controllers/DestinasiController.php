@@ -51,17 +51,13 @@ class DestinasiController extends Controller
             'genre_id' => 'required|exists:genre,id',
             'lokasi_id' => 'required|exists:lokasi,id',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'tiket_anak' => 'required',
-            'tiket_remaja' => 'required',
-            'tiket_dewasa' => 'required',
+            'tiket' => 'required',
         ], [
             'wisata.required' => 'Data harus diisi',
             'genre_id.exists' => 'Data harus diisi',
             'lokasi_id.exists' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
-            'tiket_anak.required' => 'Data harus diisi',
-            'tiket_remaja.required' => 'Data harus diisi',
-            'tiket_dewasa.required' => 'Data harus diisi'
+            'tiket.required' => 'Data harus diisi',
         ]);
 
         $fotoPath = null;
@@ -75,12 +71,10 @@ class DestinasiController extends Controller
             'genre_id' => $request->input('genre_id'),
             'lokasi_id' => $request->input('lokasi_id'),
             'foto' => $fotoPath,
-            'tiket_anak' => $request->input('tiket_anak'),
-            'tiket_remaja' => $request->input('tiket_remaja'),
-            'tiket_dewasa' => $request->input('tiket_dewasa'),
-        ]);
+            'tiket' => $request->input('tiket'),
 
-        return redirect('/destinasi')->with('success', 'Berhasil menambah data!');
+        ]);
+        return redirect('/destinasi')->with('success', 'berhasil mengedit data!');
     }
 
 
@@ -138,9 +132,7 @@ class DestinasiController extends Controller
         $destinasi->wisata = $request->input('wisata');
         $destinasi->genre_id = $request->input('genre_id');
         $destinasi->lokasi_id = $request->input('lokasi_id');
-        $destinasi->tiket_anak = $request->input('tiket_anak');
-        $destinasi->tiket_remaja = $request->input('tiket_remaja');
-        $destinasi->tiket_dewasa = $request->input('tiket_dewasa');
+        $destinasi->tiket = $request->input('tiket');
 
         // Check if a new photo is provided
 
@@ -151,7 +143,6 @@ class DestinasiController extends Controller
             $destinasi->foto = $exit;
             $destinasi->save();
         }
-
         return redirect('/destinasi')->with('success', 'Berhasil mengedit data!');
     }
 

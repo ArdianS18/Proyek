@@ -76,10 +76,10 @@
                     </div>
 
                     <div class="col-span-2">
-                        <label for="">Harga Tiket Anak:</label>
+                        <label for="">Harga Tiket:</label>
                         <div class="form-group">
-                            <input type="text" id="tiket_anak" name="tiket_anak" class="form-control @error('tiket_anak') is-invalid @enderror" placeholder="Harga Tiket Anak" value="{{old('tiket_anak')}}">
-                            @error('tiket_anak')
+                            <input type="text" id="tiket" name="tiket" class="form-control @error('tiket') is-invalid @enderror" placeholder="Harga Tiket" value="{{old('tiket')}}">
+                            @error('tiket')
                             <span class="invalid-feedback" role="alert" style="color: red;">
                                 <strong>{{$message}}</strong>
                             </span>
@@ -87,29 +87,7 @@
                         </div>
                     </div>
 
-                    <div class="col-span-2">
-                        <label for="">Harga Tiket Remaja:</label>
-                        <div class="form-group">
-                            <input type="text" id="tiket_remaja" name="tiket_remaja" class="form-control @error('tiket_remaja') is-invalid @enderror" placeholder="Harga Tiket Remaja" value="{{old('tiket_remaja')}}">
-                            @error('tiket_remaja')
-                            <span class="invalid-feedback" role="alert" style="color: red;">
-                                <strong>{{$message}}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="col-span-2">
-                        <label for="">Harga Tiket Dewasa:</label>
-                        <div class="form-group">
-                            <input type="text" id="tiket_dewasa" name="tiket_dewasa" class="form-control @error('tiket_dewasa') is-invalid @enderror" placeholder="Harga Tiket Dewasa" value="{{old('tiket_dewasa')}}">
-                            @error('tiket_dewasa')
-                            <span class="invalid-feedback" role="alert" style="color: red;">
-                                <strong>{{$message}}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
+                  
                 </div>
                 <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
@@ -141,13 +119,7 @@
                     Foto
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Tiket Anak
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Tiket Remaja
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Tiket Dewasa
+                    Harga Tiket
                 </th>
 
                 <th scope="col" class="px-6 py-3">
@@ -175,13 +147,7 @@
                     <img src="{{ asset('storage/'.$destinasi->foto) }}" width="60px" alt="gambar">
                 </td>
                 <td class="px-6 py-4">
-                    {{$destinasi->tiket_anak}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$destinasi->tiket_remaja}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$destinasi->tiket_dewasa}}
+                    {{$destinasi->tiket}}
                 </td>
                 <td class="px-6 py-4">
 
@@ -253,31 +219,14 @@
                         </div>
                         <div class="col-span-2">
                             <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tiket Anak</label>
-                            <input type="text" id="tiket_anak" name="tiket_anak" class="form-control @error('tiket_anak') is-invalid @enderror" placeholder="wisata tiket_anak"  value="{{ old('tiket_anak', $destinasi->tiket_anak) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
-                            @error('tiket_anak')
+                            <input type="text" id="tiket" name="tiket" class="form-control @error('tiket') is-invalid @enderror" placeholder="wisata tiket"  value="{{ old('tiket', $destinasi->tiket) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
+                            @error('tiket')
                             <span class="invalid-feedback" role="alert" style="color: red;">
                                 <strong>{{$message}}</strong>
                             </span>
                             @enderror
                         </div>
-                        <div class="col-span-2">
-                            <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tiket Remaja</label>
-                            <input type="text" id="tiket_remaja" name="tiket_remaja" class="form-control @error('tiket_remaja') is-invalid @enderror" placeholder="wisata tiket_remaja"  value="{{ old('tiket_remaja', $destinasi->tiket_remaja) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
-                            @error('tiket_remaja')
-                            <span class="invalid-feedback" role="alert" style="color: red;">
-                                <strong>{{$message}}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="col-span-2">
-                            <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tiket Anak</label>
-                            <input type="text" id="tiket_dewasa" name="tiket_dewasa" class="form-control @error('tiket_dewasa') is-invalid @enderror" placeholder="wisata tiket_dewasa"  value="{{ old('tiket_dewasa', $destinasi->tiket_dewasa) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
-                            @error('tiket_dewasa')
-                            <span class="invalid-feedback" role="alert" style="color: red;">
-                                <strong>{{$message}}</strong>
-                            </span>
-                            @enderror
-                        </div>
+
 
 
                     </div>

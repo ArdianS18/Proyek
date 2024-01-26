@@ -138,8 +138,8 @@
     }
 
     .ticket-card h3 {
-      margin-top: 30px;
-      padding: 25px;
+      /* margin-top: 30px;
+      padding: 10px; */
     }
 
     .ticket-card p {

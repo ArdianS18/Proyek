@@ -19,9 +19,7 @@ return new class extends Migration
             $table->foreignId('genre_id')->references('id')->on('genre')->onUpdate('cascade')->onDelete('restrict');
             $table->foreignId('lokasi_id')->references('id')->on('lokasi')->onUpdate('cascade')->onDelete('restrict');
             $table->string('foto');
-            $table->bigInteger('tiket_anak');
-            $table->bigInteger('tiket_remaja');
-            $table->bigInteger('tiket_dewasa');
+            $table->bigInteger('tiket');
             $table->timestamps();
         });
     }

@@ -18,9 +18,7 @@ return new class extends Migration
             $table->foreignId("destinasi_id")->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
             $table->string('atas_nama');
             $table->date('tanggal');
-            $table->integer('tkt_anak');
-            $table->integer('tkt_remaja');
-            $table->integer('tkt_dewasa');
+            $table->integer('tkt');
             $table->enum('status',['Pemesanan', 'Diterima'])->default('Pemesanan');
             $table->timestamps();
         });
