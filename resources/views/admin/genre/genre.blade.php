@@ -2,9 +2,9 @@
 
 @section('content')
 
-<head>
+{{-- <head>
     <title>Kategori Destinasi</title>
-</head>
+</head> --}}
 
 <nav>
 <div class="container">

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<head>
+{{-- <head>
     <title>Pengguna</title>
-</head>
+</head> --}}
 
 <nav>
 <div class="container">

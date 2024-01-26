@@ -46,4 +46,5 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
         Route::resource('/home', HomeController::class);
         Route::resource('/lokasi', LokasiController::class);
         Route::resource('/pengguna', TampilController::class);
+        Route::resource('/ulasanadmin', UlasanadminController::class);  
 });

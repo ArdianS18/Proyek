@@ -1,7 +1,7 @@
 @extends('user.user')
 
 <head>
-    <title>Halaman Tiket</title>
+    {{-- <title>Halaman Tiket</title> --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
@@ -88,31 +88,73 @@
 </head>
 <body>
 
-
+  {{-- untuk mencari --}}
+<div class="row g-3 align-items-center mt-3">
+    <div class="col-auto">
+        <form action="/user" method="GET">
+            <div class="input-group">
+                <input type="search" id="inputPassword6" placeholder="Cari nama wisata" name="search" class="form-control" aria-describedby="passwordHelpInline">
+                <button type="submit" class="btn btn-outline-secondary">
+                    <i class="fa fa-search"></i> <!-- Ganti "fa fa-search" dengan kelas ikon yang sesuai -->
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 @foreach ($destinasis as $key => $destinasi)
-
-    <a class="card-link">
-    <div class="ticket-card">
-      <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
-      <h3><strong>{{ $destinasi->wisata }}
-      <p>  Harga Rp. {{ $destinasi->tiket }}</p></strong></h3>
-      <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
-      <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
-
-      {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
-      <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
-      <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
-      <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p>
-      <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p> --}}
-       <!-- Modal toggle -->
-      <button data-modal-target="tambahdata" data-modal-toggle="tambahdata" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-        Pesan Tiket
-      </button>
-
-    </div>
-    </a>
+    @if (isset($_GET['search']) && !empty($_GET['search']))
+        {{-- Filter destinasi berdasarkan pencarian --}}
+        @if (stripos($destinasi->wisata, $_GET['search']) !== false)
+            <a class="card-link">
+              <div class="ticket-card">
+                <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
+                <h3><strong>{{ $destinasi->wisata }}
+                <p>  Harga Rp. {{ $destinasi->tiket }}</p></strong></h3>
+                <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
+                <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
+          
+                {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
+                <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
+                <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
+                <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p>
+                <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p> --}}
+                 <!-- Modal toggle -->
+                <button data-modal-target="tambahdata" data-modal-toggle="tambahdata" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                  Pesan Tiket
+                </button>
+          
+              </div>
+            </a>
+        @endif
+    @else
+        {{-- Tampilkan semua destinasi jika tidak ada pencarian --}}
+        <a class="card-link">
+            <div class="ticket-card">
+              <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
+              <h3><strong>{{ $destinasi->wisata }}
+              <p>  Harga Rp. {{ $destinasi->tiket }}</p></strong></h3>
+              <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
+              <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
+        
+              {{-- <p><strong>Kategori Wisata:</strong> {{ $destinasi->genre->genre }}</p>
+              <p><strong>Harga Tiket Anak:</strong> Rp {{ $destinasi->tiket_anak }}</p>
+              <p><strong>Harga Tiket Remaja:</strong> Rp {{ $destinasi->tiket_remaja }}</p>
+              <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p>
+              <p><strong>Harga Tiket Dewasa:</strong> Rp {{ $destinasi->tiket_dewasa }}</p> --}}
+               <!-- Modal toggle -->
+              <button data-modal-target="tambahdata" data-modal-toggle="tambahdata" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                Pesan Tiket
+              </button>
+            </div>
+        </a>
+    @endif
 @endforeach
+
+@if (isset($_GET['search']) && !empty($_GET['search']) && $destinasis->where('wisata', 'like', '%' . $_GET['search'] . '%')->count() === 0)
+    <p>Data tidak ditemukan.</p>
+@endif
+
 
 
 <!-- Main modal -->

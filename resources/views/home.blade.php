@@ -26,7 +26,7 @@
 
 @extends('layouts.admin-dash')
 
-    <head><title>Home</title></head>
+    {{-- <head><title>Home</title></head> --}}
 
 @section('content')
     <div class="container">
