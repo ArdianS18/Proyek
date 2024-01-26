@@ -7,6 +7,7 @@ use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\Review;
+use App\Http\Controllers\TampilController;
 use App\Http\Controllers\TiketadminController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\TiuserController;
@@ -44,4 +45,5 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
         Route::resource('/tiketadmin', TiuserController::class);
         Route::resource('/home', HomeController::class);
         Route::resource('/lokasi', LokasiController::class);
+        Route::resource('/pengguna', TampilController::class);
 });
