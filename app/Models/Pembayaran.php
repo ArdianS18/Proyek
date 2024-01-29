@@ -12,6 +12,10 @@ class Pembayaran extends Model
     protected $table = "pembayaran";
 
     public function tiket() {
-        return $this->hasMany(Tiket::class);
+        return $this->belongsTo(Tiket::class);
+    }
+
+    public function destinasi() {
+        return $this->belongsTo(Destinasi::class);
     }
 }

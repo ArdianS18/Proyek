@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId("tiket_id")->constrained();
-            $table->bigInteger('total_tkt_anak');
-            $table->bigInteger('total_tkt_remaja');
-            $table->bigInteger('total_tkt_dewasa');
-            $table->bigInteger('total_bayar');
+            $table->foreignId('tiket_id')->references('id')->on('tiket')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('destinasi_id')->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('nama')->references('id')->on('tiket')->onUpdate('cascade')->onDelete('restrict');
+            $table->integer('byr');
             $table->timestamps();
         });
     }

@@ -116,7 +116,13 @@ class LokasiController extends Controller
     public function destroy($id)
     {
         $lokasis = Lokasi::FindOrFail($id);
-        $lokasis->delete();
-        return redirect()->route('lokasi.index')->with('success', 'berhasil menghapus data');
+
+        try {
+            $lokasis->delete();
+            return redirect()->route('lokasi.index')->with('success', 'berhasil menghapus data');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data sedang di pakai!!');
+        }
+
     }
 }

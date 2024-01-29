@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('atas_nama');
             $table->date('tanggal');
             $table->integer('tkt');
-            $table->enum('status',['Pemesanan', 'Diterima'])->default('Pemesanan');
+            $table->enum('status',['Belum Bayar', 'Sudah Bayar'])->default('Belum Bayar');
             $table->timestamps();
         });
     }

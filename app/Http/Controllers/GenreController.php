@@ -116,7 +116,13 @@ class GenreController extends Controller
     public function destroy(string $id)
     {
         $genres = Genre::FindOrFail($id);
-        $genres->delete();
-        return redirect()->route('genre.index')->with('success', 'berhasil menghapus data');
+
+        try {
+            $genres->delete();
+            return redirect()->route('genre.index')->with('success', 'berhasil menghapus data');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data sedang di pakai!');
+        }
+
     }
 }

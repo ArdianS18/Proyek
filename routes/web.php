@@ -6,6 +6,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\Review;
 use App\Http\Controllers\TampilController;
 use App\Http\Controllers\TiketadminController;
@@ -40,11 +41,12 @@ Route::group(['middleware' => ['auth']], function(){
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
-        Route::resource('/genre', GenreController::class);
-        Route::resource('/destinasi', DestinasiController::class);
-        Route::resource('/tiketadmin', TiuserController::class);
-        Route::resource('/home', HomeController::class);
-        Route::resource('/lokasi', LokasiController::class);
-        Route::resource('/pengguna', TampilController::class);
-        Route::resource('/ulasanadmin', UlasanadminController::class);  
+    Route::resource('/genre', GenreController::class);
+    Route::resource('/destinasi', DestinasiController::class);
+    Route::resource('/tiketadmin', TiuserController::class);
+    Route::resource('/home', HomeController::class);
+    Route::resource('/lokasi', LokasiController::class);
+    Route::resource('/pengguna', TampilController::class);
+    Route::resource('/ulasanadmin', UlasanadminController::class);
+    Route::resource('/pembayaran', PembayaranController::class);
 });

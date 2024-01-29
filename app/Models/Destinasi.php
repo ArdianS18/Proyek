@@ -23,4 +23,8 @@ class Destinasi extends Model
     public function lokasi() {
         return $this->belongsTo(Lokasi::class);
     }
+
+    public function pembayaran() {
+        return $this->belongsTo(Pembayaran::class);
+    }
 }

@@ -16,4 +16,9 @@ class Tiket extends Model
         return $this->belongsTo(Destinasi::class);
     }
 
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class);
+    }
+
 }
