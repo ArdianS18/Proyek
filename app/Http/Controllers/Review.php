@@ -16,7 +16,7 @@ class Review extends Controller
      */
     public function index()
     {
-        $destinasis = Destinasi::all();
+        $destinasis = Destinasi::paginate(1);
         $genres = Genre::all();
         $lokasis = Lokasi::all();
         return view('user.user-dash',  compact('genres', 'destinasis', 'lokasis'));

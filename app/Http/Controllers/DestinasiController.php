@@ -21,7 +21,7 @@ class DestinasiController extends Controller
     {
         $genres = Genre::all();
         $lokasis = Lokasi::all();
-        $destinasis = Destinasi::all();
+        $destinasis = Destinasi::paginate(1);
 
         return view('admin.destinasi.destinasi', compact('genres', 'lokasis', 'destinasis'));
         //

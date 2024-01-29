@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <h1>Data Review</h1>
-        <small>Data Review</small><br>
+        <small>Data Review</small><br><br>
 
 
         <table class="table table-bordered">

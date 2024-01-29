@@ -4,7 +4,7 @@
 
 <nav>
 <div class="container">
-<div class="row justify-content-center">
+<div class="">
 <h1>Data Wisata</h1>
 <small>Data Wisata</small><br>
 
@@ -98,7 +98,7 @@
     </div>
 </div>
 
-
+<br><br> 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -259,8 +259,14 @@
         </tbody>
         @endforeach
     </table>
+
+  
 </div>
 
+<div class="d-flex justify-content-end mt-4">
+    {{$destinasis->links()}}
+
+</div>
 
 
 </div>

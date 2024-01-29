@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <h1>Data Tiket Pemesanan</h1>
-        <small>Data Tiket Pemesanan</small><br>
+        <small>Data Tiket Pemesanan</small><br><br>
 
         {{-- <div class="row g-3 align-items-center mt-3">
             <div class="col-auto">
