@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('tanggal');
             $table->integer('tkt');
             $table->enum('status',['Belum Bayar', 'Sudah Bayar'])->default('Belum Bayar');
+            $table->string('alasan')->default('Tidak Ada');
+            $table->enum('terima',['Pemesanan', 'Tidak Diterima', 'Diterima'])->default('Pemesanan');
             $table->timestamps();
         });
     }

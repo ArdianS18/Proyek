@@ -23,7 +23,8 @@
 <body>
          <div class="navbar navbar-inverse navbar-fixed-top">
 
-        <div class="container">
+
+             <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -36,79 +37,18 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="Package.html">PACKAGE</a></li>
-                     <li><a href="Gallery.html">GALLERY</a></li>
+                    <li><a href="Gallery.html">GALLERY</a></li>
                     <li><a href="Contact.html">CONTACT</a></li>
                 </ul>
             </div>
-
         </div>
     </div>
 
-
-    <div id="home-sec">
-        <div class="container"  >
-            <div class="row text-center">
-                <div  class="col-md-12" >
-                    <span class="head-main" >Travel Template</span>
-                    <h3 class="head-last col-md-4 col-md-offset-4  col-sm-6 col-sm-offset-3">Lorem ipsum dolor sit ametLorem</h3>
-                </div>
-            </div>
-        </div>
+    <div class="header-image-container">
+        <img src="{{ asset('photo/login-bg.jpg') }}" alt="Header Image" class="header-image">
     </div>
 
-
-    <section  id="services-sec">
-        <div class="container">
-                <div class="row go-marg">
-
-                    <div class="col-md-4 col-sm-4">
-                          <div class="panel panel-default">
-
-                        <div class="panel-body">
-                             <h4 class="adjst">Tour Package One #1 </h4>
-                            <p>
-                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                                </p>
-
-
-                        </div>
-                    </div>
-
-                    </div>
-                   <div class="col-md-4 col-sm-4">
-                          <div class="panel panel-default">
-
-                        <div class="panel-body">
-                             <h4 class="adjst">Tour Package Two #2 </h4>
-                            <p>
-                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                                </p>
-
-
-                        </div>
-                    </div>
-
-                    </div>
-                     <div class="col-md-4 col-sm-4">
-                          <div class="panel panel-default">
-
-                        <div class="panel-body">
-                             <h4 class="adjst">Tour Package Three #3 </h4>
-                            <p>
-                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                                </p>
-
-
-                        </div>
-                    </div>
-
-                    </div>
-                </div>
-        </div>
-    </section>
+    @yield('content')
 
 
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
@@ -123,7 +63,20 @@
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
 
-    @yield('content')
-
 </body>
 </html>
+
+<style>
+    /* Add CSS styles for the header image container and image */
+    .header-image-container {
+        position: relative;
+        height: 400x;
+        overflow: hidden;
+    }
+
+    .header-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>

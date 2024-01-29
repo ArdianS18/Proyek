@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
+use App\Models\Pembayaran;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,9 @@ class TiketController extends Controller
     {
         $tikets=Tiket::all();
         $destinasis=Destinasi::all();
+        $pembayarans=Pembayaran::all();
 
-        return view('user.tiket-user', compact('tikets', 'destinasis'));
+        return view('user.tiket-user', compact('tikets', 'destinasis', 'pembayarans'));
     }
 
     /**
@@ -94,9 +96,11 @@ class TiketController extends Controller
     public function update(Request $request, $id)
     {
         $rules = $request->validate([
-            'status' => 'required',
+            'terima' => 'required',
+            'alasan' => 'required'
         ],  [
-            'status.required' => 'Data harus diisi'
+            'terima.required' => 'Data harus diisi',
+            'alasan.required' => 'Data harus diisi',
         ]);
 
         // $existingData = Tiket::where([

@@ -11,15 +11,6 @@
     <div class="row justify-content-center">
         <h1>Data Tiket Pemesanan</h1>
         <small>Data Tiket Pemesanan</small><br><br>
-
-        {{-- <div class="row g-3 align-items-center mt-3">
-            <div class="col-auto">
-                <form action="{{route('tiket.index')}}" method="GET">
-                <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
-                </form>
-            </div>
-        </div> --}}
-
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -48,7 +39,12 @@
                             <th scope="col" class="px-6 py-3">
                                 Status
                             </th>
-
+                            <th scope="col" class="px-6 py-3">
+                                Penerimaan
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Alasan
+                            </th>
                         </tr>
                     </thead>
                     @foreach ($tikets as $key => $tiket)
@@ -79,6 +75,12 @@
                             <td class="px-6 py-4">
                                 {{$tiket->status}}
                             </td>
+                            <td class="px-6 py-4">
+                                {{$tiket->terima}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$tiket->alasan}}
+                            </td>
 
                             <td class="px-6 py-4">
                             <!-- Edit Modal toggle -->
@@ -107,32 +109,50 @@
                 </button>
             </div>
             <!-- Modal body -->
+            <div class="container">
 
-            <p><strong>Destinasi :</strong>{{ $tiket->destinasi->wisata }}</p>
-            <p><strong>Nama Pemesan :</strong>{{ $tiket->atas_nama }}</p>
-            <p><strong>Tanggal Keberangkatan :</strong>{{ $tiket->tanggal }}</p>
-            <p><strong>Jumlah Tiket Anak :</strong>{{ $tiket->tkt_anak }}</p>
-            <p><strong>Jumlah Tiket Remaja :</strong>{{ $tiket->tkt_remaja }}</p>
-            <p><strong>Jumlah Tiket Desawa :</strong>{{ $tiket->tkt_dewasa }}</p>
-            <p><strong>Tanggal Pemesanan :</strong>{{ $tiket->created_at }}</p>
+                <div class="grid gap-4 mb-3 grid-cols-2">
+                    <div class="col-span-2">
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><strong>Destinasi : </strong>{{ $tiket->destinasi->wisata }}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><strong>Nama Pemesan : </strong>{{ $tiket->atas_nama }}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><strong>Tanggal Keberangkatan : </strong>{{ $tiket->tanggal }}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><strong>Jumlah Tiket : </strong>{{ $tiket->tkt }}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><strong>Tanggal Pemesanan : </strong>{{ $tiket->created_at }}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><strong>Status : </strong>{{ $tiket->status }}</p>
+                    </div>
+                </div>
+            </div>
 
             <form class="p-4 md:p-5" action="{{ route('tiket.update', ['tiket' => $tiket->id]) }}" method="post">
                 @method('put')
                 @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
-                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status tiket :</label>
-                        <select name="status" id="" class="form-control @error('status') is-invalid @enderror" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="Belum Bayar" <?php if($tiket['status'] == 'Belum Bayar'){echo 'selected';}?>>Belum Bayar</option>
-                            <option value="Sudah Bayar" <?php if($tiket['status'] == 'Sudah Bayar'){echo 'selected';}?>>Sudah Bayar</option>
+                        <label for="terima" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Terima tiket :</label>
+                        <select name="terima" id="" class="form-control @error('status') is-invalid @enderror" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option value="Pemesanan" <?php if($tiket['terima'] == 'Pemesanan'){echo 'selected';}?>>Pemesanan</option>
+                            <option value="Diterima" <?php if($tiket['terima'] == 'Diterima'){echo 'selected';}?>>Diterima</option>
+                            <option value="Tidak Diterima" <?php if($tiket['terima'] == 'Tidak Diterima'){echo 'selected';}?>>Tidak Diterima</option>
                         </select>
-                        @error('status')
+                        @error('terima')
+                        <span class="invalid-feedback" role="alert" style="color: red;">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="col-span-2">
+                        <label for="alasan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alasan :</label>
+                        <input type="text" id="alasan" name="alasan" class="form-control @error('wisata') is-invalid @enderror" placeholder="Alasan"  value="{{ old('alasan', $tiket->alasan ?: "Tidak Ada") }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
+                        <p><strong>Note : </strong>jika tidak ada alasan mohon untuk inputkan : "Tidak Ada"</p>
+                        @error('alasan')
                         <span class="invalid-feedback" role="alert" style="color: red;">
                             <strong>{{$message}}</strong>
                         </span>
                         @enderror
                     </div>
                 </div>
+
                 <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                     Simpan
@@ -141,19 +161,17 @@
         </div>
     </div>
 </div>
-
-
-                                    <form action="/tiket/{{$tiket->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2.5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
-                                            </svg>
-                                        </button>
-                                    </form>
-                            </td>
-                        </tr>
+<form action="/tiket/{{$tiket->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
+    @method('delete')
+    @csrf
+    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2.5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+    </svg>
+    </button>
+    </form>
+    </td>
+    </tr>
 
 
                     </tbody>

@@ -25,11 +25,11 @@
                             <th scope="col" class="px-6 py-3">
                                 Destinasi
                             </th>
-                            {{-- <th scope="col" class="px-6 py-3">
-                                Total Harga
-                            </th> --}}
                             <th scope="col" class="px-6 py-3">
                                 Pembayaran
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Bukti Foto
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Status
@@ -49,11 +49,11 @@
                             <td class="px-6 py-4">
                                 {{$bayar->destinasi->wisata}}
                             </td>
-                            {{-- <td class="px-6 py-4">
-                                {{$bayar->tiket->tkt}}
-                            </td> --}}
                             <td class="px-6 py-4">
                                 {{$bayar->byr}}
+                            </td>
+                            <td class="px-6 py-4">
+                                <img src="{{ asset('storage/'.$bayar->foto) }}" width="60px" alt="gambar">
                             </td>
                             <td class="px-6 py-4">
                                 {{$bayar->tiket->status}}

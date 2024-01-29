@@ -43,20 +43,23 @@ class PembayaranController extends Controller
     {
         $rules = $request->validate([
             'byr' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],  [
-            'byr.required' => 'Data harus diisi'
+            'byr.required' => 'Data harus diisi',
+            'foto.required' => 'Data harus diisi',
         ]);
 
-        // $fotoPath = null;
+        $fotoPath = null;
 
-        // if ($request->hasFile('foto')) {
-        //     $fotoPath = $request->file('foto')->store('fotos', 'public');
-        // }
+        if ($request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('buktifoto', 'public');
+        }
 
     $payment = Pembayaran::create([
         'tiket_id' => $request->input('tiket_id'),
         'byr' => $request->input('byr'),
         'nama' => $request->input('nama'),
+        'foto' => $fotoPath,
         'destinasi_id' => $request->input('destinasi_id'),
     ]);
 
@@ -99,7 +102,45 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bayars = Pembayaran::findOrFail($id);
+
+        // $rules = $request->validate([
+        //     'byr' => 'required',
+        // ],  [
+        //     'byr.required' => 'Data harus diisi',
+        // ]);
+
+        // $existingData = Tiket::where([
+        //     'lokasi' => $request->lokasi,
+        // ])->exists();
+
+        // if ($existingData) {
+        //     return redirect('/lokasi')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
+        // }
+
+        $exit = $bayars->foto;
+
+        if ($request->hasFile('foto')) {
+            // Delete existing photo if any
+            if ($bayars->foto) {
+                $path = storage_path('app/public/' . $bayars->foto);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+            }
+
+            $photoPath = $request->file('foto')->store('fotos', 'public');
+            $bayars->foto = $photoPath;
+        }
+
+        $bayars->byr = $request->input('byr');
+        $bayars->save();
+
+        if (!$request->hasFile('foto') && $exit) {
+            $bayars->foto = $exit;
+            $bayars->save();
+        }
+        return redirect('/tiket')->with('success', 'Berhasil membayar ulang!');
     }
 
     /**

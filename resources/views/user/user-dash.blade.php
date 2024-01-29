@@ -1,16 +1,7 @@
 @extends('layouts.user')
 
-{{-- <head>
-    <title>Halaman Tiket</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Halaman Tiket</title>
-</head> --}}
-
 @section('content')
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -104,26 +95,8 @@
       }
   </style>
 </head>
-<body>
-
-
-
-<br><br><br>
-{{-- <header class="index">
-<img src="{{ asset('photo/bg.jpeg') }}" width="2000px" height="20px" alt="">
-Selamat Datang
-</header> --}}
-
-
-{{-- <header class="description__section">
-  <div class="section__container">
-    <h2>Keunggulan Website Kami</h2>
-    <p>
-      Nikmati pengalaman berwisata dan perjalanan menyenangkan betsama kami
-    </p>
-  </div>
-</header> --}}
-{{-- </header> --}}
+<body> --}}
+    <br><br>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -141,12 +114,12 @@ Selamat Datang
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: #ffffff;
         }
 
         header {
-            background-color: #333;
-            color: white;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
             padding: 10px;
             text-align: center;
         }
@@ -222,12 +195,10 @@ Selamat Datang
         }
     </style>
 </head>
-
 <body>
     <header>
         <h1>Selamat Datang di Website Kami</h1>
     </header>
-
     <div class="container">
         {{-- Pencarian --}}
         <div class="row g-3 align-items-center mt-3">
@@ -290,7 +261,7 @@ Selamat Datang
                     </div>
                 </a>
             @endif
-        
+
 
         @if (isset($_GET['search']) && !empty($_GET['search']) && $destinasis->where('wisata', 'like', '%' . $_GET['search'] . '%')->count() === 0)
             <p>Data tidak ditemukan.</p>

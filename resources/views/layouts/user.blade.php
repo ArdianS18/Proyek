@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>User</title>
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
@@ -98,12 +97,26 @@
     </ul>
   </nav>
 
-  {{-- <div class="p-4 sm:ml-64 bg-gray-50">
-    <div class="p-4 border-dashed rounded-lg dark:border-gray-700 mt-14"> --}}
+    <div class="header-image-container">
+    <img src="{{ asset('photo/login-bg.jpg') }}" alt="Header Image" class="header-image">
+    </div>
 
       @yield('content')
-    {{-- </div>
-  </div> --}}
+
+  <style>
+    /* Add CSS styles for the header image container and image */
+    .header-image-container {
+        position: relative;
+        height: 440px; /* Adjust the height as needed */
+        overflow: hidden;
+    }
+
+    .header-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
 
 </body>
 </html>
