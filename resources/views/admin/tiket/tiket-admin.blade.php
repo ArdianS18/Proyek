@@ -70,7 +70,8 @@
                             </td>
 
                             <td class="px-6 py-4">
-                                {{$tiket->created_at}}
+                                
+                                {{\Carbon\Carbon::parse($tiket->created_at)->isoFormat('D MMMM Y')}}
                             </td>
                             <td class="px-6 py-4">
                                 {{$tiket->status}}

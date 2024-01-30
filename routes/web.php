@@ -14,7 +14,7 @@ use App\Http\Controllers\TiketController;
 use App\Http\Controllers\TiuserController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UlasanadminController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\StokController;
 use App\Models\Tiket;
 use App\Models\User;
 
@@ -51,4 +51,5 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::resource('/pengguna', TampilController::class);
     Route::resource('/ulasanadmin', UlasanadminController::class);
     Route::resource('/pembayaran', PembayaranController::class);
+    Route::resource('/stok', StokController::class);
 });

@@ -155,7 +155,10 @@
   {{-- <nav style="background-color: #ffb2c5">
     <label class="logo">Wisata</label>
     <ul>
-      <li><a style="color: #fff; transition: color 0.3s;" href="">Home</a></li>
+      {{-- <li><a class="nav-link {{ request()->routeIs('user.index') ? 'active' : '' }}" href="/user">Daftar Wisata</a></li>
+      <li><a class="nav-link {{ request()->routeIs('genre.index') ? 'active' : '' }}" href="/tiket">Tiket</a></li> --}}
+
+      <li><a style="color: #fff; transition: color 0.3s;" href="">user</a></li>
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li>
@@ -164,7 +167,7 @@
 
     <div class="header-image-container">
     <img src="{{ asset('photo/login-bg.jpg') }}" alt="Header Image" class="header-image">
-    </div> --}}
+    </div>
 
       @yield('content')
 

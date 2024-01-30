@@ -86,6 +86,18 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="col-span-2">
+                        <label for="">Stok:</label>
+                        <div class="form-group">
+                            <input type="text" id="stok" name="stok" class="form-control @error('stok') is-invalid @enderror" placeholder="Harga stok" value="{{old('stok')}}">
+                            @error('stok')
+                            <span class="invalid-feedback" role="alert" style="color: red;">
+                                <strong>{{$message}}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
 
                 </div>
                 <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -120,6 +132,9 @@
                 <th scope="col" class="px-6 py-3">
                     Harga Tiket
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Stok
+                </th>
 
                 <th scope="col" class="px-6 py-3">
                     Aksi
@@ -147,6 +162,9 @@
                 </td>
                 <td class="px-6 py-4">
                     {{$destinasi->tiket}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$destinasi->stok}}
                 </td>
                 <td class="px-6 py-4">
 
@@ -219,6 +237,15 @@
                             <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tiket Anak</label>
                             <input type="text" id="tiket" name="tiket" class="form-control @error('tiket') is-invalid @enderror" placeholder="wisata tiket"  value="{{ old('tiket', $destinasi->tiket) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
                             @error('tiket')
+                            <span class="invalid-feedback" role="alert" style="color: red;">
+                                <strong>{{$message}}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-span-2">
+                            <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok Tiket</label>
+                            <input type="text" id="stok" name="stok" class="form-control @error('stok') is-invalid @enderror" placeholder="wisata stok"  value="{{ old('stok', $destinasi->stok) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
+                            @error('stok')
                             <span class="invalid-feedback" role="alert" style="color: red;">
                                 <strong>{{$message}}</strong>
                             </span>
