@@ -1,73 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>DBI</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets -->
-      <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesheet" href="css/owl.theme.default.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-   </head>
-   <body>
-      <div class="movies_section layout_padding">
-         <div class="container">
-            <div class="movies_menu">
-               <ul>
-                  <li class="active"><a href="#">Overview</a></li>
-                  <li><a href="tv.html">TV</a></li>
-                  <li><a href="movies.html">Movies</a></li>
-                  <li><a href="#">Show</a></li>
-                  <li><a href="celebs.html">Celeb</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Cartoon</a></li>
-               </ul>
-            </div>
 
-            <main>
-                @yield('name')
-            </main>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-      <div class="copyright_section">
-         <div class="container">
-            <div class="copyright_text">Copyright 2019 All Right Reserved By <a href="https://html.design">Free html Templates</a></div>
-         </div>
+  <title>Ninestars Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+  <!-- Favicons -->
+  <link href="{{ asset('img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+  <link href="{{ asset('aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Ninestars
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>Wisata Yuk</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
-      <!-- copyright section end -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-      <!-- javascript -->
-      <script src="js/owl.carousel.js"></script>
-      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-      <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-   </body>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          {{-- <li><a class="nav-link scrollto" href="#about">About Us</a></li> --}}
+          <li><a class="nav-link scrollto" href="/user">Daftar Tiket</a></li>
+          <li><a class="nav-link scrollto" href="/tiket">History Tiket Anda</a></li>
+          <li><a class="nav-link scrollto" href="/galery">Galery</a></li>
+          <li><a class="nav-link scrollto" href="/ulasan">Ulasan</a></li>
+          <li><a class="nav-link scrollto" href="/tim">Team</a></li>
+
+          
+          <li>
+            
+            <div class="">
+               @auth
+                   {{-- <a href="{{ url('/home') }}" class="getstarted scrollto">Beranda</a> --}}
+                   {{-- <a href="{{ url('/home') }}" class="getstarted scrollto">Logout</a> --}}
+
+                   <a href="{{ route('logout') }}/login"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="getstarted scrollto">
+                     Logout
+                   </a>
+
+                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                     @csrf
+                     </form>
+
+               @else
+                   <li>
+                     <a href="{{ route('login') }}" class="getstarted scrollto">Masuk</a>
+                  </li>
+                  <li>
+                 @if (Route::has('register'))
+                     <a href="{{ route('register') }}" class="getstarted scrollto">Daftar</a>
+                   @endif     
+                  </li>
+                  
+               @endauth
+           </div>
+            {{-- <a class="getstarted scrollto" href="#about">logout</a> --}}
+         </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Selamat datang di website Wisata Yuk!!</h1>
+          <h2>Kami akan melayani anda sebaik mungkin, karena kepuasan pelanggan no. 1</h2>
+          <div>
+            <a href="#services" class="btn-get-started scrollto">beli tiket sekarang</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="img/hero-img.svg" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  
+  <main id="main">
+
+   @yield('about')
+    <!-- ======= Services Section ======= -->
+
+   @yield('content')
+
+   <!-- End Services Section -->
+       
+
+    <!-- ======= Portfolio Section ======= -->
+  
+        
+      </div>
+    </section><!-- End Portfolio Section -->
+
+
+
+    
+
+    <!-- ======= Clients Section ======= -->
+    {{-- <section id="clients" class="clients section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Clients</h2>
+          <p>They trusted us</p>
+        </div>
+
+        <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="img/clients/client-1.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-2.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-3.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-4.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-5.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-6.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-7.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="img/clients/client-8.png" class="img-fluid" alt=""></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Clients Section --> --}}
+
+    <!-- ======= Contact Us Section ======= -->
+    <!-- End Contact Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Team Section ======= -->
+  <!-- End Team Section -->
+
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('aos/aos.js') }}"></script>
+  <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('js/main.js') }}"></script>
+
+</body>
+
 </html>

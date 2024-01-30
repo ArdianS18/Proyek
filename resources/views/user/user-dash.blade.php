@@ -1,278 +1,57 @@
-@extends('layouts.penggunalay')
+@extends('layouts.userlayout')
 
 @section('content')
-{{-- <!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-
-    .logout-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logout-container a {
-      color: #000000;
-      text-decoration: none;
-      margin-left: 15px;
-    }
-
-    .logout-container a:hover {
-      background-color: red;
-    }
-
-    .ml-auto {
-      margin-left: auto;
-    }
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-      display: inline-block;
-    }
-
-    .ticket-card {
-      background-color: #fff;
-      padding: 20px;
+    .row{
       margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-      width: 300px; /* Atur lebar kartu */
-      height: 420px; /* Atur tinggi kartu */
-      text-align: center;
+      float: left;
     }
 
-    .ticket-card:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      transform: translateY(-5px);
-    }
-
-    .ticket-card img {
-      width: 100%;
+    .image-container{
+      width: 200px;
       height: 150px;
+      overflow: hidden;
+    }
+
+    .image-container img{
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
     }
-
-    .ticket-card h3 {
-      margin-top: 15px;
-    }
-
-    .ticket-card p {
-      margin: 8px 0;
-    }
-
-    .ticket-card strong {
-      color: #007bff;
-    }
-
-
-    .index{
-      background-color: ;
-    }
-
-    .description__section {
-        background-color: #ffeeee;
-        padding: 70px 0;
-        text-align: center;
-        /* margin: 90px; */
-      }
-
-      .description__section h2 {
-        font-size: 20px;
-        color: #333;
-        margin-bottom: 30px;
-      }
-
-      .description__section p {
-        font-size: 18px;
-        color: #555;
-        margin-bottom: 30px;
-      }
   </style>
 </head>
-<body> --}}
-    <br><br>
-<!DOCTYPE html>
-<html lang="en">
+<section id="services" class="services section-bg">
+  <div class="container" data-aos="fade-up">
+<div class="section-title">
+  <h2>Daftar Tiket</h2>
+  <p>Beli Tiket Wisata Sekarang sebelum kehabisan</p>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Utama User</title>
+@foreach ($destinasis as $key => $destinasi)
+<div data-aos="zoom-in" data-aos-delay="80">
 
-    <!-- Gaya eksternal -->
-    <link rel="stylesheet" href="path/to/your/external/styles.css">
+  <div class="row">
+    <div class="icon-box">
+      <div class="icon">
+        <center>
+          <div class="image-container">
+              <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto"  width="100px" >
+          </div>
+        </center>
+      </div>
+      <h3 class="title"><a href="">{{ $destinasi->wisata }} <br><p> Harga Rp. {{ $destinasi->tiket }}</p></a></h3>
+      <p class="description">Kategori {{ $destinasi->genre->genre }} <br>
+      Lokasi: {{ $destinasi->lokasi->lokasi }}
+      </p>
+      <button data-modal-target="tambahdata{{$destinasi->id}}" data-modal-toggle="tambahdata{{$destinasi->id}}" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+          Pesan Tiket
+      </button>
+    </div>      
+  </div>
 
-    <!-- Gaya internal -->
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-        }
-
-        header {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
-            padding: 10px;
-            text-align: center;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .search-container {
-            margin-top: 20px;
-        }
-
-        .search-container input[type="search"] {
-            width: 80%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .search-container button {
-            padding: 10px;
-            border: none;
-            background-color: #0d77e1;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .ticket-card {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-            width: 300px;
-            text-align: center;
-        }
-
-        .ticket-card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .ticket-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-        }
-
-        .logout-container {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-
-        .logout-container a {
-            color: #333;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-
-        .logout-container a:hover {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    {{-- <header>
-        <h1>Selamat Datang di Website Kami</h1>
-    </header> --}} <br>
-    <h2 align="center">Data Tiket</h2>
-
-    <div class="container">
-        {{-- Pencarian --}}
-        <div class="row g-3 align-items-center mt-3">
-            <div class="col-auto">
-                <form action="/user" method="GET">
-                    <div class="input-group">
-                        <input type="search" id="inputPassword6" placeholder="Cari nama wisata" name="search"
-                            class="form-control" aria-describedby="passwordHelpInline">
-                        <button type="submit" class="btn btn-outline-secondary">
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <br>
-
-        {{-- Destinasi --}}
-        @foreach ($destinasis as $key => $destinasi)
-            @if (isset($_GET['search']) && !empty($_GET['search']))
-                {{-- Filter destinasi berdasarkan pencarian --}}
-                @if (stripos($destinasi->wisata, $_GET['search']) !== false)
-                    <a href="#" class="card-link">
-                        <div class="ticket-card">
-                            <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
-                            <h3><strong>{{ $destinasi->wisata }}
-                                    <p> Harga Rp. {{ $destinasi->tiket }}</p>
-                                </strong></h3>
-                            <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
-                            <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
-
-                            <button data-modal-target="tambahdata" data-modal-toggle="tambahdata"
-                                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                type="button">
-                                Pesan Tiket
-                            </button>
-                        </div>
-                    </a>
-                @endif
-            @else
-                {{-- Tampilkan semua destinasi jika tidak ada pencarian --}}
-                <a href="#" class="card-link">
-                    <div class="ticket-card">
-                        <img src="{{ asset('storage/'.$destinasi->foto) }}" alt="foto">
-                        <h3><strong>{{ $destinasi->wisata }}
-                                <p> Harga Rp. {{ $destinasi->tiket }}</p>
-                            </strong></h3>
-                        <p><strong>Kategori </strong> {{ $destinasi->genre->genre }}</p>
-                        <p><strong>Lokasi </strong> {{ $destinasi->lokasi->lokasi }} </p>
-
-                        <button data-modal-target="tambahdata{{$destinasi->id}}" data-modal-toggle="tambahdata{{$destinasi->id}}"
-                            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                            type="button">
-                            Pesan Tiket
-                        </button>
-                    </div>
-                </a>
-            @endif
-
-
-        @if (isset($_GET['search']) && !empty($_GET['search']) && $destinasis->where('wisata', 'like', '%' . $_GET['search'] . '%')->count() === 0)
-            <p>Data tidak ditemukan.</p>
-        @endif
-
-        {{ $destinasis->links() }}
-    </div>
-
-
+</div>
 
 
 <!-- Main modal -->
@@ -345,9 +124,8 @@
   </div>
 </div>
 
+    </div>
+  </div>
 @endforeach
 
-</body>
-
-</html>
 @endsection

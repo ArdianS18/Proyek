@@ -64,11 +64,11 @@ class TiketController extends Controller
             'tkt' => $request->input('tkt'),
         ]);
 
-        if ($request->tkt<$destinasis->stok){
-            $destinasis->stok -= $request->tkt;
-        } else{
-            return redirect()->back()-with('warning', "'stok berkurang, max $destinasis->stok");
-        }
+        // if ($request->tkt<$destinasis->stok){
+        //     $destinasis->stok -= $request->tkt;
+        // } else{
+        //     return redirect()->back()-with('warning', "'stok berkurang, max $destinasis->stok");
+        // }
 
         return redirect('/tiket')->with('success', 'Berhasil menambah data!');
     }

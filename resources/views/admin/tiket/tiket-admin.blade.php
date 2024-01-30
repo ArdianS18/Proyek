@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 {{-- <head>
     <title>Kategori Destinasi</title>
 </head> --}}

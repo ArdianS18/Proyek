@@ -15,6 +15,8 @@ use App\Http\Controllers\TiuserController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UlasanadminController;
 use App\Http\Controllers\StokController;
+use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\TimController;
 use App\Models\Tiket;
 use App\Models\User;
 
@@ -40,6 +42,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/tiket', TiketController::class)->middleware('verified');
     Route::resource('/ulasan', UlasanController::class)->middleware('verified');
     Route::resource('/editprofile', UserController::class)->middleware('verified');
+    Route::resource('/galery', GaleryController::class)->middleware('verified');
+    Route::resource('/tim', TimController::class)->middleware('verified');
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
