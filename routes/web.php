@@ -14,6 +14,7 @@ use App\Http\Controllers\TiketController;
 use App\Http\Controllers\TiuserController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UlasanadminController;
+use App\Http\Controllers\UserController;
 use App\Models\Tiket;
 use App\Models\User;
 
@@ -38,6 +39,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/user', Review::class)->middleware('verified');
     Route::resource('/tiket', TiketController::class)->middleware('verified');
     Route::resource('/ulasan', UlasanController::class)->middleware('verified');
+    Route::resource('/editprofile', UserController::class)->middleware('verified');
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
