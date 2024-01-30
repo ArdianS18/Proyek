@@ -17,6 +17,7 @@ use App\Http\Controllers\UlasanadminController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\TimController;
+use App\Http\Controllers\UserController;
 use App\Models\Tiket;
 use App\Models\User;
 

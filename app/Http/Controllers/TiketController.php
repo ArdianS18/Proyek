@@ -45,6 +45,7 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
+        // $destinasis=Destinasi::all();
         $rules = $request->validate([
             'atas_nama' => 'required',
             'tanggal' => 'required',

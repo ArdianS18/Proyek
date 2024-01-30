@@ -161,7 +161,7 @@
                     <img src="{{ asset('storage/'.$destinasi->foto) }}" width="60px" alt="gambar">
                 </td>
                 <td class="px-6 py-4">
-                    {{$destinasi->tiket}}
+                    Rp. {{ number_format($destinasi->tiket, 0, ',', '.')}}
                 </td>
                 <td class="px-6 py-4">
                     {{$destinasi->stok}}

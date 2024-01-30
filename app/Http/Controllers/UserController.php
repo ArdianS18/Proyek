@@ -70,7 +70,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $users = Auth::user()->$id;
+        $users = User::findOrFail($id);
 
         $exit = $users->profile_image;
 
@@ -100,7 +100,12 @@ class UserController extends Controller
             $users->foto = $exit;
             $users->save();
         }
-        return redirect()->back()->with('success', 'Berhasil mengedit data!');
+
+        if (Auth::user()->role == "Admin") {
+            return redirect('/home')->with('succesa', 'Berhasil edit profile!!');
+        }
+
+        return redirect('/user')->with('success', 'Berhasil mengedit profile!');
 
     }
 

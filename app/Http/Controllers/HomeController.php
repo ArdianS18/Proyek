@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destinasi;
 use App\Models\Genre;
+use App\Models\Lokasi;
+use App\Models\Tiket;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -25,8 +28,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $totaluser = User::count();
+        $totaluser = User::where('role', 'user')->count();
         $totalkat = Genre::count();
-        return view('home', compact('totaluser', 'totalkat'));
+        $totallokasi = Lokasi::count();
+        $totalwisata = Destinasi::count();
+        $totaltiket = Tiket::count();
+
+        return view('home', compact('totaluser', 'totalkat', 'totallokasi', 'totalwisata', 'totaltiket'));
     }
 }
