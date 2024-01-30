@@ -90,7 +90,7 @@
       {{-- <li><a class="nav-link {{ request()->routeIs('user.index') ? 'active' : '' }}" href="/user">Daftar Wisata</a></li>
       <li><a class="nav-link {{ request()->routeIs('genre.index') ? 'active' : '' }}" href="/tiket">Tiket</a></li> --}}
 
-      <li><a style="color: #fff; transition: color 0.3s;" href="">Home</a></li>
+      <li><a style="color: #fff; transition: color 0.3s;" href="">user</a></li>
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li>

@@ -7,6 +7,9 @@ use App\Models\Pembayaran;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+// untuk tanggal berbahasa indonesia
+setlocale(LC_TIME, 'id_ID');
+\Carbon\Carbon::setLocale('id');
 
 class TiketController extends Controller
 {
@@ -60,6 +63,12 @@ class TiketController extends Controller
             'destinasi_id' => $request->input('destinasi_id'),
             'tkt' => $request->input('tkt'),
         ]);
+
+        if ($request->tkt<$destinasis->stok){
+            $destinasis->stok -= $request->tkt;
+        } else{
+            return redirect()->back()-with('warning', "'stok berkurang, max $destinasis->stok");
+        }
 
         return redirect('/tiket')->with('success', 'Berhasil menambah data!');
     }

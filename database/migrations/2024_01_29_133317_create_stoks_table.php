@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('destinasi', function (Blueprint $table) {
+        Schema::create('stok', function (Blueprint $table) {
             $table->id();
-            $table->string('wisata');
-            $table->foreignId('genre_id')->references('id')->on('genre')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('lokasi_id')->references('id')->on('lokasi')->onUpdate('cascade')->onDelete('restrict');
-            $table->string('foto');
-            $table->bigInteger('tiket');
             $table->bigInteger('stok');
             $table->timestamps();
         });
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('destinasi');
+        Schema::dropIfExists('stok');
     }
 };

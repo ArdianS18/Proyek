@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.penggunalay')
 
 @section('content')
 {{-- <!DOCTYPE html>
@@ -196,9 +196,11 @@
     </style>
 </head>
 <body>
-    <header>
+    {{-- <header>
         <h1>Selamat Datang di Website Kami</h1>
-    </header>
+    </header> --}} <br>
+    <h2 align="center">Data Tiket</h2>
+
     <div class="container">
         {{-- Pencarian --}}
         <div class="row g-3 align-items-center mt-3">

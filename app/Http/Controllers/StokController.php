@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Destinasi;
-use App\Models\Tiket;
+use App\Models\Stok;
 use Illuminate\Http\Request;
-// untuk tanggal berbahasa indonesia
-setlocale(LC_TIME, 'id_ID');
-\Carbon\Carbon::setLocale('id');
 
-
-class TiuserController extends Controller
+class StokController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +14,8 @@ class TiuserController extends Controller
      */
     public function index()
     {
-        $tikets=Tiket::all();
-        $destinasis=Destinasi::all();
-
-        return view('admin.tiket.tiket-admin', compact('tikets', 'destinasis'));
+        $stoks = Stok::all();
+        return view('admin.stok', compact('stoks'));
     }
 
     /**
@@ -43,16 +36,33 @@ class TiuserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = $request->validate([
+            'stok' => 'required',
+        ],  [
+            'stok.required' => 'Data harus diisi'
+        ]);
+
+        $existingData = Stok::where([
+            'stok' => $request->stok,
+        ])->exists();
+
+        if ($existingData) {
+            return redirect('/stok')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
+        }
+
+        Stok::create([
+            'stok' => $request->input('stok'),
+        ]);
+        return redirect('/stok')->with('success', 'berhasil menambah data!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Stok  $stok
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Stok $stok)
     {
         //
     }
@@ -60,10 +70,10 @@ class TiuserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Stok  $stok
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Stok $stok)
     {
         //
     }
@@ -72,10 +82,10 @@ class TiuserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Stok  $stok
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Stok $stok)
     {
         //
     }
@@ -83,11 +93,12 @@ class TiuserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Stok  $stok
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Stok $stok)
     {
-        //
+        $stoks->delete();
+            return redirect()->route('stok.index')->with('success', 'berhasil menghapus data');
     }
 }

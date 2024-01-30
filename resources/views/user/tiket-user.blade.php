@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.penggunalay')
 
 <head>
     <title>Halaman Pesan</title>
@@ -19,7 +19,7 @@
           font-family: 'Arial', sans-serif;
           margin: 0;
           padding: 0;
-          background-color: #ffffff;
+          background-color: #fbfbfb;
       }
 
       header {
@@ -102,10 +102,11 @@
 </head>
 <body>
 
-    <header>
-        <h1>Selamat Datang di Website Kami</h1>
-    </header>
-
+<br><br><br><br><br>
+<div class="container">
+  
+<h1 align="center">History Pemesanan</h1>
+{{-- <small align="center">History</small><br> --}}
 
 
     <div class="container" style="display: flex;  gap: 20px;">
@@ -119,7 +120,7 @@
       <p><strong>Total Harga : </strong>Rp. {{ $tiket->destinasi->tiket *  $tiket->tkt }}  </p>
 
       @if ($tiket->status == 'Belum Bayar')
-      <button data-modal-target="tambahdata{{$tiket->id}}" data-modal-toggle="tambahdata{{$tiket->id}}" class="text-red-600 border border-red-600 hover:bg-white hover:text-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+      <button data-modal-target="tambahdata{{$tiket->id}}" data-modal-toggle="tambahdata{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
           Bayar Sekarang
       </button>
       @elseif ($tiket->terima == "Tidak Diterima")
@@ -127,17 +128,17 @@
             Bayar Ulang Sekarang
         </button>
       @else
-      <button class="text-green bg-gradient-to-r from-green-500 to-blue-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
+      <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
           Sudah Bayar
       </button>
       @endif
 
       @if ($tiket->alasan == "Tidak Ada" && $tiket->terima == "Pemesanan")
-        <button class="text-green bg-gradient-to-r from-green-500 to-blue-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
+        <button class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" type="button">
             Pemesanan
         </button>
         @elseif ($tiket->terima == "Diterima")
-        <button class="text-green bg-gradient-to-r from-green-500 to-blue-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
+        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
             Diterima
         </button>
         @else
@@ -312,6 +313,8 @@
     </div>
   </div>
 @endforeach
+
+
 </div>
 </body>
 </html>

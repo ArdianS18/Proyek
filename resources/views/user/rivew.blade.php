@@ -1,4 +1,4 @@
-@extends('user.user')
+@extends('layouts.penggunalay')
 
 @section('content')
 
@@ -44,11 +44,11 @@
         form {
             margin-top: 10px;
         }
-
+/* 
         label {
             display: block;
             margin-bottom: 5px;
-        }
+        } */
 
         textarea {
             width: 100%;
@@ -71,7 +71,7 @@
             background-color: #555;
         }
 
-        footer {
+        /* footer {
             background-color: #333;
             color: #fff;
             text-align: center;
@@ -79,7 +79,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-        }
+        } */
 
         .user-review {
             border: 1px solid #ddd;
@@ -121,45 +121,69 @@
     </style>
 </head>
 <body>
-    <main>
+    {{-- <main> --}}
         {{-- <section>
             <h2>Ringkasan Pemesanan</h2>
             <!-- Tambahkan informasi ringkasan pemesanan seperti nomor pemesanan, tanggal, dan lainnya -->
         </section> --}}
 
-        <section>
-            <h2>Rating dan Ulasan</h2>
-            <p>Berikan rating Anda untuk pengalaman pemesanan tiket ini:</p>
-            <!-- Tambahkan elemen rating seperti bintang atau skala 1-10 -->
+        <div class="movies_section layout_padding">
+            <div class="container">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <div class="col-md-6">
+                                @if (session('resent'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ __('A fresh verification link has been sent to your email address.') }}
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+    
+                    
+                    <section>
+                        <h2>Rating dan Ulasan</h2>
+                        <p>Berikan rating Anda untuk pengalaman pemesanan tiket ini:</p>
+                        <!-- Tambahkan elemen rating seperti bintang atau skala 1-10 -->
+            
+                        <form action="/ulasan" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="ulasan">Tulis ulasan anda :</label>
+                                <textarea name="ulasan" class="form-control @error('ulasan') is-invalid @enderror" rows="4" placeholder="Masukkan ulasan anda">{{ old('ulasan') }}</textarea>
+                                @error('ulasan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">Kirim Ulasan</button>
+                            </div>
+                        </form>
+                    </section>
+            
+                    <section>
+                        <h2>Ulasan Pengguna Lainnya</h2>
+                        @foreach ($ulasans->sortByDesc('created_at') as $key => $ulasan)
+                            <div class="user-review">
+                                {{ $ulasan->ulasan }}
+                                <div class="review-time">{{ \Carbon\Carbon::parse($ulasan->created_at)->locale('id')->diffForHumans() }}</div>
+                            </div>
+                        @endforeach
+                    </section>
+            
 
-            <form action="/ulasan" method="post">
-                @csrf
-                <div class="form-group">
-                    <label for="ulasan">Tulis ulasan anda :</label>
-                    <textarea name="ulasan" class="form-control @error('ulasan') is-invalid @enderror" rows="4" placeholder="Masukkan ulasan anda">{{ old('ulasan') }}</textarea>
-                    @error('ulasan')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">Kirim Ulasan</button>
-                </div>
-            </form>
-        </section>
 
-        <section>
-            <h2>Ulasan Pengguna Lainnya</h2>
-            @foreach ($ulasans->sortByDesc('created_at') as $key => $ulasan)
-                <div class="user-review">
-                    {{ $ulasan->ulasan }}
-                    <div class="review-time">{{ \Carbon\Carbon::parse($ulasan->created_at)->locale('id')->diffForHumans() }}</div>
-                </div>
-            @endforeach
-        </section>
+                </main>
+            </div>
+        </div>
 
-    </main>
+
+
+     
 
 </body>
 </html>

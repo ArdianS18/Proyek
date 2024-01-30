@@ -52,12 +52,14 @@ class DestinasiController extends Controller
             'lokasi_id' => 'required|exists:lokasi,id',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'tiket' => 'required',
+            'stok' => 'required',
         ], [
             'wisata.required' => 'Data harus diisi',
             'genre_id.exists' => 'Data harus diisi',
             'lokasi_id.exists' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
             'tiket.required' => 'Data harus diisi',
+            'stok.required' => 'Data harus diisi',
         ]);
 
         $fotoPath = null;
@@ -72,6 +74,7 @@ class DestinasiController extends Controller
             'lokasi_id' => $request->input('lokasi_id'),
             'foto' => $fotoPath,
             'tiket' => $request->input('tiket'),
+            'stok' => $request->input('stok'),
 
         ]);
         return redirect('/destinasi')->with('success', 'berhasil mengedit data!');
@@ -133,6 +136,7 @@ class DestinasiController extends Controller
         $destinasi->genre_id = $request->input('genre_id');
         $destinasi->lokasi_id = $request->input('lokasi_id');
         $destinasi->tiket = $request->input('tiket');
+        $destinasi->stok = $request->input('stok');
 
         // Check if a new photo is provided
 
