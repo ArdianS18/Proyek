@@ -96,14 +96,14 @@
 
                     <div class="grid gap-4 mb-4 grid-cols-2">
                         <div class="col-span-2">
-                        <label for="">Wisata : <p></p></label>
+                        <label for="">Wisata : </label>
                         <input type="hidden" name="destinasi_id" id="" class="form-control  @error('destinasi_id') is invalid @enderror" value="{{$destinasi->id}}">
                             <input type="text" id="destinasi_id" name="" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $destinasi->wisata }}"  readonly>
                         </div>
 
                     <div class="col-span-2">
-                      <label for="">Atas Nama : <p></p></label>
-                        <input type="text" id="atas_nama" name="atas_nama" class="form-control @error('atas_nama') is-invalid @enderror" value="{{ old('atas_nama') }}">
+                      <label for="">Atas Nama :</label>
+                        <input type="text" id="atas_nama" name="atas_nama" class="form-control @error('atas_nama') is-invalid @enderror" value="{{ Auth::user()->name }}" readonly>
                         @error('atas_nama')
                         <span class="invalid-feedback" role="alert" style="color: red;">
                             <strong>{{$message}}</strong>
@@ -113,7 +113,7 @@
                     </div>
 
                     <div class="col-span-2">
-                      <label for="">Tanggal Pergi Wisata : <p></p></label>
+                      <label for="">Tanggal Pergi Wisata :</label>
                         <input type="date" id="tanggal" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" value="{{ old('tanggal') }}">
                         @error('tanggal')
                         <span class="invalid-feedback" role="alert" style="color: red;">
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class="col-span-2">
-                      <label for="">Jumlah Tiket : <p></p></label>
+                      <label for="">Jumlah Tiket :</label>
                         <input type="number" id="tkt" name="tkt" class="form-control @error('tkt') is-invalid @enderror" value="{{ old('tkt') }}">
                         @error('tkt')
                         <span class="invalid-feedback" role="alert" style="color: red;">

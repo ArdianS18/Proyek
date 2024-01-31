@@ -76,8 +76,8 @@ class TiketController extends Controller
         $destinasi->save();
     } else {
         return redirect()->back()->with('warning', "Jumlah stok kurang, maksimal tersedia $destinasi->stok tiket.");
+        // return false;
     }
-
         // if ($request->tkt<$destinasis->stok){
         //     $destinasis->stok -= $request->tkt;
         // } else{

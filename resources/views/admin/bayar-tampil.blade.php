@@ -53,7 +53,6 @@
                                 {{$bayar->destinasi->wisata}}
                             </td>
                             <td class="px-6 py-4">
-                                {{-- Rp. {{ number_format($tiket->destinasi->tiket *  $tiket->tkt, 0, ',', '.')}} --}}
                                 Rp. {{ number_format($bayar->totalharga, 0, ',', '.')}}
                             </td>
                             <td class="px-6 py-4">

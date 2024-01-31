@@ -25,9 +25,14 @@
 </div>
 
 @foreach ($tikets as $key => $tiket)
-<div data-aos="zoom-in" data-aos-delay="80">
+
+{{-- <br><br><br><br><br> --}}
+<div class="container">
+
+{{-- <h1 align="center">History Pemesanan</h1> --}}
+
 <div class="row">
-  <div class="cart">
+  <div class="cart" data-aos="zoom-in" data-aos-delay="100">
     <div class="icon-box">
       {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
       <h4 class="title"><a href="">Wisata : {{$tiket->destinasi->wisata}}</a></h4>
@@ -98,18 +103,18 @@
           <input type="hidden" name="tiket_id" value="{{ $tiket->id }}">
 
           <div class="col-span-2">
-              <label for="destinasi">Wisata : <p></p></label>
+              <label for="destinasi">Wisata : </label>
               <input type="hidden" name="destinasi_id" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $bayar->destinasi_id }}">
               <input type="text" id="destinasi_id" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $bayar->destinasi->wisata }}" readonly>
           </div>
 
           <br><div class="col-span-2">
-              <label for="nama">Atas Nama : <p></p></label>
+              <label for="nama">Atas Nama : </label>
               <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $tiket->atas_nama }}" readonly>
           </div>
 
           <br><div class="col-span-2">
-              <label for="byr">Bayar Ulang : <p></p></label>
+              <label for="byr">Bayar Ulang : </label>
               <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr', $bayar->byr) }}">
               @error('byr')
                   <span class="invalid-feedback" role="alert" style="color: red;">
@@ -193,22 +198,22 @@
             <input type="hidden" name="tiket_id" value="{{ $tiket->id }}">
 
               <div class="col-span-2">
-              <label for="">Wisata : <p></p></label>
+              <label for="">Wisata : </label>
               <input type="hidden" name="destinasi_id" id="" class="form-control  @error('destinasi_id') is invalid @enderror" value="{{$tiket->destinasi_id}}">
-              <input type="text" id="destinasi_id" name="" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $tiket->destinasi->wisata}}"  readonly>
+              <input type="text" id="destinasi_id" name="" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $tiket->destinasi->wisata}}"  readonly><br>
               </div>
 
                   <div class="col-span-2">
-                  <label for="">Atas Nama : <p></p></label>
+                  <label for="">Atas Nama : </label>
                   <input type="hidden" name="nama" id="" class="form-control  @error('nama') is invalid @enderror" value="{{$tiket->id}}">
-                  <input type="text" id="nama" name="" class="form-control @error('nama') is-invalid @enderror" value="{{ $tiket->atas_nama }}"readonly>
+                  <input type="text" id="nama" name="" class="form-control @error('nama') is-invalid @enderror" value="{{ $tiket->atas_nama }}"readonly><br>
                   </div>
 
 
                   <div class="col-span-2">
-                    <label for="">Total Harga : <p></p></label>
+                    <label for="">Total Harga : </label>
                     <input type="hidden" name="nama" id="" class="form-control  @error('nama') is invalid @enderror" value="{{$tiket->id}}">
-                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="{{ $tiket->destinasi->tiket *  $tiket->tkt }}" readonly>
+                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="{{ $tiket->destinasi->tiket *  $tiket->tkt }}" readonly><br>
                       @error('totalharga')
                       <span class="invalid-feedback" role="alert" style="color: red;">
                           <strong>{{$message}}</strong>
@@ -217,8 +222,8 @@
                     </div>
 
                   <div class="col-span-2">
-                  <label for="">Bayar : <p></p></label>
-                    <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr') }}">
+                  <label for="">Bayar : </label>
+                    <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr') }}"><br>
                     @error('byr')
                     <span class="invalid-feedback" role="alert" style="color: red;">
                         <strong>{{$message}}</strong>
@@ -228,7 +233,7 @@
 
                   <div class="col-span-2">
                       <label for="">Bukti Pembayaran</label>
-                      <input type="file" name="foto" class="form-control @error('foto') is-infalid @enderror">
+                      <input type="file" name="foto" class="form-control @error('foto') is-infalid @enderror"><br>
                       @error('foto')
                       <span class="invalid-feedback" role="alert" style="color: red;">
                           <strong>{{$message}}</strong>
