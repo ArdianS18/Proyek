@@ -177,10 +177,10 @@
     </tr>
 
 
-                    </tbody>
-                    @endforeach
-                </table>
-            </div>
+    </tbody>
+    @endforeach
+</table>
+</div>
 
 
 

@@ -20,6 +20,9 @@
       height: 100%;
       object-fit: cover;
     }
+    .page{
+      padding: 195px;
+    }
 
   </style>
 </head>
@@ -146,7 +149,7 @@
         </div>
       </div>
     @endforeach
-@else
+  @else
     <div class="text-center mt-5">
         <p>Data tidak ditemukan.</p>
     </div>
