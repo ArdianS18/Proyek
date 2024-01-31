@@ -155,10 +155,8 @@
     </div>
 @endif
 
-
 <div class="page d-flex justify-content-end mt-4">
     {{$destinasis->links()}}
 </div>
-
 
 @endsection

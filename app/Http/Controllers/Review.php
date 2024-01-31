@@ -18,13 +18,13 @@ class Review extends Controller
     {
         $genres = Genre::all();
         $lokasis = Lokasi::all();
-        
+
         if ($request->has('search')) {
             $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->paginate(4);
         } else {
             $destinasis = Destinasi::paginate(4);
         }
-        
+
         return view('user.user-dash', compact('genres', 'destinasis', 'lokasis'));
     }
 

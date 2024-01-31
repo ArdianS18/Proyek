@@ -13,7 +13,7 @@
     width: 290px;
     }
     .icon-box{
-        height: 400px;
+    height: 400px;
     }
   </style>
 </head>

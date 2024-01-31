@@ -26,7 +26,7 @@ class DestinasiController extends Controller
         if ($request->has('search')) {
             $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->get();
         } else {
-            $destinasis = Destinasi::paginate(5);
+            $destinasis = Destinasi::paginate(4);
         }
 
         return view('admin.destinasi.destinasi', compact('genres', 'lokasis', 'destinasis'));

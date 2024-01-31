@@ -5,7 +5,7 @@
 
 
 {{-- <head>
-    <title>Kategori Destinasi</title>
+    <title>Data Pemesanan Tiket</title>
 </head> --}}
 
 <nav>
@@ -33,9 +33,6 @@
                                 Jumlah tiket
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Total Harga
-                            </th>
-                            <th scope="col" class="px-6 py-3">
                                 Tanggal Pesanan
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -46,6 +43,9 @@
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Alasan
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Aksi
                             </th>
                         </tr>
                     </thead>
@@ -164,6 +164,7 @@
         </div>
     </div>
 </div>
+
 <form action="/tiket/{{$tiket->id}}" method="post" onclick="return confirm('Yakin Akan menghapus data?')" class="d-inline">
     @method('delete')
     @csrf
@@ -175,16 +176,10 @@
     </form>
     </td>
     </tr>
-
-
     </tbody>
     @endforeach
 </table>
 </div>
-
-
-
-
 </div>
 </div>
 </nav>
