@@ -60,11 +60,11 @@
               </div>
             </center>
           </div>
-          <h3 class="title"><a href="">{{ $destinasi->wisata }} <br><p> Harga Rp. {{ $destinasi->tiket }}</p></a></h3>
-          <p class="description">Kategori {{ $destinasi->genre->genre }} <br>
-          Lokasi: {{ $destinasi->lokasi->lokasi }}
+          <br><h3 class="title"><a href="">{{ $destinasi->wisata }} <br><p> Harga : Rp. {{number_format($destinasi->tiket, 0, ',', '.')}}</p></a></h3>
+          <p class="description">Kategori : {{ $destinasi->genre->genre }} <br>
+          Lokasi : {{ $destinasi->lokasi->lokasi }}
           </p>
-          <button data-modal-target="tambahdata{{$destinasi->id}}" data-modal-toggle="tambahdata{{$destinasi->id}}" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+          <br><button data-modal-target="tambahdata{{$destinasi->id}}" data-modal-toggle="tambahdata{{$destinasi->id}}" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
               Pesan Tiket
           </button>
         </div>

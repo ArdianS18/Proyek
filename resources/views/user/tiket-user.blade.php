@@ -5,14 +5,15 @@
 <head>
   <style>
 
-     .row{
-      margin: 5px;
-      float: left;
-      /* */
-
+    .row{
+    margin: 10px;
+    float: left;
     }
     .cart{
-       width: 290px;
+    width: 290px;
+    }
+    .icon-box{
+        height: 400px;
     }
   </style>
 </head>
@@ -24,22 +25,18 @@
 </div>
 
 @foreach ($tikets as $key => $tiket)
-
-<br><br><br><br><br>
-<div class="container">
-
-{{-- <h1 align="center">History Pemesanan</h1> --}}
-
-<div class="row" width="100px">
-  <div class="cart"  data-aos="zoom-in" data-aos-delay="100">
+<div data-aos="zoom-in" data-aos-delay="80">
+<div class="row">
+  <div class="cart">
     <div class="icon-box">
-      <div class="icon"><i class="bx bxl-dribbble"></i></div>
+      {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
       <h4 class="title"><a href="">Wisata : {{$tiket->destinasi->wisata}}</a></h4>
-      <p class="description">Atas Nama : {{$tiket->atas_nama }} <br> Harga : Rp. {{ $tiket->destinasi->tiket }}
+      <p class="description">Atas Nama : {{$tiket->atas_nama }} <br> Harga : Rp. {{number_format( $tiket->destinasi->tiket, 0,',', '.' )}}
       <br> Jumlah Tiket : {{ $tiket->tkt }}
-      <br>Total Harga : </strong>Rp. {{ $tiket->destinasi->tiket *  $tiket->tkt }}
+      <br>Total Harga : </strong>Rp. {{number_format($tiket->destinasi->tiket *  $tiket->tkt, 0, ',', '.')}}
+      <br>Jadwal : {{\Carbon\Carbon::parse($tiket->tanggal)->isoFormat('D MMMM Y')}}
     </p><br>
-    
+
     @if ($tiket->status == 'Belum Bayar')
     <button data-modal-target="tambahdata{{$tiket->id}}" data-modal-toggle="tambahdata{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
         Bayar Sekarang
@@ -67,24 +64,11 @@
           Tidak Diterima
       </button>
       @endif
-
-      {{-- @if ($tiket->alasan == "Tidak Ada" && $tiket->terima == "Pemesanan")
-        <button class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" type="button">
-            Pemesanan
-        </button>
-        @elseif ($tiket->terima == "Diterima")
-        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
-            Diterima
-        </button>
-        @else
-        <button data-modal-target="lihatalasan{{$tiket->id}}" data-modal-toggle="lihatalasan{{$tiket->id}}" class="text-red-600 border border-red-600 hover:bg-white hover:text-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-            Tidak Diterima
-        </button>
-        @endif --}}
     </div>
   </div>
 </div>
 </div>
+
 
 
 <div id="editbayar{{$tiket->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

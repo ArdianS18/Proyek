@@ -136,7 +136,7 @@
                     <div class="col-span-2">
                         <label for="">Stok:</label>
                         <div class="form-group">
-                            <input type="text" id="stok" name="stok" class="form-control @error('stok') is-invalid @enderror" placeholder="Harga stok" value="{{old('stok')}}">
+                            <input type="text" id="stok" name="stok" class="form-control @error('stok') is-invalid @enderror" placeholder="Jumlah stok" value="{{old('stok')}}">
                             @error('stok')
                             <span class="invalid-feedback" role="alert" style="color: red;">
                                 <strong>{{$message}}</strong>

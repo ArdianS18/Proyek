@@ -48,16 +48,17 @@ class TiketController extends Controller
         // $destinasis=Destinasi::all();
         $rules = $request->validate([
             'atas_nama' => 'required',
-            'tanggal' => 'required',
+            'tanggal' => 'required|date|after_or_equal:today',
             'destinasi_id' => 'required',
             'tkt' => 'required',
-   
+
         ], [
             'atas_nama.required' => 'Data harus diisi',
             'tanggal.required' => 'Data harus diisi',
+            'tanggal.after_or_equal' => 'Tanggal harus hari ini atau setelah hari ini',
             'destinasi_id.required' => 'Data harus diisi',
             'tkt.required' => 'Data harus diisi',
-         
+
         ]);
 
         Tiket::create([
@@ -137,9 +138,9 @@ class TiketController extends Controller
         try {
             $tiket = Tiket::findOrFail($id);
             $destinasi = Destinasi::find($tiket->destinasi_id);
-    
+
             $stokBaru = $destinasi->stok + $tiket->tkt - $request->tkt;
-    
+
             if ($stokBaru < 0) {
                 return redirect()->back()->with('warning', "Jumlah stok kurang dari jumlah keluar");
             } else {
@@ -149,9 +150,9 @@ class TiketController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', "Error: " . $e->getMessage());
         }
-    
+
         Tiket::where('id', $id)->update($rules);
-    
+
         return redirect('/tiketadmin')->with('success', 'Berhasil mengedit data!');
     }
     /**
