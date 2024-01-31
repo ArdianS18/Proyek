@@ -41,6 +41,12 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    nav-link.active {
+      background-color: #000; /* Set the active link background color */
+    }
+  </style>
 </head>
 
 <body>
@@ -57,13 +63,13 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto {{ request()->routeIs('staf.index') ? 'active' : '' }}" href="/" href="#hero">Home</a></li>
           {{-- <li><a class="nav-link scrollto" href="#about">About Us</a></li> --}}
-          <li><a class="nav-link scrollto" href="/user">Daftar Tiket</a></li>
-          <li><a class="nav-link scrollto" href="/tiket">History Tiket Anda</a></li>
-          <li><a class="nav-link scrollto" href="/galery">Galery</a></li>
-          <li><a class="nav-link scrollto" href="/ulasan">Ulasan</a></li>
-          <li><a class="nav-link scrollto" href="/tim">Team</a></li>
+          <li><a class="nav-link scrollto {{ request()->routeIs('user.index') ? 'active' : '' }}" href="{{ route('user.index') }}">Daftar Tiket</a></li>
+          <li><a class="nav-link scrollto {{ request()->routeIs('tiket.index') ? 'active' : '' }}" href="{{ route('tiket.index') }}">History Tiket Anda</a></li>
+          <li><a class="nav-link scrollto {{ request()->routeIs('galery.index') ? 'active' : '' }}" href="{{ route('galery.index') }}">Galery</a></li>
+          <li><a class="nav-link scrollto {{ request()->routeIs('ulasan.index') ? 'active' : '' }}" href="{{ route('ulasan.index') }}">Ulasan</a></li>
+          {{-- <li><a class="nav-link scrollto " href="/tim">Team</a></li> --}}
 
 
           <li>
@@ -139,25 +145,7 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
 
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Selamat datang di website Wisata Yuk!!</h1>
-          <h2>Kami akan melayani anda sebaik mungkin, karena kepuasan pelanggan no. 1</h2>
-          <div>
-            <a href="#services" class="btn-get-started scrollto">beli tiket sekarang</a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="img/hero-img.svg" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
 
 
   <main id="main">

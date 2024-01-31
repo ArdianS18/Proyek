@@ -44,9 +44,11 @@ class PembayaranController extends Controller
         $rules = $request->validate([
             'byr' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'totalharga' => 'required',
         ],  [
             'byr.required' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
+            'totalharga.required' => 'Data harus diisi',
         ]);
 
         $fotoPath = null;
@@ -61,11 +63,22 @@ class PembayaranController extends Controller
         'nama' => $request->input('nama'),
         'foto' => $fotoPath,
         'destinasi_id' => $request->input('destinasi_id'),
+        'totalharga' => $request->input('totalharga'),
     ]);
 
     $tiket = Tiket::find($request->input('tiket_id'));
     $tiket->status = 'Sudah Bayar';
     $tiket->save();
+
+    $destinasi = Destinasi::find($request->destinasi_id);
+
+    if ($request->tkt <= $destinasi->stok) {
+        $destinasi->stok -= $request->tkt;
+        $destinasi->save();
+    } else {
+        return redirect()->back()->with('warning', "Jumlah stok kurang, maksimal tersedia $destinasi->stok tiket.");
+    }
+
 
     return redirect('/tiket')->with('success', 'Berhasil melakukan Pembayaran');
 

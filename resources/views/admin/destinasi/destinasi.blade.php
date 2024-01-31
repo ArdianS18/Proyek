@@ -13,6 +13,22 @@
     Tambah Wisata
 </button>
 
+         {{-- untuk mencari --}}
+         <div class="row g-3 align-items-center mt-3">
+            <div class="col-auto">
+                <form action="/destinasi" method="GET">
+                    <div class="input-group">
+                        <input type="search" id="inputPassword6" placeholder="Cari nama wisata" name="search" class="form-control" aria-describedby="passwordHelpInline">
+                        <button type="submit" class="btn btn-outline-secondary">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
 <!-- Main modal -->
 <div id="tambahdata" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
@@ -42,7 +58,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="col-span-2">
+                    {{-- <div class="col-span-2">
                         <label for="genre_id">Kategori Wisata :</label>
                         <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" value="{{ old('genre_id')}}" aria-label="Default select example">
                             <option selected>Pilih Kategori</option>
@@ -50,8 +66,23 @@
                                 <option value="{{$genre->id}}">{{$genre->genre}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
+                    <!-- Dropdown untuk genre -->
                     <div class="col-span-2">
+                        <label for="genre_id">Kategori Wisata :</label>
+                        <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" aria-label="Default select example">
+                            <option value="" selected disabled>Pilih Kategori</option>
+                            @foreach ($genres as $genre)
+                                <option value="{{ $genre->id }}" {{ old('genre_id') == $genre->id ? 'selected' : '' }}>{{ $genre->genre }}</option>
+                            @endforeach
+                        </select>
+                        @error('genre_id')
+                        <span class="invalid-feedback" role="alert" style="color: red;">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    {{-- <div class="col-span-2">
                         <label for="lokasi_id">Pilih Lokasi Wisata :</label>
                         <select class="form-select @error('lokasi_id') is-invalid @enderror" name="lokasi_id" value="{{ old('lokasi_id')}}" aria-label="Default select example">
                             <option selected>Pilih Lokasi Wisata</option>
@@ -62,6 +93,22 @@
                         @error('lokasi_id')
                         <span class="invalid-feedback" role="alert" style="color: red;">
                             <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                    </div> --}}
+
+                    <!-- Dropdown untuk lokasi -->
+                    <div class="col-span-2">
+                        <label for="lokasi_id">Pilih Lokasi Wisata :</label>
+                        <select class="form-select @error('lokasi_id') is-invalid @enderror" name="lokasi_id" aria-label="Default select example">
+                            <option value="" selected disabled>Pilih Lokasi Wisata</option>
+                            @foreach ($lokasis as $lokasi)
+                                <option value="{{ $lokasi->id }}" {{ old('lokasi_id') == $lokasi->id ? 'selected' : '' }}>{{ $lokasi->lokasi }}</option>
+                            @endforeach
+                        </select>
+                        @error('lokasi_id')
+                        <span class="invalid-feedback" role="alert" style="color: red;">
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -97,7 +144,6 @@
                             @enderror
                         </div>
                     </div>
-
 
                 </div>
                 <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -288,7 +334,6 @@
 
 <div class="d-flex justify-content-end mt-4">
     {{$destinasis->links()}}
-
 </div>
 
 

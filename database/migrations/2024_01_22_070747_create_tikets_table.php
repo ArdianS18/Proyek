@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tiket', function (Blueprint $table) {
             $table->id();
             $table->foreignId("destinasi_id")->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
+            // $table->foreignId("pembayaran_id")->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
             $table->string('atas_nama');
             $table->date('tanggal');
             $table->integer('tkt');

@@ -17,11 +17,17 @@ class DestinasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $genres = Genre::all();
         $lokasis = Lokasi::all();
-        $destinasis = Destinasi::paginate(5);
+        // $destinasis = Destinasi::paginate(5);
+
+        if ($request->has('search')) {
+            $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $destinasis = Destinasi::paginate(5);
+        }
 
         return view('admin.destinasi.destinasi', compact('genres', 'lokasis', 'destinasis'));
         //
@@ -77,7 +83,7 @@ class DestinasiController extends Controller
             'stok' => $request->input('stok'),
 
         ]);
-        return redirect('/destinasi')->with('success', 'berhasil mengedit data!');
+        return redirect('/destinasi')->with('success', 'berhasil menambah data!');
     }
 
 

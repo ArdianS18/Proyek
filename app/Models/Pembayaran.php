@@ -18,4 +18,5 @@ class Pembayaran extends Model
     public function destinasi() {
         return $this->belongsTo(Destinasi::class);
     }
+    
 }

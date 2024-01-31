@@ -67,9 +67,10 @@
                             <td class="px-6 py-4">
                                 {{$tiket->tkt}}
                             </td>
-                            <td class="px-6 py-4">
+
+                            {{-- <td class="px-6 py-4">
                                 Rp. {{ number_format($tiket->destinasi->tiket *  $tiket->tkt, 0, ',', '.')}}
-                            </td>
+                            </td> --}}
 
                             <td class="px-6 py-4">
                                 {{\Carbon\Carbon::parse($tiket->created_at)->isoFormat('D MMMM Y')}}

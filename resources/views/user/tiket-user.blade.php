@@ -28,7 +28,7 @@
 <br><br><br><br><br>
 <div class="container">
 
-<h1 align="center">History Pemesanan</h1>
+{{-- <h1 align="center">History Pemesanan</h1> --}}
 
 <div class="row" width="100px">
   <div class="cart"  data-aos="zoom-in" data-aos-delay="100">
@@ -222,6 +222,17 @@
 
 
                   <div class="col-span-2">
+                    <label for="">Total Harga : <p></p></label>
+                    <input type="hidden" name="nama" id="" class="form-control  @error('nama') is invalid @enderror" value="{{$tiket->id}}">
+                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="{{ $tiket->destinasi->tiket *  $tiket->tkt }}" readonly>
+                      @error('totalharga')
+                      <span class="invalid-feedback" role="alert" style="color: red;">
+                          <strong>{{$message}}</strong>
+                      </span>
+                      @enderror
+                    </div>
+
+                  <div class="col-span-2">
                   <label for="">Bayar : <p></p></label>
                     <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr') }}">
                     @error('byr')
@@ -241,7 +252,7 @@
                       @enderror
                   </div>
 
-              <br><button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <br><button type="submit"  onclick="return confirm('Yakin Akan membayar?')" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                   Bayar Sekarang
               </button>

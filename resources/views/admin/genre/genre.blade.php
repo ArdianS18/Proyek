@@ -26,7 +26,7 @@
         </div> --}}
 
           {{-- untuk mencari --}}
-        <div class="row g-3 align-items-center mt-3">
+        {{-- <div class="row g-3 align-items-center mt-3">
             <div class="col-auto">
                 <form action="/genre" method="GET">
                     <div class="input-group">
@@ -39,7 +39,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> --}}
 
 
             <!-- Modal toggle -->

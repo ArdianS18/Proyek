@@ -51,11 +51,13 @@ class TiketController extends Controller
             'tanggal' => 'required',
             'destinasi_id' => 'required',
             'tkt' => 'required',
+   
         ], [
             'atas_nama.required' => 'Data harus diisi',
             'tanggal.required' => 'Data harus diisi',
             'destinasi_id.required' => 'Data harus diisi',
             'tkt.required' => 'Data harus diisi',
+         
         ]);
 
         Tiket::create([
@@ -64,6 +66,16 @@ class TiketController extends Controller
             'destinasi_id' => $request->input('destinasi_id'),
             'tkt' => $request->input('tkt'),
         ]);
+
+
+     $destinasi = Destinasi::find($request->destinasi_id);
+
+    if ($request->tkt <= $destinasi->stok) {
+        $destinasi->stok -= $request->tkt;
+        $destinasi->save();
+    } else {
+        return redirect()->back()->with('warning', "Jumlah stok kurang, maksimal tersedia $destinasi->stok tiket.");
+    }
 
         // if ($request->tkt<$destinasis->stok){
         //     $destinasis->stok -= $request->tkt;
@@ -121,11 +133,27 @@ class TiketController extends Controller
         //     return redirect('/lokasi')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
         // }
 
-        Tiket::where('id', $id)
-                ->update($rules);
-        return redirect('/tiketadmin')->with('success', 'berhasil mengedit data!');
-    }
 
+        try {
+            $tiket = Tiket::findOrFail($id);
+            $destinasi = Destinasi::find($tiket->destinasi_id);
+    
+            $stokBaru = $destinasi->stok + $tiket->tkt - $request->tkt;
+    
+            if ($stokBaru < 0) {
+                return redirect()->back()->with('warning', "Jumlah stok kurang dari jumlah keluar");
+            } else {
+                $destinasi->stok = $stokBaru;
+                $destinasi->save();
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', "Error: " . $e->getMessage());
+        }
+    
+        Tiket::where('id', $id)->update($rules);
+    
+        return redirect('/tiketadmin')->with('success', 'Berhasil mengedit data!');
+    }
     /**
      * Remove the specified resource from storage.
      *

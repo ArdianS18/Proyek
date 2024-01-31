@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('tiket_id')->references('id')->on('tiket')->onUpdate('cascade')->onDelete('restrict');
             $table->foreignId('destinasi_id')->references('id')->on('destinasi')->onUpdate('cascade')->onDelete('restrict');
             $table->foreignId('nama')->references('id')->on('tiket')->onUpdate('cascade')->onDelete('restrict');
+            $table->integer('totalharga');
             $table->integer('byr');
             $table->string('foto');
             $table->timestamps();

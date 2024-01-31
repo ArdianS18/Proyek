@@ -26,6 +26,9 @@
                                 Destinasi
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Total Harga
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Pembayaran
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -48,6 +51,10 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{$bayar->destinasi->wisata}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{-- Rp. {{ number_format($tiket->destinasi->tiket *  $tiket->tkt, 0, ',', '.')}} --}}
+                                Rp. {{ number_format($bayar->totalharga, 0, ',', '.')}}
                             </td>
                             <td class="px-6 py-4">
                                 {{$bayar->byr}}

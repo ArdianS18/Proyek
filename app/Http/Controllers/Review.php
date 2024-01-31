@@ -14,11 +14,18 @@ class Review extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $destinasis = Destinasi::paginate(5);
+        // $destinasis = Destinasi::paginate(1);
         $genres = Genre::all();
         $lokasis = Lokasi::all();
+
+        if ($request->has('search')) {
+            $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $destinasis = Destinasi::paginate(5);
+        }
+
         return view('user.user-dash',  compact('genres', 'destinasis', 'lokasis'));
     }
 

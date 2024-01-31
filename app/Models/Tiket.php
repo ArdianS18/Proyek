@@ -21,4 +21,6 @@ class Tiket extends Model
         return $this->belongsTo(Pembayaran::class);
     }
 
+    
+
 }
