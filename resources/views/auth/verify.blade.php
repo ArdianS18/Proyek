@@ -1,10 +1,10 @@
-@extends('user.user')
+@extends('layouts.userlayout')
 <head>
     <title>Email Verified</title>
 </head>
 @section('content')
 
-<div class="container">
+<br><br><div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

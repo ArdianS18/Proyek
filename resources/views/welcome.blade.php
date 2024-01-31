@@ -25,7 +25,7 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container">
-    
+
             <div class="row justify-content-between">
             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
                 <img src="{{ asset('img/about-img.svg') }}" class="img-fluid" alt="" data-aos="zoom-in">
@@ -49,10 +49,10 @@
                 </div>
             </div>
             </div>
-    
+
         </div>
     </section>
-    <!-- End About Section --> 
+    <!-- End About Section -->
 @endsection --}}
 
 
@@ -69,7 +69,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Ninestars Bootstrap Template - Index</title>
+  <title>Beranda</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -126,7 +126,8 @@
       </div>
 
       <nav id="navbar" class="navbar">
-        <ul>
+          <ul>
+        <li> @auth
           <li><a class="nav-link scrollto {{ request()->routeIs('') ? 'active' : '' }}" href="/">Home</a></li>
           {{-- <li><a class="nav-link scrollto" href="#about">About Us</a></li> --}}
           <li><a class="nav-link scrollto {{ request()->routeIs('user.index') ? 'active' : '' }}" href="{{ route('user.index') }}">Daftar Tiket</a></li>
@@ -135,7 +136,8 @@
           <li><a class="nav-link scrollto {{ request()->routeIs('ulasan.index') ? 'active' : '' }}" href="{{ route('ulasan.index') }}">Ulasan</a></li>
           {{-- <li><a class="nav-link scrollto " href="/tim">Team</a></li> --}}
 
-          <li> @auth
+        </li>
+
             <a href="{{ route('logout') }}/login"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="getstarted scrollto">
               Logout
             </a>
@@ -146,11 +148,11 @@
 
         @else
             <li>
-              <a href="{{ route('login') }}" class="getstarted scrollto">Masuk</a>
+              <a href="{{ route('login') }}">Masuk</a>
            </li>
            <li>
           @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="getstarted scrollto">Daftar</a>
+              <a href="{{ route('register') }}">Daftar</a>
             @endif
            </li>
 
@@ -171,7 +173,7 @@
                       </div>
                       <div class="z-100 hidden my-4 text-base list-none bg-white divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                         <ul role="none">
-                            
+
                             <li>
                                 @auth
                                     <a href="{{ route('logout') }}/login"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="getstarted scrollto">
@@ -184,7 +186,7 @@
 
                                 @else
                                     <li>
-                                      <a href="{{ route('login') }}" class="getstarted scrollto">Masuk</a>
+                                      <a href="{{ route('login') }}">Masuk</a>
                                    </li>
                                    <li>
                                   @if (Route::has('register'))
@@ -229,7 +231,7 @@
 
   <main id="main">
 
- 
+
 
      <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -255,34 +257,34 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container">
-    
+
             <div class="row justify-content-between">
             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
                 <img src="{{ asset('img/about-img.svg') }}" class="img-fluid" alt="" data-aos="zoom-in">
             </div>
             <div class="col-lg-6 pt-5 pt-lg-0">
-                <h3 data-aos="fade-up">Voluptatem dignissimos provident quasi</h3>
+                <h3 data-aos="fade-up">Beli tiket di Wisata Yuk</h3>
                 <p data-aos="fade-up" data-aos-delay="100">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Kami telah melayani berbagai traveler seperti anda salah satunya!!
                 </p>
                 <div class="row">
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <h4>Kenama harus di Wisata Yuk??</h4>
+                    <p>Karena kami disini menyediakan berbagai tiket untuk tempat tempat yang menarik </p>
                 </div>
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris nisi</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <h4>Berbagai tempat seperti apa?</h4>
+                    <p>Kami menyediakan tiket untuk tempat yang contohnya Gunung Bromo, Pantai BaleKambang, dan lain sebagainya.</p>
                 </div>
                 </div>
             </div>
             </div>
-    
+
         </div>
     </section>
-    <!-- End About Section --> 
+    <!-- End About Section -->
 
 
    <!-- End Services Section -->

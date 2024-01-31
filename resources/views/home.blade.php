@@ -108,7 +108,7 @@
                 <h2>Total : {{ $totaluser }}</h2>
             </div>
         </div>
-        <br><div class="box" style="background-color: rgb(12, 213, 29);">
+        <div class="box" style="background-color: rgb(12, 213, 29);">
             <div class="icon">
                 <svg style="color: #ffffff" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M2 6c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6Zm5 2a1 1 0 0 0 0 2 1 1 0 1 0 0-2Zm4 0a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Zm-4 3a1 1 0 1 0 0 2Zm4 0a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Zm-4 3a1 1 0 1 0 0 2 1 1 0 1 0 0-2Zm4 0a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Zm-4 3a1 1 0 1 0 0 2 1 1 0 1 0 0-2Zm4 0a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Z" clip-rule="evenodd"/>
@@ -119,7 +119,7 @@
                 <h2>Total : {{ $totalkat }}</h2>
             </div>
         </div>
-        <br><div class="box"  style="background-color: rgb(255, 0, 0);">
+        <div class="box"  style="background-color: rgb(255, 0, 0);">
             <div class="icon">
                 <svg style="color: #ffffff" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M12 2a8 8 0 0 1 6.6 12.6l-.1.1-.6.7-5.1 6.2a1 1 0 0 1-1.6 0L6 15.3l-.3-.4-.2-.2v-.2A8 8 0 0 1 11.8 2Zm3 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" clip-rule="evenodd"/>
@@ -130,7 +130,7 @@
                 <h2>Total : {{ $totallokasi }}</h2>
             </div>
         </div>
-        <br><div class="box" style="background-color: rgb(12, 213, 29);">
+        <div class="box" style="background-color: rgb(12, 213, 29);">
             <div class="icon">
                 <svg style="color: #ffffff" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M5 3.8A1 1 0 0 1 6 3h12c.5 0 .9.3 1 .8l1.8 8.2h-4.2a2 2 0 0 0-1.9 1.2 3 3 0 0 1-5.4 0A2 2 0 0 0 7.4 12H3.2L5 3.8ZM3 14v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5h-4.4a5 5 0 0 1-9.2 0H3Z" clip-rule="evenodd"/>Destinasi
@@ -141,7 +141,7 @@
                 <h2>Total : {{ $totalwisata }}</h2>
             </div>
         </div>
-        <br><div class="box" style="background-color: rgb(12, 180, 213);">
+        <div class="box" style="background-color: rgb(12, 180, 213);">
             <div class="icon">
                 <svg style="color: #ffffff" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.5 12A2.5 2.5 0 0 1 21 9.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2.5a2.5 2.5 0 0 1 0 5V17a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
@@ -157,15 +157,14 @@
     <style>
 
         .boxes {
-            /* display: flex; */
+            display: flex;
             gap: 20px;
-            width: 70%;
+            width: 150%;
         }
 
         .box {
             width: 50%;
-            display: flex;
-            flex-direction: column;
+            justify-content: flex-end;
             align-items: flex-start;
             background-color: #ffffff;
             border-radius: 8px;
