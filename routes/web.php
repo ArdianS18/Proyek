@@ -18,6 +18,7 @@ use App\Http\Controllers\StokController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\TimController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GaleryadminController;
 use App\Models\Tiket;
 use App\Models\User;
 
@@ -57,4 +58,5 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::resource('/ulasanadmin', UlasanadminController::class);
     Route::resource('/pembayaran', PembayaranController::class);
     Route::resource('/stok', StokController::class);
+    Route::resource('/galeri', GaleryadminController::class);
 });

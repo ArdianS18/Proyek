@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Galery;
+
 
 class GaleryController extends Controller
 {
@@ -13,7 +15,8 @@ class GaleryController extends Controller
      */
     public function index()
     {
-        return view('user.galery');
+        $galeris = Galery::all();
+        return view('user.galery', compact('galeris'));
     }
 
     /**
@@ -34,7 +37,36 @@ class GaleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+   
+        // $rules = $request->validate([
+        //     'galeri' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ], [
+        //     'galeri.required' => 'Data harus diisi',
+        // ]);
+
+        // $fotoPath = null;
+
+        // if ($request->hasFile('galeri')) {
+        //     $fotoPath = $request->file('galeri')->store('fotos', 'public');
+        // }
+
+        // $data = Galery::create([
+        //     'galeri' => $fotoPath,
+
+        // ]);
+
+        // $existingData = Galery::where([
+        //     'galeri' => $request->galeri,
+        // ])->exists();
+
+        // if ($existingData) {
+        //     return redirect('admin.galeri-admin')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
+        // }
+
+        // // Galery::create([
+        // //     'galeri' => $request->input('galeri'),
+        // // ]);
+        // return redirect('/galeri')->with('success', 'berhasil menambah data!');
     }
 
     /**
