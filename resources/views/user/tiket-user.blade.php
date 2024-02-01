@@ -4,11 +4,10 @@
 
 <head>
   <style>
-
-    .row{
+    /* .row{
     margin: 10px;
     float: left;
-    }
+    } */
     .cart{
     width: 290px;
     }
@@ -31,7 +30,7 @@
 
 {{-- <h1 align="center">History Pemesanan</h1> --}}
 
-<div class="row">
+<div class="row" style="margin: 10px; float: left;">
   <div class="cart" data-aos="zoom-in" data-aos-delay="100">
     <div class="icon-box">
       {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
@@ -160,20 +159,19 @@
                   </svg>
                   <span class="sr-only">Tutup modal</span>
               </button>
-
+            </div>
               <input type="hidden" name="tiket_id" value="{{ $tiket->id }}">
-              <div class="p-4md:p-5">
+
+              <div class="p-2 md:p-2">
               <div class="col-span-2">
-              <label for="">Alasan Pemilik : </label>
-              <input type="text" name="" class="form-control @error('destinasi_id') is-invalid @enderror" value="{{ $tiket->alasan}}"  readonly>
+              {{-- <label for="">Alasan Pemilik : </label> --}}
+              <textarea cols="41" rows="10" placeholder="{{ $tiket->alasan }}" readonly></textarea>
           </div>
       </div>
-          </div>
+
       </div>
   </div>
 </div>
-
-
 
 <div id="tambahdata{{$tiket->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
   <div class="relative p-4 w-full max-w-md max-h-full">
@@ -221,16 +219,6 @@
                       @enderror
                     </div>
 
-                  {{-- <div class="col-span-2">
-                  <label for="">Bayar : </label>
-                    <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr') }}"><br>
-                    @error('byr')
-                    <span class="invalid-feedback" role="alert" style="color: red;">
-                        <strong>{{$message}}</strong>
-                    </span>
-                    @enderror
-                  </div> --}}
-
                   <div class="col-span-2">
                       <label for="">Bukti Pembayaran</label>
                       <input type="file" name="foto" class="form-control @error('foto') is-infalid @enderror"><br>
@@ -249,6 +237,8 @@
       </div>
   </div>
 </div>
+
+
 
 @endforeach
 

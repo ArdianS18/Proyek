@@ -289,14 +289,14 @@
 
   </main><!-- End #main -->
 
-  
+
   <!-- ======= Footer ======= -->
-  <footer style="background-color: #fff5f5">
+  <footer style="background-color: #ffe5d4">
 
     <div class="footer-top">
       <div class="container py-4">
         <div class="row">
- 
+
           <br><br><br>
           <div class="col-lg-4 col-md-6 footer-contact">
             <h3>Wisata YUk</h3>
@@ -342,7 +342,7 @@
       </div>
     </div>
 
-  
+
   </footer><!-- End Footer -->
 
 

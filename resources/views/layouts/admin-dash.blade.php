@@ -29,15 +29,12 @@
           {{-- </a> --}}
         </div>
 
-
-
         <div class="flex items-center">
             <div class="flex items-center ms-3">
 
-
                 <div>
                 <button type="button" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                    <i class="fas fa-user"></i> <b>{{ Auth::user()->name }}</b>
+                    <i class="fas fa-user"></i> <b>{{ Auth::user()->name }}&nbsp;&nbsp;</b>
                 </button>
               </div>
               <div class="z-100 hidden my-4 text-base list-none bg-white divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">

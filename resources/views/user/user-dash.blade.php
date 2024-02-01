@@ -4,11 +4,7 @@
 
 <head>
   <style>
-    .row{
-      margin: 10px;
-      float: left;
-    }
-
+    
     .image-container{
       width: 200px;
       height: 150px;
@@ -54,7 +50,7 @@
     @foreach ($destinasis as $key => $destinasi)
     <div data-aos="zoom-in" data-aos-delay="80">
 
-      <div class="row">
+      <div class="row" style="margin: 10px; float: left;">
         <div class="icon-box">
           <div class="icon">
             <center>
