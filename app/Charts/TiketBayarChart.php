@@ -14,21 +14,15 @@ class TiketBayarChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\PieChart
+    public function build(): \ArielMejiaDev\LarapexCharts\DonutChart
     {
         $tiketData = Tiket::get();
-        // $data = [
-        //     $tiketData->where('status', 'Sudah Bayar')->count(),
-        //     $tiketData->where('status', 'Belum Bayar')->count(),
-        // ];
-        // $label = [
-        //     'Sudah Bayar',
-        //     'Belum Bayar',
-        // ];
 
-        return $this->chart->pieChart()
+        return $this->chart->donutChart()
             ->setTitle('Data Sudah / Belum Bayar Tiket')
             ->setSubtitle(date('Y'))
+            ->setWidth(500)
+            ->setHeight(500)
             ->addData([
                 $tiketData->where('status', 'Sudah Bayar')->count(),
                 $tiketData->where('status', 'Belum Bayar')->count(),

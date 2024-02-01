@@ -155,11 +155,21 @@
 
     </div>
 
-    <div class="row">
+    <br><br><div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
                     {!! $tiketBayarChart->container() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    {!! $penerimaanTiketChart->container() !!}
                 </div>
             </div>
         </div>
@@ -225,6 +235,9 @@
 
 <script src="{{ $tiketBayarChart->cdn() }}"></script>
 {{ $tiketBayarChart->script() }}
+
+<script src="{{ $penerimaanTiketChart->cdn() }}"></script>
+{{ $penerimaanTiketChart->script() }}
 
 @endsection
 @endif

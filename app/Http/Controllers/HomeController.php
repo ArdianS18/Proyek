@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\PenerimaanTiketChart;
 use App\Charts\TiketBayarChart;
 use App\Models\Destinasi;
 use App\Models\Genre;
@@ -27,7 +28,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(TiketBayarChart $tiketBayarChart)
+    public function index(TiketBayarChart $tiketBayarChart, PenerimaanTiketChart $penerimaanTiketChart)
     {
         $totaluser = User::where('role', 'user')->count();
         $totalkat = Genre::count();
@@ -38,6 +39,6 @@ class HomeController extends Controller
         $tikets = Tiket::all();
         // $data['tiketBayarChart'] = $tiketBayarChart->build();
 
-        return view('home', compact('totaluser', 'totalkat', 'totallokasi', 'totalwisata', 'totaltiket', 'tikets'), ['tiketBayarChart' => $tiketBayarChart->build()]);
+        return view('home', compact('totaluser', 'totalkat', 'totallokasi', 'totalwisata', 'totaltiket', 'tikets'), ['tiketBayarChart' => $tiketBayarChart->build(), 'penerimaanTiketChart' => $penerimaanTiketChart->build()]);
     }
 }
