@@ -4,7 +4,7 @@
 
 <head>
   <style>
-    
+
     .image-container{
       width: 200px;
       height: 150px;
@@ -19,7 +19,7 @@
     .page{
       padding: 100px;
     }
- 
+
   </style>
 </head>
 
@@ -156,12 +156,9 @@
 @endif
 </div>
 
-</section>
-
 <section class="services section-bg">
-   {{$destinasis->links()}} 
+    {{ $destinasis->links() }}
 </section>
-
 
 {{-- <section class="page"> --}}
 
