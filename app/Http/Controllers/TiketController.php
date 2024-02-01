@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\TiketBayarChart;
 use App\Models\Destinasi;
 use App\Models\Pembayaran;
 use App\Models\Tiket;
@@ -20,7 +21,7 @@ class TiketController extends Controller
      */
     public function index()
     {
-        $tikets=Tiket::all();
+        $tikets=Tiket::latest()->get();
         $destinasis=Destinasi::all();
         $pembayarans=Pembayaran::all();
 

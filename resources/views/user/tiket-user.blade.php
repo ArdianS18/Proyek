@@ -36,8 +36,8 @@
       {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
       <h4 class="title"><a href="">Wisata : {{$tiket->destinasi->wisata}}</a></h4>
       <p class="description">Atas Nama : {{$tiket->atas_nama }} <br> Harga : Rp. {{number_format( $tiket->destinasi->tiket, 0,',', '.' )}}
-      <br> Jumlah Tiket : {{ $tiket->tkt }}
-      <br>Total Harga : </strong>Rp. {{number_format($tiket->destinasi->tiket *  $tiket->tkt, 0, ',', '.')}}
+      <br>Jumlah Tiket : {{ $tiket->tkt }}
+      <br>Total Harga : Rp. {{number_format($tiket->destinasi->tiket *  $tiket->tkt, 0, ',', '.')}}
       <br>Jadwal : {{\Carbon\Carbon::parse($tiket->tanggal)->isoFormat('D MMMM Y')}}
     </p><br>
 
@@ -211,7 +211,6 @@
                   <div class="col-span-2">
                     <label for="">Total Harga : </label>
                     <input type="hidden" name="nama" id="" class="form-control  @error('nama') is invalid @enderror" value="{{$tiket->id}}">
-                      {{-- <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="Rp. {{number_format ($tiket->destinasi->tiket *  $tiket->tkt), 0, ',', '.' }}" readonly><br> --}}
                       <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="{{$tiket->destinasi->tiket *  $tiket->tkt }}" readonly><br>
                       @error('totalharga')
                       <span class="invalid-feedback" role="alert" style="color: red;">

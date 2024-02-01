@@ -21,12 +21,11 @@ class DestinasiController extends Controller
     {
         $genres = Genre::all();
         $lokasis = Lokasi::all();
-        // $destinasis = Destinasi::paginate(5);
 
         if ($request->has('search')) {
-            $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->get();
+            $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->latest()->get();
         } else {
-            $destinasis = Destinasi::paginate(4);
+            $destinasis = Destinasi::latest()->paginate(4);
         }
 
         return view('admin.destinasi.destinasi', compact('genres', 'lokasis', 'destinasis'));

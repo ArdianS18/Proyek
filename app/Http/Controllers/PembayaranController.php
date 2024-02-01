@@ -165,6 +165,6 @@ class PembayaranController extends Controller
         $bayars = Pembayaran::FindOrFail($id);
 
         $bayars->delete();
-        return redirect()->route('pembayaran')->with('success', 'berhasil menghapus data');
+        return redirect()->route('pembayaran.index')->with('success', 'berhasil menghapus data');
     }
 }
