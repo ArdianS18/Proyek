@@ -16,10 +16,7 @@
       height: 100%;
       object-fit: cover;
     }
-    .page{
-      padding: 100px;
-    }
-
+ 
   </style>
 </head>
 
@@ -155,10 +152,16 @@
     </div>
 @endif
 </div>
+</section>
+{{-- <br> --}}
 
 <section class="services section-bg">
+<div class="container">
     {{ $destinasis->links() }}
+</div>    
 </section>
+
+
 
 {{-- <section class="page"> --}}
 

@@ -257,10 +257,10 @@
             {{-- <h4>Our Social Networks</h4> --}}
             <p>Sosial Media:</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="https://twitter.com/tiket/status/1720325671275356301" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://web.facebook.com/tiketwisata.co/?_rdc=1&_rdr" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/digitiket/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.google.com/search?q=tiket+wisata&sca_esv=1d6a025a864bdd9f&rlz=1C1CHBD_idID1020ID1020&sxsrf=ACQVn0_YSSBbo4Hw5s-JPIA_oryvZG3EXw%3A1706799496633&ei=iLG7ZYOXJu2wseMP-Oyn6AI&ved=0ahUKEwiD-8vNs4qEAxVtWGwGHXj2CS0Q4dUDCBA&uact=5&oq=tiket+wisata&gs_lp=Egxnd3Mtd2l6LXNlcnAiDHRpa2V0IHdpc2F0YTIKECMYgAQYigUYJzIIEAAYgAQYsQMyBRAAGIAEMg4QLhiABBjHARivARiOBTIFEAAYgAQyDhAuGIAEGMcBGK8BGI4FMgUQABiABDILEC4YgAQYxwEYrwEyBRAAGIAEMgUQABiABEimEFCVBVixC3ACeAGQAQCYAY0BoAGIAqoBAzAuMrgBA8gBAPgBAcICChAAGEcY1gQYsAPiAwQYACBBiAYBkAYC&sclient=gws-wiz-serp" class="google-plus"><i class="bx bxl-skype"></i></a>
               {{-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> --}}
             </div>
             <ul>
