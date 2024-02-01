@@ -8,7 +8,7 @@
   <title>Wisata Yuk</title>
   {{-- <meta content="" name="description">
   <meta content="" name="keywords"> --}}
-  
+
   <link rel="icon" type="image/png" href="{{ asset('photo/logo.png') }}">
 
 
@@ -36,6 +36,9 @@
     nav-link.active {
       background-color: #000; /* Set the active link background color */
     }
+    /* footer{
+      background-color: #fff5f5;
+    } */
   </style>
 </head>
 
@@ -201,6 +204,8 @@
   </header><!-- End Header -->
 
 
+
+
   <main id="main">
 
 
@@ -221,52 +226,62 @@
 
    @yield('content')
 
-   <!-- End Services Section -->
-
-
-    <!-- ======= Portfolio Section ======= -->
-
+  
 
       </div>
     </section><!-- End Portfolio Section -->
 
 
+    
+  </main>
 
+  <!-- ======= Footer ======= -->
+  <footer style="background-color: #fff5f5">
 
-
-    <!-- ======= Clients Section ======= -->
-    {{-- <section id="clients" class="clients section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Clients</h2>
-          <p>They trusted us</p>
-        </div>
-
-        <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="img/clients/client-8.png" class="img-fluid" alt=""></div>
+    <div class="footer-top">
+      <div class="container py-4">
+        <div class="row">
+ 
+          <br><br><br>
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>Wisata YUk</h3>
+            <p>
+              berada di malang, Jawa Timur <br><br>
+              <strong>No Telepon:</strong> +123456789<br>
+              <strong>Email:</strong> wisatayuk@gmail.com<br>
+            </p>
           </div>
-          <div class="swiper-pagination"></div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <h4>Our Social Networks</h4>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4   col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
         </div>
-
       </div>
-    </section><!-- End Clients Section --> --}}
+    </div>
 
-    <!-- ======= Contact Us Section ======= -->
-    <!-- End Contact Us Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Team Section ======= -->
-  <!-- End Team Section -->
+  
+  </footer><!-- End Footer -->
 
 
 

@@ -59,7 +59,7 @@
                                 Rp. {{ number_format($bayar->totalharga, 0, ',', '.')}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$bayar->byr}}
+                                Rp. {{ number_format($bayar->byr, 0, ',', '.')}}
                             </td>
                             <td class="px-6 py-4">
                                 <img src="{{ asset('storage/'.$bayar->foto) }}" width="60px" alt="gambar">

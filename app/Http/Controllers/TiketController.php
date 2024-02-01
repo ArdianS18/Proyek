@@ -50,7 +50,7 @@ class TiketController extends Controller
             'atas_nama' => 'required',
             'tanggal' => 'required|date|after_or_equal:today',
             'destinasi_id' => 'required',
-            'tkt' => 'required',
+            'tkt' => 'required|integer|min:1',
 
         ], [
             'atas_nama.required' => 'Data harus diisi',
@@ -59,6 +59,8 @@ class TiketController extends Controller
             'destinasi_id.required' => 'Data harus diisi',
             'tkt.required' => 'Data harus diisi',
 
+            'tkt.integer' => 'Data harus berupa angka',
+            'tkt.min' => 'Data tidak boleh kurang dari 1',
         ]);
 
         Tiket::create([

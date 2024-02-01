@@ -113,7 +113,7 @@
               <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $tiket->atas_nama }}" readonly>
           </div>
 
-          <br><div class="col-span-2">
+          {{-- <br><div class="col-span-2">
               <label for="byr">Bayar Ulang : </label>
               <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr', $bayar->byr) }}">
               @error('byr')
@@ -121,7 +121,7 @@
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
-          </div>
+          </div> --}}
 
           <br><div class="col-span-2">
               <label for="foto">Foto Bukti Anda : </label>
@@ -213,7 +213,7 @@
                   <div class="col-span-2">
                     <label for="">Total Harga : </label>
                     <input type="hidden" name="nama" id="" class="form-control  @error('nama') is invalid @enderror" value="{{$tiket->id}}">
-                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="{{ $tiket->destinasi->tiket *  $tiket->tkt }}" readonly><br>
+                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="Rp. {{number_format ($tiket->destinasi->tiket *  $tiket->tkt), 0, ',', '.' }}" readonly><br>
                       @error('totalharga')
                       <span class="invalid-feedback" role="alert" style="color: red;">
                           <strong>{{$message}}</strong>
@@ -221,7 +221,7 @@
                       @enderror
                     </div>
 
-                  <div class="col-span-2">
+                  {{-- <div class="col-span-2">
                   <label for="">Bayar : </label>
                     <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr') }}"><br>
                     @error('byr')
@@ -229,7 +229,7 @@
                         <strong>{{$message}}</strong>
                     </span>
                     @enderror
-                  </div>
+                  </div> --}}
 
                   <div class="col-span-2">
                       <label for="">Bukti Pembayaran</label>

@@ -282,15 +282,6 @@
     <!-- End About Section -->
 
 
-   <!-- End Services Section -->
-
-
-    <!-- ======= Portfolio Section ======= -->
-
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
 
 
 
@@ -298,9 +289,61 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Team Section ======= -->
-  <!-- End Team Section -->
+  
+  <!-- ======= Footer ======= -->
+  <footer style="background-color: #fff5f5">
 
+    <div class="footer-top">
+      <div class="container py-4">
+        <div class="row">
+ 
+          <br><br><br>
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>Wisata YUk</h3>
+            <p>
+              berada di malang, Jawa Timur <br><br>
+              <strong>No Telepon:</strong> +123456789<br>
+              <strong>Email:</strong> wisatayuk@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Tentang Wisata Yuk</h4>
+            {{-- <h4>Our Social Networks</h4> --}}
+            <p>Sosial Media:</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              {{-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> --}}
+            </div>
+            <ul>
+              {{-- <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> --}}
+            </ul>
+          </div>
+
+          <div class="col-lg-4   col-md-6 footer-links">
+            <h4>Website ini dibuat oleh</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">M. Ardian Supriadi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Jovita Maharani</a></li>
+              {{-- <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> --}}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  
+  </footer><!-- End Footer -->
 
 
 

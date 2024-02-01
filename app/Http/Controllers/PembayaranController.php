@@ -42,11 +42,9 @@ class PembayaranController extends Controller
     public function store(Request $request)
     {
         $rules = $request->validate([
-            'byr' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'totalharga' => 'required',
         ],  [
-            'byr.required' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
             'totalharga.required' => 'Data harus diisi',
         ]);
@@ -59,7 +57,6 @@ class PembayaranController extends Controller
 
     $payment = Pembayaran::create([
         'tiket_id' => $request->input('tiket_id'),
-        'byr' => $request->input('byr'),
         'nama' => $request->input('nama'),
         'foto' => $fotoPath,
         'destinasi_id' => $request->input('destinasi_id'),
@@ -80,7 +77,7 @@ class PembayaranController extends Controller
     }
 
 
-    return redirect('/tiket')->with('success', 'Berhasil melakukan Pembayaran');
+    return redirect('tiket.index')->with('success', 'Berhasil melakukan Pembayaran');
 
     }
 
@@ -146,7 +143,7 @@ class PembayaranController extends Controller
             $bayars->foto = $photoPath;
         }
 
-        $bayars->byr = $request->input('byr');
+        // $bayars->byr = $request->input('byr');
         $bayars->save();
 
         if (!$request->hasFile('foto') && $exit) {

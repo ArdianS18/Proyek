@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/editprofile', UserController::class)->middleware('verified');
     Route::resource('/galery', GaleryController::class)->middleware('verified');
     Route::resource('/tim', TimController::class)->middleware('verified');
+    Route::resource('/pembayaran', PembayaranController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){

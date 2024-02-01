@@ -62,7 +62,8 @@
                                 {{$tiket->atas_nama}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$tiket->tanggal}}
+                                {{\Carbon\Carbon::parse($tiket->created_at)->isoFormat('D MMMM Y')}}
+                                {{-- {{$tiket->tanggal}} --}}
                             </td>
                             <td class="px-6 py-4">
                                 {{$tiket->tkt}}
@@ -73,7 +74,7 @@
                             </td> --}}
 
                             <td class="px-6 py-4">
-                                {{\Carbon\Carbon::parse($tiket->created_at)->isoFormat('D MMMM Y')}}
+                                {{\Carbon\Carbon::parse($tiket->tanggal)->isoFormat('D MMMM Y')}}
                             </td>
                             <td class="px-6 py-4">
                                 {{$tiket->status}}
