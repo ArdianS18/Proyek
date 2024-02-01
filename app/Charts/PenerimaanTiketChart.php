@@ -20,8 +20,8 @@ class PenerimaanTiketChart
 
 
         return $this->chart->barChart()
-            ->setTitle('San Francisco vs Boston.')
-            ->setSubtitle('Wins during season 2021.')
+            ->setTitle('Penerimaan')
+            ->setSubtitle(date('Y'))
             ->addData('Pemesanan', [
                 $tiketData->where('terima', 'Pemesanan')->count(),
             ])
