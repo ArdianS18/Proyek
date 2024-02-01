@@ -65,4 +65,5 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::resource('/ulasanadmin', UlasanadminController::class);
     Route::resource('/tiketadmin', TiuserController::class);
     Route::resource('/galeri', GaleryadminController::class);
+    
 });

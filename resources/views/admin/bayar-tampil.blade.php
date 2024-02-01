@@ -28,9 +28,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Total Harga
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            {{-- <th scope="col" class="px-6 py-3">
                                 Pembayaran
-                            </th>
+                            </th> --}}
                             <th scope="col" class="px-6 py-3">
                                 Bukti Foto
                             </th>

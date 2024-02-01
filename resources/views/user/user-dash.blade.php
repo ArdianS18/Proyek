@@ -17,11 +17,12 @@
       object-fit: cover;
     }
     .page{
-      padding: 195px;
+      padding: 100px;
     }
-
+ 
   </style>
 </head>
+
 <section id="services" class="services section-bg">
   <div class="container" data-aos="fade-up">
 <div class="section-title">
@@ -45,6 +46,9 @@
     </div>
 
 </div>
+
+<div>
+
 
 @if(count($destinasis) > 0)
     @foreach ($destinasis as $key => $destinasi)
@@ -150,9 +154,17 @@
         <p>Data tidak ditemukan.</p>
     </div>
 @endif
-
-<div class="page d-flex justify-content-end mt-4">
-    {{$destinasis->links()}}
 </div>
+
+</section>
+
+<section class="services section-bg">
+   {{$destinasis->links()}} 
+</section>
+
+
+{{-- <section class="page"> --}}
+
+
 
 @endsection

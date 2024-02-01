@@ -211,7 +211,8 @@
                   <div class="col-span-2">
                     <label for="">Total Harga : </label>
                     <input type="hidden" name="nama" id="" class="form-control  @error('nama') is invalid @enderror" value="{{$tiket->id}}">
-                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="Rp. {{number_format ($tiket->destinasi->tiket *  $tiket->tkt), 0, ',', '.' }}" readonly><br>
+                      {{-- <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="Rp. {{number_format ($tiket->destinasi->tiket *  $tiket->tkt), 0, ',', '.' }}" readonly><br> --}}
+                      <input type="text" id="totalharga" name="totalharga" class="form-control @error('totalharga') is-invalid @enderror" value="{{$tiket->destinasi->tiket *  $tiket->tkt }}" readonly><br>
                       @error('totalharga')
                       <span class="invalid-feedback" role="alert" style="color: red;">
                           <strong>{{$message}}</strong>

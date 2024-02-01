@@ -165,8 +165,19 @@ class TiketController extends Controller
      */
     public function destroy($id)
     {
+
         $tikets = Tiket::FindOrFail($id);
-        $tikets->delete();
-        return redirect('/tiketadmin')->with('success', 'berhasil menghapus data');
+
+        try {
+            $tikets->delete();
+            return redirect()->route('tiketadmin.index')->with('success', 'berhasil menghapus data');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data sedang di pakai!');
+        }
+
+
+        // $tikets = Tiket::FindOrFail($id);
+        // $tikets->delete();
+        // return redirect('/tiketadmin')->with('success', 'berhasil menghapus data');
     }
 }
