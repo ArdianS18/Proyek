@@ -21,8 +21,8 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>Contact Us</h2>
-        <p>Contact us the get started</p>
+        <h2>Ulasan Pengguna</h2>
+        <p>Review Pengguna tentang Wisata kami</p>
       </div>
 
       <div class="row">

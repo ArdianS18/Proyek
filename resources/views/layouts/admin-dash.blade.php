@@ -226,6 +226,15 @@
                  <span class="flex-1 ms-3 whitespace-nowrap">Pengguna</span>
               </a>
            </li>
+           
+           <li>
+            <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8.8 6-5.6 5a1 1 0 0 0 0 1.5l5.7 5m5.7-3.1V16a1 1 0 0 1-1.5.8l-5.2-4.2a1.1 1.1 0 0 1 0-1.7l5.2-4.2a1 1 0 0 1 1.5.8v1.7c3.3 0 6 3 6 6.7v1.3a.7.7 0 0 1-1.4.4 5.2 5.2 0 0 0-4.6-3.2h0Z"/>
+                  </svg>
+               <span class="flex-1 ms-3 whitespace-nowrap">Ke halaman user</span>
+            </a>
+         </li>
            <li>
               <a href="{{ route('logout') }}/login"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
               {{-- <i class="fa fa-fw fa-power-off" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"> --}}
