@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destinasi;
 use App\Models\Pembayaran;
 use App\Models\Tiket;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
@@ -164,6 +165,6 @@ class PembayaranController extends Controller
         $bayars = Pembayaran::FindOrFail($id);
 
         $bayars->delete();
-        return redirect()->route('pembayaran.index')->with('success', 'berhasil menghapus data');
+        return redirect()->route('pembayaran')->with('success', 'berhasil menghapus data');
     }
 }
