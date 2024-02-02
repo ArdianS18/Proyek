@@ -332,8 +332,11 @@
 
 </div>
 
-<div class="d-flex justify-content-end mt-4">
-    {{$destinasis->links()}}
+<div class="d-flex mt-4">
+    <div class="container">
+            {{$destinasis->links()}}
+            <p>Showing page {{ $destinasis->currentPage() }} of {{ $destinasis->lastPage() }}.</p>
+    </div>
 </div>
 
 

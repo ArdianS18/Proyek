@@ -88,16 +88,24 @@
 
 @extends('layouts.admin-dash')
 
+<head>
+    <style>
+        .html {
+            overflow-y: scroll;
+        }
+    </style>
+</head>
 @section('content')
 
     <div class="container">
         <h1>Halaman home Dashboard</h1>
         <p>Selamat datang <b>{{ Auth::user()->name }} !!</b> di halaman dashboard !</p>
 
+        <div class="html">
 
-    <div class="boxes flex " style="width: 125vw;">
-        <div class="box focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" >
-            <div class="icon">
+            <div class="boxes flex " style="width: 125vw;">
+                <div class="box focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" >
+                    <div class="icon">
                 <svg style="color: #ffffff" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H6Zm7.3-2a6 6 0 0 0 0-6A4 4 0 0 1 20 8a4 4 0 0 1-6.7 3Zm2.2 9a4 4 0 0 0 .5-2v-1a6 6 0 0 0-1.5-4H18a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2h-4.5Z" clip-rule="evenodd"/>
                 </svg>
@@ -153,7 +161,8 @@
         </div>
     </div>
 
-    </div>
+</div>
+</div>
 
     <br><br><div class="row">
         <div class="col">

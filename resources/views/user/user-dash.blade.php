@@ -16,7 +16,7 @@
       height: 100%;
       object-fit: cover;
     }
- 
+
   </style>
 </head>
 
@@ -51,7 +51,7 @@
     @foreach ($destinasis as $key => $destinasi)
     <div data-aos="zoom-in" data-aos-delay="80">
 
-      <div class="row" style="margin: 10px; float: left;">
+      <div class="row" style="margin: 5px; float: left; width: 250px;">
         <div class="icon-box">
           <div class="icon">
             <center>
@@ -142,15 +142,15 @@
           </div>
       </div>
     </div>
+</div>
 
-        </div>
       </div>
     @endforeach
-  @else
+    @else
     <div class="text-center mt-5">
         <p>Data tidak ditemukan.</p>
     </div>
-@endif
+    @endif
 </div>
 </section>
 {{-- <br> --}}
@@ -158,9 +158,9 @@
 <section class="services section-bg">
 <div class="container">
     {{ $destinasis->links() }}
-</div>    
+    <p>Showing page {{ $destinasis->currentPage() }} of {{ $destinasis->lastPage() }}.</p>
+</div>
 </section>
-
 
 
 {{-- <section class="page"> --}}
