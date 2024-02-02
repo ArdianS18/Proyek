@@ -27,6 +27,7 @@ class TiketBayarChart
                 $tiketData->where('status', 'Sudah Bayar')->count(),
                 $tiketData->where('status', 'Belum Bayar')->count(),
             ])
+            ->setColors(['#557C55', '#F76E11'])
             ->setLabels(['Sudah Bayar' , 'Belum Bayar']);
     }
 }
