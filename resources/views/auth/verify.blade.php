@@ -1,11 +1,18 @@
 @extends('layouts.userlayout')
 <head>
     <title>Email Verified</title>
+    <style>
+        .space{
+            margin-bottom: 20%;
+        }
+    </style>
 </head>
 @section('content')
 
-<br><br><div class="container">
-    <div class="row justify-content-center">
+<br><br>
+<div class="space">
+    <div class="container">
+        <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
@@ -29,4 +36,7 @@
         </div>
     </div>
 </div>
+
+</div>
 @endsection
+

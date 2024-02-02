@@ -20,17 +20,16 @@ class PenerimaanTiketChart
 
 
         return $this->chart->barChart()
-            ->setTitle('Penerimaan')
+            ->setTitle('Status Pembayaran')
             ->setSubtitle(date('Y'))
-            ->addData('Pemesanan', [
-                $tiketData->where('terima', 'Pemesanan')->count(),
+            ->setWidth(500)
+            ->addData('Sudah Bayar', [
+                $tiketData->where('status', 'Sudah Bayar')->count(),
             ])
-            ->addData('Tidak Diterima', [
-                $tiketData->where('terima', 'Tidak Diterima')->count(),
+            ->addData('Belum Bayar', [
+                $tiketData->where('status', 'Belum Bayar')->count(),
             ])
-            ->addData('Diterima', [
-                $tiketData->where('terima', 'Diterima')->count(),
-            ])
-            ->setXAxis(['Penerimaan']);
+            ->setColors(['#ffc63b', '#ff6384'])
+            ->setXAxis(['Status Pembayaran']);
     }
 }

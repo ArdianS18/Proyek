@@ -123,7 +123,7 @@ class TiketController extends Controller
     {
         $rules = $request->validate([
             'terima' => 'required',
-            'alasan' => 'required'
+            'alasan' => 'required',
         ],  [
             'terima.required' => 'Data harus diisi',
             'alasan.required' => 'Data harus diisi',
@@ -138,21 +138,21 @@ class TiketController extends Controller
         // }
 
 
-        try {
-            $tiket = Tiket::findOrFail($id);
-            $destinasi = Destinasi::find($tiket->destinasi_id);
+        // try {
+        //     $tiket = Tiket::findOrFail($id);
+        //     $destinasi = Destinasi::find($tiket->destinasi_id);
 
-            $stokBaru = $destinasi->stok + $tiket->tkt - $request->tkt;
+        //     $stokBaru = $destinasi->stok + $tiket->tkt - $request->tkt;
 
-            if ($stokBaru < 0) {
-                return redirect()->back()->with('warning', "Jumlah stok kurang dari jumlah keluar");
-            } else {
-                $destinasi->stok = $stokBaru;
-                $destinasi->save();
-            }
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', "Error: " . $e->getMessage());
-        }
+        //     if ($stokBaru < 0) {
+        //         return redirect()->back()->with('warning', "Jumlah stok kurang dari jumlah keluar");
+        //     } else {
+        //         $destinasi->stok = $stokBaru;
+        //         $destinasi->save();
+        //     }
+        // } catch (\Exception $e) {
+        //     return redirect()->back()->with('error', "Error: " . $e->getMessage());
+        // }
 
         Tiket::where('id', $id)->update($rules);
 

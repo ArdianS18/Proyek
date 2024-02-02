@@ -112,16 +112,6 @@
               <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $tiket->atas_nama }}" readonly>
           </div>
 
-          {{-- <br><div class="col-span-2">
-              <label for="byr">Bayar Ulang : </label>
-              <input type="text" id="byr" name="byr" class="form-control @error('byr') is-invalid @enderror" value="{{ old('byr', $bayar->byr) }}">
-              @error('byr')
-                  <span class="invalid-feedback" role="alert" style="color: red;">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div> --}}
-
           <br><div class="col-span-2">
               <label for="foto">Foto Bukti Anda : </label>
               <br><img src="{{ asset('storage/'.$bayar->foto) }}" width="350px" alt="gambar">
@@ -133,7 +123,7 @@
           </div>
 
           <br>
-          <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <button type="submit" class="text-white inline-flex items-center bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
               <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
               Bayar Ulang Sekarang
           </button>
@@ -229,7 +219,7 @@
                       @enderror
                   </div>
 
-              <br><button type="submit" onclick="return confirm('Yakin Akan membayar?')" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <br><button type="submit" onclick="return confirm('Yakin Akan membayar?')" class="text-white inline-flex items-center bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
                   <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                   Bayar Sekarang
               </button>

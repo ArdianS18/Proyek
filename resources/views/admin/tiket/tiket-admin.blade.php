@@ -161,7 +161,8 @@
 
                     <div class="col-span-2">
                         <label for="alasan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alasan :</label>
-                        <input type="text" id="alasan" name="alasan" class="form-control @error('wisata') is-invalid @enderror" placeholder="Alasan"  value="{{ old('alasan', $tiket->alasan ?: "Tidak Ada") }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
+                        <textarea id="alasan" name="alasan" class="form-control @error('wisata') is-invalid @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" cols="30" rows="10">{{ old('alasan', $tiket->alasan ?: "Tidak Ada") }}</textarea>
+                        {{-- <input type="text" id="alasan" name="alasan" class="form-control @error('wisata') is-invalid @enderror" placeholder="Alasan"  value="{{ old('alasan', $tiket->alasan ?: "Tidak Ada") }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name"> --}}
                         <p><strong>Note : </strong>jika tidak ada alasan mohon untuk inputkan : "Tidak Ada"</p>
                         @error('alasan')
                         <span class="invalid-feedback" role="alert" style="color: red;">

@@ -174,7 +174,7 @@
         </div>
     </div>
 
-    <br><br><div class="row">
+    {{-- <br><br><div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
@@ -182,7 +182,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <style>
 
@@ -245,8 +245,8 @@
 <script src="{{ $tiketBayarChart->cdn() }}"></script>
 {{ $tiketBayarChart->script() }}
 
-<script src="{{ $penerimaanTiketChart->cdn() }}"></script>
-{{ $penerimaanTiketChart->script() }}
+{{-- <script src="{{ $penerimaanTiketChart->cdn() }}"></script>
+{{ $penerimaanTiketChart->script() }} --}}
 
 @endsection
 @endif

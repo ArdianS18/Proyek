@@ -44,10 +44,8 @@ class PembayaranController extends Controller
     {
         $rules = $request->validate([
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'totalharga' => 'required',
         ],  [
             'foto.required' => 'Data harus diisi',
-            // 'totalharga.required' => 'Data harus diisi',
         ]);
 
         $fotoPath = null;

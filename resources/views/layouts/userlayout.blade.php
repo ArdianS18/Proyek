@@ -36,8 +36,8 @@
     nav-link.active {
       background-color: #000; /* Set the active link background color */
     }
-    /* footer{
-      background-color: #fff5f5;
+    /* .footer{
+        position: fixed;
     } */
   </style>
 </head>
