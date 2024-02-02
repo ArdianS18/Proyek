@@ -27,7 +27,6 @@
 
 {{-- <br><br><br><br><br> --}}
 <div class="container">
-
 {{-- <h1 align="center">History Pemesanan</h1> --}}
 
 <div class="row" style="margin: 10px; float: left;">
@@ -42,13 +41,19 @@
     </p><br>
 
     @if ($tiket->status == 'Belum Bayar')
+    @if ($tiket->terima == 'Tidak Diterima')
+    <button data-modal-target="tambahdata{{$tiket->id}}" data-modal-toggle="tambahdata{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
+        Bayar Ulang Sekarang
+    </button>
+    @else
     <button data-modal-target="tambahdata{{$tiket->id}}" data-modal-toggle="tambahdata{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
         Bayar Sekarang
     </button>
+    @endif
     @elseif ($tiket->terima == "Tidak Diterima")
-      <button data-modal-target="editbayar{{$tiket->id}}" data-modal-toggle="editbayar{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
-          Bayar Ulang Sekarang
-      </button>
+            <button data-modal-target="editbayar{{$tiket->id}}" data-modal-toggle="editbayar{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
+                Bayar Ulang Sekarang
+            </button>
     @else
     <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
         Sudah Bayar
@@ -56,17 +61,22 @@
     @endif
 
     @if ($tiket->alasan == "Tidak Ada" && $tiket->terima == "Pemesanan")
-      <button class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" type="button">
+    <p><strong>Status : </strong>Pemesanan</p>
+      {{-- <button class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" type="button">
           Pemesanan
-      </button>
+      </button> --}}
       @elseif ($tiket->terima == "Diterima")
-      <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
+    <p><strong>Status : </strong>Diterima</p>
+      {{-- <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
           Diterima
-      </button>
+      </button> --}}
       @else
-      <button data-modal-target="lihatalasan{{$tiket->id}}" data-modal-toggle="lihatalasan{{$tiket->id}}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button">
-          Tidak Diterima
-      </button>
+      <div class="con" style="display: flex; align-items: left;">
+          <p style="margin-right: 10px;"><strong>Status : </strong>Ditolak &nbsp;&nbsp;</p>
+          <button data-modal-target="lihatalasan{{$tiket->id}}" data-modal-toggle="lihatalasan{{$tiket->id}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button">
+            Detail
+        </button>
+        </div>
       @endif
     </div>
   </div>

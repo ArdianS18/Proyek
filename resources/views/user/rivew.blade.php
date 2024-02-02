@@ -45,17 +45,17 @@
                 @enderror
               </div>
             </div>
-             
+
               <div class="form-group">
                 <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">Kirim Ulasan</button>
             </div>
-       
+
           </form>
           <section>
             <h2>Ulasan Pengguna Lainnya</h2>
             @foreach ($ulasans->sortByDesc('created_at') as $key => $ulasan)
                 <div class="user-review">
-                 <b>{{Auth::user()->name}} <br></b> 
+                 <b></b>
                     {{ $ulasan->ulasan }}
                     <div class="review-time">{{ \Carbon\Carbon::parse($ulasan->created_at)->locale('id')->diffForHumans() }}</div>
                 </div>

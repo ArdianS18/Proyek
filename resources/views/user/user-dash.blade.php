@@ -19,28 +19,16 @@
     .pagination {
         display: flex;
         list-style: none;
-        padding: 0;
+        padding-left: 43%;
     }
 
     .pagination li {
         margin: 0 5px;
     }
 
-    .pagination a,
-    .pagination span {
-        display: inline-block;
-        padding: 8px 16px;
-        background-color: #FF9843; /* Warna oranye untuk tautan aktif dan tidak aktif */
-        color: white; /* Warna teks */
-        border-radius: 4px;
-        text-decoration: none;
+    .page{
+        text-align: center;
     }
-
-    .pagination .active {
-        background-color: #fff; /* Warna latar belakang aktif */
-        color: #FF9843; /* Warna teks aktif */
-    }
-
   </style>
 </head>
 
@@ -182,7 +170,7 @@
 <section class="services section-bg">
 <div class="container">
     {{ $destinasis->links() }}
-    <p>Showing page {{ $destinasis->currentPage() }} of {{ $destinasis->lastPage() }}.</p>
+    <p class="page">Showing page {{ $destinasis->currentPage() }} of {{ $destinasis->lastPage() }}.</p>
 </div>
 </section>
 

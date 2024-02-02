@@ -56,7 +56,7 @@ class DestinasiController extends Controller
             'genre_id' => 'required|exists:genre,id',
             'lokasi_id' => 'required|exists:lokasi,id',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'tiket' => 'required',
+            'tiket' => 'required|numeric|min:0|not_in:0',
             'stok' => 'required',
         ], [
             'wisata.required' => 'Data harus diisi',
@@ -64,6 +64,9 @@ class DestinasiController extends Controller
             'lokasi_id.exists' => 'Data harus diisi',
             'foto.required' => 'Data harus diisi',
             'tiket.required' => 'Data harus diisi',
+            'tiket.numeric' => 'Harga harus berupa angka',
+            'tiket.min' => 'Harga tidak valid',
+            'tiket.not_in' => 'Harga tidak valid',
             'stok.required' => 'Data harus diisi',
         ]);
 
@@ -119,6 +122,26 @@ class DestinasiController extends Controller
     {
         // Find the destination by ID
         $destinasi = Destinasi::findOrFail($id);
+
+
+        $request->validate([
+            'wisata' => 'required',
+            'genre_id' => 'required|exists:genre,id',
+            'lokasi_id' => 'required|exists:lokasi,id',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'tiket' => 'required|numeric|min:0|not_in:0',
+            'stok' => 'required',
+        ], [
+            'wisata.required' => 'Data harus diisi',
+            'genre_id.exists' => 'Data harus diisi',
+            'lokasi_id.exists' => 'Data harus diisi',
+            'foto.required' => 'Data harus diisi',
+            'tiket.required' => 'Data harus diisi',
+            'tiket.numeric' => 'Harga harus berupa angka',
+            'tiket.min' => 'Harga tidak valid',
+            'tiket.not_in' => 'Harga tidak valid',
+            'stok.required' => 'Data harus diisi',
+        ]);
 
         $exit = $destinasi->foto;
 

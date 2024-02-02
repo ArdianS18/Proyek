@@ -19,8 +19,11 @@ class Review extends Controller
         $genres = Genre::all();
         $lokasis = Lokasi::all();
 
-        if ($request->has('search')) {
-            $destinasis = Destinasi::where('wisata', 'like', '%' . $request->search . '%')->latest()->paginate(5);
+        $searchTerm = $request->input('search', '');
+
+        if ($searchTerm) {
+            $destinasis = Destinasi::where('wisata', 'like', '%' . $searchTerm . '%')->latest()->paginate(5);
+            $destinasis->appends(['search' => $searchTerm]);
         } else {
             $destinasis = Destinasi::latest()->paginate(5);
         }

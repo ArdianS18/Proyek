@@ -280,7 +280,7 @@
                             @enderror
                         </div>
                         <div class="col-span-2">
-                            <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tiket Anak</label>
+                            <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga Tiket</label>
                             <input type="text" id="tiket" name="tiket" class="form-control @error('tiket') is-invalid @enderror" placeholder="wisata tiket"  value="{{ old('tiket', $destinasi->tiket) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
                             @error('tiket')
                             <span class="invalid-feedback" role="alert" style="color: red;">

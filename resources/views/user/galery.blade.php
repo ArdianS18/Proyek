@@ -17,7 +17,10 @@
     }
 
     .portfolio-item {
-      width: 380px;
+      width: 430px;
+      margin: 5px;
+      justify-content: center;
+      align-items: center;
     }
 
     .portfolio-warp {
@@ -68,7 +71,7 @@
       <div class="portfolio-wrap">
         <div class="image-container">
           <img src="{{ asset('storage/'.$galeri->galeri) }}" class="img-fluid" alt="">
-          
+
           <div class="portfolio-links">
             <a href="{{ asset('storage/'.$galeri->galeri) }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <center><svg  class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -82,7 +85,7 @@
     </div>
 
       @endforeach
-    </div> 
+    </div>
 
   </div>
 </div>
