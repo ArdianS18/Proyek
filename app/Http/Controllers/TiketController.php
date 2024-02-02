@@ -121,43 +121,24 @@ class TiketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = $request->validate([
+        $request->validate([
             'terima' => 'required',
-            'alasan' => 'required',
-        ],  [
+            'alasan' => 'nullable', // Membuat "alasan" menjadi opsional
+        ], [
             'terima.required' => 'Data harus diisi',
-            'alasan.required' => 'Data harus diisi',
         ]);
-
-        // $existingData = Tiket::where([
-        //     'lokasi' => $request->lokasi,
-        // ])->exists();
-
-        // if ($existingData) {
-        //     return redirect('/lokasi')->withInput()->with('error', 'Data yang anda masukkan sudah ada!!');
-        // }
-
-
-        // try {
-        //     $tiket = Tiket::findOrFail($id);
-        //     $destinasi = Destinasi::find($tiket->destinasi_id);
-
-        //     $stokBaru = $destinasi->stok + $tiket->tkt - $request->tkt;
-
-        //     if ($stokBaru < 0) {
-        //         return redirect()->back()->with('warning', "Jumlah stok kurang dari jumlah keluar");
-        //     } else {
-        //         $destinasi->stok = $stokBaru;
-        //         $destinasi->save();
-        //     }
-        // } catch (\Exception $e) {
-        //     return redirect()->back()->with('error', "Error: " . $e->getMessage());
-        // }
-
-        Tiket::where('id', $id)->update($rules);
-
+    
+        $tiket = Tiket::findOrFail($id);
+    
+        $tiket->update([
+            'terima' => $request->input('terima'),
+            'alasan' => $request->input('alasan'),
+            // Sesuaikan dengan nama kolom lainnya
+        ]);
+    
         return redirect('/tiketadmin')->with('success', 'Berhasil mengedit data!');
     }
+    
     /**
      * Remove the specified resource from storage.
      *

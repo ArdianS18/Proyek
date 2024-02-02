@@ -26,8 +26,9 @@
         margin: 0 5px;
     }
 
-    .page{
+    .page {
         text-align: center;
+        margin-left: 100px;
     }
   </style>
 </head>
@@ -43,7 +44,7 @@
       <div class="col-auto">
           <form action="/user" method="GET">
              <div class="input-group">
-                <input type="search" id="inputPassword6" placeholder="Cari nama wisata" name="search" class="form-control" aria-describedby="passwordHelpInline">
+                <input type="search" id="inputPassword6" placeholder="Cari nama wisata" name="search" class="form-control" aria-describedby="passwordHelpInline" value="{{ request('search') }}">
                 <button type="submit" class="btn btn-outline-secondary">
                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
@@ -76,6 +77,8 @@
           <p class="description">Kategori : {{ $destinasi->genre->genre }} <br>
           Lokasi : {{ $destinasi->lokasi->lokasi }}
           </p>
+          
+          Stok Tersedia: {{$destinasi->stok}}<br>
           <br><button data-modal-target="tambahdata{{$destinasi->id}}" data-modal-toggle="tambahdata{{$destinasi->id}}" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
               Pesan Tiket
           </button>
@@ -158,6 +161,12 @@
 
       </div>
     @endforeach
+    {{-- {{ $destinasis->appends(['search' => request('search')])->links() }}
+
+    <div class="page container">
+        {{ $destinasis->links() }}
+        <p class="page">Showing page {{ $destinasis->currentPage() }} of {{ $destinasis->lastPage() }}.</p>
+    </div> --}}
     @else
     <div class="text-center mt-5">
         <p>Data tidak ditemukan.</p>
@@ -166,6 +175,7 @@
 </div>
 </section>
 {{-- <br> --}}
+
 
 <section class="services section-bg">
 <div class="container">

@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <nav>
 <div class="container">
 <div class="">
@@ -270,10 +271,21 @@
                                     <option value="{{$lokasi->id}}" {{$destinasi->lokasi_id == $lokasi->id ? 'selected' : ''}}>{{$lokasi->lokasi}}</option>
                                 @endforeach
                             </select>
-
                         </div>
                         <div class="col-span-2">
-                            <label for="foto">Foto wisata</label>
+                            <label for="destinasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto Lama: </label>
+                            {{-- <select class="form-select @error('foto') is-invalid @enderror" name="foto" aria-label="Default select example">
+                                @foreach ($lokasis as $lokasi)
+                                    <option value="{{$lokasi->id}}" {{$destinasi->foto == $lokasi->id ? 'selected' : ''}}>{{$lokasi->lokasi}}</option>
+                                @endforeach
+                            </select> --}}
+                            <br><img src="{{ asset('storage/'.$destinasi->foto) }}" width="350px" height="400" style="object-fit:cover" alt="gambar"><br>
+                        </div>
+
+                        
+
+                        <div class="col-span-2">
+                            <label for="foto">Foto wisata Baru</label>
                             <input type="file"  class="form-control form-select @error('foto') is-invalid @enderror" name="foto">
                             @error('foto')
                                 <small class="text-danger">{{ $message }}</small>
@@ -332,7 +344,7 @@
 
 </div>
 
-<div class="d-flex mt-4">
+<div class="page d-flex mt-4">
     <div class="container">
             {{$destinasis->links()}}
             <p>Showing page {{ $destinasis->currentPage() }} of {{ $destinasis->lastPage() }}.</p>
